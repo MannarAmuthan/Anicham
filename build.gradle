@@ -16,7 +16,7 @@ repositories {
 task generateParser(type:JavaExec) {
     main = 'org.antlr.v4.Tool'
     classpath = sourceSets.main.compileClasspath
-    args = ['-Dlanguage=Java', 'grammar/Tamizh.g4', '-o', 'src/antlr4']
+    args = ['-Dlanguage=Java', 'grammar/Tamizh.g4','-visitor', '-o', 'src/antlr4']
 }
 
 dependencies {

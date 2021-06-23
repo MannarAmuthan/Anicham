@@ -1,10 +1,10 @@
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
+import language.Visitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import language.Walker;
+
 
 public class Processor {
     static void process(String stringToProcess){
@@ -12,11 +12,11 @@ public class Processor {
         CommonTokenStream tokens = new CommonTokenStream( lexer );
         TamizhParser parser = new TamizhParser( tokens );
         ParseTree tree = parser.word();
-        ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk( new Walker(), tree );
+        Visitor visitor=new Visitor();
+        visitor.visit(tree);
     }
 
     public static void main(String[] args) {
-        Processor.process("\u0B8E");
+        Processor.process("\u0B8E\u0B86");
     }
 }

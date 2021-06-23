@@ -94,6 +94,11 @@ public class TamizhParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitWord(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitWord(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final WordContext word() throws RecognitionException {
