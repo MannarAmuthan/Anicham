@@ -19,12 +19,26 @@ public class TamizhBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSentence(TamizhParser.SentenceContext ctx) { return visitChildren(ctx); }
+	@Override public T visitStart(TamizhParser.StartContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitWord(TamizhParser.WordContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVaakiyam(TamizhParser.VaakiyamContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitVaarthai(TamizhParser.VaarthaiContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitElutthu(TamizhParser.ElutthuContext ctx) { return visitChildren(ctx); }
 }

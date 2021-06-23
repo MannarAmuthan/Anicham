@@ -18,25 +18,49 @@ public class TamizhBaseListener implements TamizhListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSentence(TamizhParser.SentenceContext ctx) { }
+	@Override public void enterStart(TamizhParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSentence(TamizhParser.SentenceContext ctx) { }
+	@Override public void exitStart(TamizhParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWord(TamizhParser.WordContext ctx) { }
+	@Override public void enterVaakiyam(TamizhParser.VaakiyamContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWord(TamizhParser.WordContext ctx) { }
+	@Override public void exitVaakiyam(TamizhParser.VaakiyamContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVaarthai(TamizhParser.VaarthaiContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVaarthai(TamizhParser.VaarthaiContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterElutthu(TamizhParser.ElutthuContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElutthu(TamizhParser.ElutthuContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

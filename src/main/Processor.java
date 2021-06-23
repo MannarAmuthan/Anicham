@@ -10,17 +10,18 @@ import java.util.List;
 
 
 public class Processor {
-    static void process(String stringToProcess){
-        TamizhLexer lexer = new TamizhLexer( new ANTLRInputStream(stringToProcess));
-        CommonTokenStream tokens = new CommonTokenStream( lexer );
-        List<Token> tokens1 = tokens.getTokens();
-        TamizhParser parser = new TamizhParser( tokens );
-        ParseTree tree = parser.sentence();
-        Visitor visitor=new Visitor();
+
+    static void process(String stringToProcess) {
+        TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        List<Token> tokensList = tokens.getTokens();
+        TamizhParser parser = new TamizhParser(tokens);
+        ParseTree tree = parser.start();
+        Visitor visitor = new Visitor();
         visitor.visit(tree);
     }
 
     public static void main(String[] args) {
-        Processor.process("கள்");
+        Processor.process("கால் கல்");
     }
 }

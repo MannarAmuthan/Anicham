@@ -19,18 +19,20 @@ public class TamizhParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		MEI=1, PRIMARY_UYIR_MEI=2, UYIR=3, PULLI=4, WS=5, NEWLINE=6;
+		MEI=1, UYIR_MEI_TWO=2, PRIMARY_UYIR_MEI=3, UYIR=4, PULLI=5, KAAL=6, WS=7, 
+		STOP_POINT=8, NEWLINE=9;
 	public static final int
-		RULE_sentence = 0, RULE_word = 1;
+		RULE_start = 0, RULE_vaakiyam = 1, RULE_vaarthai = 2, RULE_elutthu = 3;
 	public static final String[] ruleNames = {
-		"sentence", "word"
+		"start", "vaakiyam", "vaarthai", "elutthu"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, null, null, "'\\u0BCD'"
+		null, null, null, null, null, "'\\u0BCD'", "'\\u0BBE'", null, "'.'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "MEI", "PRIMARY_UYIR_MEI", "UYIR", "PULLI", "WS", "NEWLINE"
+		null, "MEI", "UYIR_MEI_TWO", "PRIMARY_UYIR_MEI", "UYIR", "PULLI", "KAAL", 
+		"WS", "STOP_POINT", "NEWLINE"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -81,92 +83,50 @@ public class TamizhParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class SentenceContext extends ParserRuleContext {
-		public TerminalNode WS() { return getToken(TamizhParser.WS, 0); }
-		public List<WordContext> word() {
-			return getRuleContexts(WordContext.class);
-		}
-		public WordContext word(int i) {
-			return getRuleContext(WordContext.class,i);
+	public static class StartContext extends ParserRuleContext {
+		public VaakiyamContext vaakiyam() {
+			return getRuleContext(VaakiyamContext.class,0);
 		}
 		public TerminalNode EOF() { return getToken(TamizhParser.EOF, 0); }
-		public SentenceContext(ParserRuleContext parent, int invokingState) {
+		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_sentence; }
+		@Override public int getRuleIndex() { return RULE_start; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterSentence(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterStart(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitSentence(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitStart(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitSentence(this);
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitStart(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final SentenceContext sentence() throws RecognitionException {
-		SentenceContext _localctx = new SentenceContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_sentence);
-		int _la;
+	public final StartContext start() throws RecognitionException {
+		StartContext _localctx = new StartContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_start);
 		try {
-			int _alt;
-			setState(16);
+			setState(10);
 			switch (_input.LA(1)) {
 			case MEI:
+			case UYIR_MEI_TWO:
 			case PRIMARY_UYIR_MEI:
 			case UYIR:
-			case WS:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(5);
-				_la = _input.LA(1);
-				if (_la==WS) {
-					{
-					setState(4);
-					match(WS);
-					}
-				}
-
-				setState(8); 
-				_errHandler.sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						setState(7);
-						word();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					setState(10); 
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-				setState(13);
-				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << PRIMARY_UYIR_MEI) | (1L << UYIR) | (1L << PULLI) | (1L << WS) | (1L << NEWLINE))) != 0)) {
-					{
-					setState(12);
-					matchWildcard();
-					}
-				}
-
+				setState(8);
+				vaakiyam(0);
 				}
 				break;
 			case EOF:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(15);
+				setState(9);
 				match(EOF);
 				}
 				break;
@@ -185,122 +145,164 @@ public class TamizhParser extends Parser {
 		return _localctx;
 	}
 
-	public static class WordContext extends ParserRuleContext {
-		public List<TerminalNode> UYIR() { return getTokens(TamizhParser.UYIR); }
-		public TerminalNode UYIR(int i) {
-			return getToken(TamizhParser.UYIR, i);
+	public static class VaakiyamContext extends ParserRuleContext {
+		public Token stop;
+		public VaarthaiContext vaarthai() {
+			return getRuleContext(VaarthaiContext.class,0);
 		}
-		public List<TerminalNode> MEI() { return getTokens(TamizhParser.MEI); }
-		public TerminalNode MEI(int i) {
-			return getToken(TamizhParser.MEI, i);
+		public List<VaakiyamContext> vaakiyam() {
+			return getRuleContexts(VaakiyamContext.class);
 		}
-		public List<TerminalNode> PRIMARY_UYIR_MEI() { return getTokens(TamizhParser.PRIMARY_UYIR_MEI); }
-		public TerminalNode PRIMARY_UYIR_MEI(int i) {
-			return getToken(TamizhParser.PRIMARY_UYIR_MEI, i);
+		public VaakiyamContext vaakiyam(int i) {
+			return getRuleContext(VaakiyamContext.class,i);
 		}
-		public WordContext(ParserRuleContext parent, int invokingState) {
+		public TerminalNode WS() { return getToken(TamizhParser.WS, 0); }
+		public TerminalNode STOP_POINT() { return getToken(TamizhParser.STOP_POINT, 0); }
+		public VaakiyamContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_word; }
+		@Override public int getRuleIndex() { return RULE_vaakiyam; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterWord(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterVaakiyam(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitWord(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitVaakiyam(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitWord(this);
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitVaakiyam(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final WordContext word() throws RecognitionException {
-		WordContext _localctx = new WordContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_word);
+	public final VaakiyamContext vaakiyam() throws RecognitionException {
+		return vaakiyam(0);
+	}
+
+	private VaakiyamContext vaakiyam(int _p) throws RecognitionException {
+		ParserRuleContext _parentctx = _ctx;
+		int _parentState = getState();
+		VaakiyamContext _localctx = new VaakiyamContext(_ctx, _parentState);
+		VaakiyamContext _prevctx = _localctx;
+		int _startState = 2;
+		enterRecursionRule(_localctx, 2, RULE_vaakiyam, _p);
 		try {
 			int _alt;
-			setState(33);
-			switch (_input.LA(1)) {
-			case UYIR:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(19); 
-				_errHandler.sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
+			enterOuterAlt(_localctx, 1);
+			{
+			{
+			setState(13);
+			vaarthai();
+			}
+			_ctx.stop = _input.LT(-1);
+			setState(22);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					if ( _parseListeners!=null ) triggerExitRuleEvent();
+					_prevctx = _localctx;
+					{
+					setState(20);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 					case 1:
 						{
+						_localctx = new VaakiyamContext(_parentctx, _parentState);
+						pushNewRecursionContext(_localctx, _startState, RULE_vaakiyam);
+						setState(15);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(16);
+						match(WS);
+						setState(17);
+						vaakiyam(3);
+						}
+						break;
+					case 2:
 						{
+						_localctx = new VaakiyamContext(_parentctx, _parentState);
+						pushNewRecursionContext(_localctx, _startState, RULE_vaakiyam);
 						setState(18);
-						match(UYIR);
-						}
+						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						setState(19);
+						((VaakiyamContext)_localctx).stop = match(STOP_POINT);
 						}
 						break;
-					default:
-						throw new NoViableAltException(this);
 					}
-					setState(21); 
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+					} 
 				}
-				break;
-			case MEI:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(24); 
+				setState(24);
 				_errHandler.sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						setState(23);
-						match(MEI);
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
+				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			unrollRecursionContexts(_parentctx);
+		}
+		return _localctx;
+	}
+
+	public static class VaarthaiContext extends ParserRuleContext {
+		public List<ElutthuContext> elutthu() {
+			return getRuleContexts(ElutthuContext.class);
+		}
+		public ElutthuContext elutthu(int i) {
+			return getRuleContext(ElutthuContext.class,i);
+		}
+		public VaarthaiContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_vaarthai; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterVaarthai(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitVaarthai(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitVaarthai(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final VaarthaiContext vaarthai() throws RecognitionException {
+		VaarthaiContext _localctx = new VaarthaiContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_vaarthai);
+		try {
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(26); 
+			_errHandler.sync(this);
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
+					{
+					{
+					setState(25);
+					elutthu();
 					}
-					setState(26); 
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-				break;
-			case PRIMARY_UYIR_MEI:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(29); 
+				setState(28); 
 				_errHandler.sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						setState(28);
-						match(PRIMARY_UYIR_MEI);
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					setState(31); 
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
 		catch (RecognitionException re) {
@@ -314,19 +316,85 @@ public class TamizhParser extends Parser {
 		return _localctx;
 	}
 
+	public static class ElutthuContext extends ParserRuleContext {
+		public TerminalNode UYIR() { return getToken(TamizhParser.UYIR, 0); }
+		public TerminalNode MEI() { return getToken(TamizhParser.MEI, 0); }
+		public TerminalNode UYIR_MEI_TWO() { return getToken(TamizhParser.UYIR_MEI_TWO, 0); }
+		public TerminalNode PRIMARY_UYIR_MEI() { return getToken(TamizhParser.PRIMARY_UYIR_MEI, 0); }
+		public ElutthuContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_elutthu; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterElutthu(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitElutthu(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitElutthu(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ElutthuContext elutthu() throws RecognitionException {
+		ElutthuContext _localctx = new ElutthuContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_elutthu);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(30);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_TWO) | (1L << PRIMARY_UYIR_MEI) | (1L << UYIR))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			} else {
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
+		switch (ruleIndex) {
+		case 1:
+			return vaakiyam_sempred((VaakiyamContext)_localctx, predIndex);
+		}
+		return true;
+	}
+	private boolean vaakiyam_sempred(VaakiyamContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 0:
+			return precpred(_ctx, 2);
+		case 1:
+			return precpred(_ctx, 1);
+		}
+		return true;
+	}
+
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\b&\4\2\t\2\4\3\t"+
-		"\3\3\2\5\2\b\n\2\3\2\6\2\13\n\2\r\2\16\2\f\3\2\5\2\20\n\2\3\2\5\2\23\n"+
-		"\2\3\3\6\3\26\n\3\r\3\16\3\27\3\3\6\3\33\n\3\r\3\16\3\34\3\3\6\3 \n\3"+
-		"\r\3\16\3!\5\3$\n\3\3\3\2\2\4\2\4\2\2,\2\22\3\2\2\2\4#\3\2\2\2\6\b\7\7"+
-		"\2\2\7\6\3\2\2\2\7\b\3\2\2\2\b\n\3\2\2\2\t\13\5\4\3\2\n\t\3\2\2\2\13\f"+
-		"\3\2\2\2\f\n\3\2\2\2\f\r\3\2\2\2\r\17\3\2\2\2\16\20\13\2\2\2\17\16\3\2"+
-		"\2\2\17\20\3\2\2\2\20\23\3\2\2\2\21\23\7\2\2\3\22\7\3\2\2\2\22\21\3\2"+
-		"\2\2\23\3\3\2\2\2\24\26\7\5\2\2\25\24\3\2\2\2\26\27\3\2\2\2\27\25\3\2"+
-		"\2\2\27\30\3\2\2\2\30$\3\2\2\2\31\33\7\3\2\2\32\31\3\2\2\2\33\34\3\2\2"+
-		"\2\34\32\3\2\2\2\34\35\3\2\2\2\35$\3\2\2\2\36 \7\4\2\2\37\36\3\2\2\2 "+
-		"!\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"$\3\2\2\2#\25\3\2\2\2#\32\3\2\2\2#\37"+
-		"\3\2\2\2$\5\3\2\2\2\n\7\f\17\22\27\34!#";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\13#\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\3\2\3\2\5\2\r\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7"+
+		"\3\27\n\3\f\3\16\3\32\13\3\3\4\6\4\35\n\4\r\4\16\4\36\3\5\3\5\3\5\2\3"+
+		"\4\6\2\4\6\b\2\3\3\2\3\6\"\2\f\3\2\2\2\4\16\3\2\2\2\6\34\3\2\2\2\b \3"+
+		"\2\2\2\n\r\5\4\3\2\13\r\7\2\2\3\f\n\3\2\2\2\f\13\3\2\2\2\r\3\3\2\2\2\16"+
+		"\17\b\3\1\2\17\20\5\6\4\2\20\30\3\2\2\2\21\22\f\4\2\2\22\23\7\t\2\2\23"+
+		"\27\5\4\3\5\24\25\f\3\2\2\25\27\7\n\2\2\26\21\3\2\2\2\26\24\3\2\2\2\27"+
+		"\32\3\2\2\2\30\26\3\2\2\2\30\31\3\2\2\2\31\5\3\2\2\2\32\30\3\2\2\2\33"+
+		"\35\5\b\5\2\34\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37"+
+		"\7\3\2\2\2 !\t\2\2\2!\t\3\2\2\2\6\f\26\30\36";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

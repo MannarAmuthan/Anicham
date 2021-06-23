@@ -10,23 +10,43 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface TamizhListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link TamizhParser#sentence}.
+	 * Enter a parse tree produced by {@link TamizhParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void enterSentence(TamizhParser.SentenceContext ctx);
+	void enterStart(TamizhParser.StartContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link TamizhParser#sentence}.
+	 * Exit a parse tree produced by {@link TamizhParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void exitSentence(TamizhParser.SentenceContext ctx);
+	void exitStart(TamizhParser.StartContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TamizhParser#word}.
+	 * Enter a parse tree produced by {@link TamizhParser}.
 	 * @param ctx the parse tree
 	 */
-	void enterWord(TamizhParser.WordContext ctx);
+	void enterVaakiyam(TamizhParser.VaakiyamContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link TamizhParser#word}.
+	 * Exit a parse tree produced by {@link TamizhParser}.
 	 * @param ctx the parse tree
 	 */
-	void exitWord(TamizhParser.WordContext ctx);
+	void exitVaakiyam(TamizhParser.VaakiyamContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TamizhParser#vaarthai}.
+	 * @param ctx the parse tree
+	 */
+	void enterVaarthai(TamizhParser.VaarthaiContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TamizhParser#vaarthai}.
+	 * @param ctx the parse tree
+	 */
+	void exitVaarthai(TamizhParser.VaarthaiContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TamizhParser#elutthu}.
+	 * @param ctx the parse tree
+	 */
+	void enterElutthu(TamizhParser.ElutthuContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TamizhParser#elutthu}.
+	 * @param ctx the parse tree
+	 */
+	void exitElutthu(TamizhParser.ElutthuContext ctx);
 }

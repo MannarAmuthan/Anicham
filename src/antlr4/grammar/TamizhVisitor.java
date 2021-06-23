@@ -13,15 +13,27 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface TamizhVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link TamizhParser#sentence}.
+	 * Visit a parse tree produced by {@link TamizhParser#start}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSentence(TamizhParser.SentenceContext ctx);
+	T visitStart(TamizhParser.StartContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link TamizhParser#word}.
+	 * Visit a parse tree produced by {@link TamizhParser}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWord(TamizhParser.WordContext ctx);
+	T visitVaakiyam(TamizhParser.VaakiyamContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link TamizhParser#vaarthai}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVaarthai(TamizhParser.VaarthaiContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link TamizhParser#elutthu}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElutthu(TamizhParser.ElutthuContext ctx);
 }
