@@ -13,6 +13,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface TamizhVisitor<T> extends ParseTreeVisitor<T> {
 	/**
+	 * Visit a parse tree produced by {@link TamizhParser#sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSentence(TamizhParser.SentenceContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link TamizhParser#word}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

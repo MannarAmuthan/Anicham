@@ -18,6 +18,18 @@ public class TamizhBaseListener implements TamizhListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSentence(TamizhParser.SentenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSentence(TamizhParser.SentenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterWord(TamizhParser.WordContext ctx) { }
 	/**
 	 * {@inheritDoc}
