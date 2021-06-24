@@ -1,4 +1,4 @@
-package language;
+package language.models;
 
 import java.util.Collections;
 import java.util.LinkedList;

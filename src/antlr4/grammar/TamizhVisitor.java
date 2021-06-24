@@ -19,7 +19,7 @@ public interface TamizhVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStart(TamizhParser.StartContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link TamizhParser}.
+	 * Visit a parse tree produced by .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

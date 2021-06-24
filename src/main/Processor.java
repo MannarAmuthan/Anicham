@@ -1,6 +1,6 @@
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
-import language.Vaakiyam;
+import language.models.Vaakiyam;
 import language.Visitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -12,14 +12,13 @@ import java.util.List;
 
 public class Processor {
 
-    static Vaakiyam process(String stringToProcess) {
+    static Processed process(String stringToProcess) {
         TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        List<Token> tokensList = tokens.getTokens();
         TamizhParser parser = new TamizhParser(tokens);
         ParseTree tree = parser.start();
         Visitor visitor = new Visitor();
         visitor.visit(tree);
-        return visitor.vaakiyam;
+        return new Processed(visitor.vaakiyam);
     }
 }
