@@ -11,10 +11,8 @@ public class VaakiyamTest {
     public void testAbleToEquateTwoVaakiyam() {
 
         Vaakiyam one=new Vaakiyam();
-        Vaarthai v1 = new Vaarthai();
-        v1.add("க", "ல்");
+        Vaarthai v1 = new Vaarthai("க", "ல்");
         one.add(v1);
-
 
         Vaakiyam two=new Vaakiyam();
         Vaarthai v2 = new Vaarthai();

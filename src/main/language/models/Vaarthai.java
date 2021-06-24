@@ -17,6 +17,11 @@ public class Vaarthai {
         letters = new LinkedList<>();
     }
 
+    public Vaarthai(String ... eluthukkal) {
+        letters = new LinkedList<>();
+        Collections.addAll(letters, eluthukkal);
+    }
+
     public void add(String ... eluthukkal) {
         Collections.addAll(letters, eluthukkal);
     }
