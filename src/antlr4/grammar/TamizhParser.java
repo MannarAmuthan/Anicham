@@ -19,8 +19,11 @@ public class TamizhParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		MEI=1, UYIR_MEI_EE=2, UYIR_MEI_I=3, UYIR_MEI_AA=4, UYIR_MEI_A=5, UYIR=6, 
-		PULLI=7, KAAL=8, SULI=9, NEDIL_SULI=10, WS=11, STOP_POINT=12, NEWLINE=13;
+		MEI=1, UYIR_MEI_OU=2, UYIR_MEI_OA=3, UYIR_MEI_O=4, UYIR_MEI_AI=5, UYIR_MEI_AE=6, 
+		UYIR_MEI_E=7, UYIR_MEI_OO=8, UYIR_MEI_U=9, UYIR_MEI_EE=10, UYIR_MEI_I=11, 
+		UYIR_MEI_AA=12, UYIR_MEI_A=13, UYIR=14, PULLI=15, KAAL=16, SULI=17, NEDIL_SULI=18, 
+		U_KURIL=19, U_NEDIL=20, EA_KURIL=21, EA_NEDIL=22, I=23, O_KURIL=24, O_NEDIL=25, 
+		OU=26, AAYTHAM=27, WS=28, STOP_POINT=29, NEWLINE=30;
 	public static final int
 		RULE_start = 0, RULE_vaakiyam = 1, RULE_vaarthai = 2, RULE_elutthu = 3;
 	public static final String[] ruleNames = {
@@ -28,12 +31,17 @@ public class TamizhParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, null, null, null, null, null, "'\\u0BCD'", "'\\u0BBE'", "'\\u0BBF'", 
-		"'\\u0BC0'", null, "'.'"
+		null, null, null, null, null, null, null, null, null, null, null, null, 
+		null, null, null, "'\\u0BCD'", "'\\u0BBE'", "'\\u0BBF'", "'\\u0BC0'", 
+		"'\\u0BC1'", "'\\u0BC2'", "'\\u0BC6'", "'\\u0BC7'", "'\\u0BC8'", "'\\u0BCA'", 
+		"'\\u0BCB'", "'\\u0BCC'", "'\\u0B83'", null, "'.'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "MEI", "UYIR_MEI_EE", "UYIR_MEI_I", "UYIR_MEI_AA", "UYIR_MEI_A", 
-		"UYIR", "PULLI", "KAAL", "SULI", "NEDIL_SULI", "WS", "STOP_POINT", "NEWLINE"
+		null, "MEI", "UYIR_MEI_OU", "UYIR_MEI_OA", "UYIR_MEI_O", "UYIR_MEI_AI", 
+		"UYIR_MEI_AE", "UYIR_MEI_E", "UYIR_MEI_OO", "UYIR_MEI_U", "UYIR_MEI_EE", 
+		"UYIR_MEI_I", "UYIR_MEI_AA", "UYIR_MEI_A", "UYIR", "PULLI", "KAAL", "SULI", 
+		"NEDIL_SULI", "U_KURIL", "U_NEDIL", "EA_KURIL", "EA_NEDIL", "I", "O_KURIL", 
+		"O_NEDIL", "OU", "AAYTHAM", "WS", "STOP_POINT", "NEWLINE"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -115,11 +123,20 @@ public class TamizhParser extends Parser {
 			setState(10);
 			switch (_input.LA(1)) {
 			case MEI:
+			case UYIR_MEI_OU:
+			case UYIR_MEI_OA:
+			case UYIR_MEI_O:
+			case UYIR_MEI_AI:
+			case UYIR_MEI_AE:
+			case UYIR_MEI_E:
+			case UYIR_MEI_OO:
+			case UYIR_MEI_U:
 			case UYIR_MEI_EE:
 			case UYIR_MEI_I:
 			case UYIR_MEI_AA:
 			case UYIR_MEI_A:
 			case UYIR:
+			case AAYTHAM:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(8);
@@ -322,6 +339,15 @@ public class TamizhParser extends Parser {
 	public static class ElutthuContext extends ParserRuleContext {
 		public TerminalNode UYIR() { return getToken(TamizhParser.UYIR, 0); }
 		public TerminalNode MEI() { return getToken(TamizhParser.MEI, 0); }
+		public TerminalNode AAYTHAM() { return getToken(TamizhParser.AAYTHAM, 0); }
+		public TerminalNode UYIR_MEI_OU() { return getToken(TamizhParser.UYIR_MEI_OU, 0); }
+		public TerminalNode UYIR_MEI_OA() { return getToken(TamizhParser.UYIR_MEI_OA, 0); }
+		public TerminalNode UYIR_MEI_O() { return getToken(TamizhParser.UYIR_MEI_O, 0); }
+		public TerminalNode UYIR_MEI_AI() { return getToken(TamizhParser.UYIR_MEI_AI, 0); }
+		public TerminalNode UYIR_MEI_AE() { return getToken(TamizhParser.UYIR_MEI_AE, 0); }
+		public TerminalNode UYIR_MEI_E() { return getToken(TamizhParser.UYIR_MEI_E, 0); }
+		public TerminalNode UYIR_MEI_OO() { return getToken(TamizhParser.UYIR_MEI_OO, 0); }
+		public TerminalNode UYIR_MEI_U() { return getToken(TamizhParser.UYIR_MEI_U, 0); }
 		public TerminalNode UYIR_MEI_EE() { return getToken(TamizhParser.UYIR_MEI_EE, 0); }
 		public TerminalNode UYIR_MEI_I() { return getToken(TamizhParser.UYIR_MEI_I, 0); }
 		public TerminalNode UYIR_MEI_AA() { return getToken(TamizhParser.UYIR_MEI_AA, 0); }
@@ -354,7 +380,7 @@ public class TamizhParser extends Parser {
 			{
 			setState(30);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_OU) | (1L << UYIR_MEI_OA) | (1L << UYIR_MEI_O) | (1L << UYIR_MEI_AI) | (1L << UYIR_MEI_AE) | (1L << UYIR_MEI_E) | (1L << UYIR_MEI_OO) | (1L << UYIR_MEI_U) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR) | (1L << AAYTHAM))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			} else {
 				consume();
@@ -390,16 +416,16 @@ public class TamizhParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17#\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\3\2\3\2\5\2\r\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7"+
-		"\3\27\n\3\f\3\16\3\32\13\3\3\4\6\4\35\n\4\r\4\16\4\36\3\5\3\5\3\5\2\3"+
-		"\4\6\2\4\6\b\2\3\3\2\3\b\"\2\f\3\2\2\2\4\16\3\2\2\2\6\34\3\2\2\2\b \3"+
-		"\2\2\2\n\r\5\4\3\2\13\r\7\2\2\3\f\n\3\2\2\2\f\13\3\2\2\2\r\3\3\2\2\2\16"+
-		"\17\b\3\1\2\17\20\5\6\4\2\20\30\3\2\2\2\21\22\f\4\2\2\22\23\7\r\2\2\23"+
-		"\27\5\4\3\5\24\25\f\3\2\2\25\27\7\16\2\2\26\21\3\2\2\2\26\24\3\2\2\2\27"+
-		"\32\3\2\2\2\30\26\3\2\2\2\30\31\3\2\2\2\31\5\3\2\2\2\32\30\3\2\2\2\33"+
-		"\35\5\b\5\2\34\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37"+
-		"\7\3\2\2\2 !\t\2\2\2!\t\3\2\2\2\6\f\26\30\36";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3 #\4\2\t\2\4\3\t\3"+
+		"\4\4\t\4\4\5\t\5\3\2\3\2\5\2\r\n\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3"+
+		"\27\n\3\f\3\16\3\32\13\3\3\4\6\4\35\n\4\r\4\16\4\36\3\5\3\5\3\5\2\3\4"+
+		"\6\2\4\6\b\2\3\4\2\3\20\35\35\"\2\f\3\2\2\2\4\16\3\2\2\2\6\34\3\2\2\2"+
+		"\b \3\2\2\2\n\r\5\4\3\2\13\r\7\2\2\3\f\n\3\2\2\2\f\13\3\2\2\2\r\3\3\2"+
+		"\2\2\16\17\b\3\1\2\17\20\5\6\4\2\20\30\3\2\2\2\21\22\f\4\2\2\22\23\7\36"+
+		"\2\2\23\27\5\4\3\5\24\25\f\3\2\2\25\27\7\37\2\2\26\21\3\2\2\2\26\24\3"+
+		"\2\2\2\27\32\3\2\2\2\30\26\3\2\2\2\30\31\3\2\2\2\31\5\3\2\2\2\32\30\3"+
+		"\2\2\2\33\35\5\b\5\2\34\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3"+
+		"\2\2\2\37\7\3\2\2\2 !\t\2\2\2!\t\3\2\2\2\6\f\26\30\36";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

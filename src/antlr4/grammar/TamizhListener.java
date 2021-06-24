@@ -20,12 +20,12 @@ public interface TamizhListener extends ParseTreeListener {
 	 */
 	void exitStart(TamizhParser.StartContext ctx);
 	/**
-	 * Enter a parse tree produced by .
+	 * Enter a parse tree produced by {@link TamizhParser#vaakiyam}.
 	 * @param ctx the parse tree
 	 */
 	void enterVaakiyam(TamizhParser.VaakiyamContext ctx);
 	/**
-	 * Exit a parse tree produced by .
+	 * Exit a parse tree produced by {@link TamizhParser#vaakiyam}.
 	 * @param ctx the parse tree
 	 */
 	void exitVaakiyam(TamizhParser.VaakiyamContext ctx);
