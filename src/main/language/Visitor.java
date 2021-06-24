@@ -6,10 +6,10 @@ import grammar.TamizhParser;
 import java.util.List;
 
 public class Visitor extends TamizhBaseVisitor {
-    vaakiyam vaakiyam;
+    public Vaakiyam vaakiyam;
 
     public Visitor() {
-        vaakiyam = new vaakiyam();
+        vaakiyam = new Vaakiyam();
     }
 
     @Override
