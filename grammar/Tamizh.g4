@@ -1,3 +1,7 @@
+/**
+ * @author Amuthan Mannan
+ */
+
 grammar Tamizh;
 @header {
 package grammar;

@@ -1,3 +1,7 @@
+/**
+ * @author Amuthan Mannan
+ */
+
 import language.models.Vaakiyam;
 
 public class Processed {

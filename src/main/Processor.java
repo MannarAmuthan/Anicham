@@ -1,13 +1,14 @@
+/**
+ * @author Amuthan Mannan
+ */
+
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
-import language.models.Vaakiyam;
 import language.Visitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-import java.util.List;
 
 
 public class Processor {
