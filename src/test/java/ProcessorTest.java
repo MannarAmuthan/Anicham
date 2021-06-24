@@ -6,6 +6,29 @@ import static org.junit.Assert.assertEquals;
 
 public class ProcessorTest {
 
+
+    @Test
+    public void testShouldIdentifyUyirEluthukal() {
+        Processed actual = Processor.process("அஆஇஈஉஊஎஏஐஒஓஔஃ");
+
+        assert actual.eluthukkal().length == 13;
+    }
+
+
+    @Test
+    public void testShouldIdentifyMeiEluthukal() {
+        Processed actual = Processor.process("க்ங்ச்ஞ்ட்ண்த்ந்ப்ம்ய்ர்ல்வ்ழ்ள்ற்ன்");
+
+        assert actual.eluthukkal().length == 18;
+    }
+
+    @Test
+    public void testShouldIdentifyUyirMeiEluthukal() {
+        Processed actual = Processor.process("கஙாசிஞீடுணூதேநைபொமோயௌரௌலௌவூழூளூறைனை");
+
+        assert actual.eluthukkal().length == 18;
+    }
+
     @Test
     public void testShouldGetVaakiyamForProvidedInput() {
         Vaakiyam expected = new Vaakiyam();
@@ -61,7 +84,7 @@ public class ProcessorTest {
 
         Processed actual = Processor.process("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது");
 
-        assert actual.vaakiyam().vaarthaigalCount() == 12;
+        assert actual.vaarthaigal().length == 12;
 
         assertEquals(expected, actual.vaakiyam);
     }
