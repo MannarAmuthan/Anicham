@@ -30,6 +30,13 @@ public class ProcessorTest {
     }
 
     @Test
+    public void testShouldIdentifyGranthaEluthukkal() {
+        Processed actual = Processor.process("ஜிஶிஷாஶ்ரீஹ");
+
+        assert actual.eluthukkal().length == 5;
+    }
+
+    @Test
     public void testShouldGetVaakiyamForProvidedInput() {
         Vaakiyam expected = new Vaakiyam();
         Vaarthai one = new Vaarthai("க", "ல்");
@@ -44,6 +51,7 @@ public class ProcessorTest {
         Vaarthai ten = new Vaarthai("ஒ", "ற்", "று", "மை");
         Vaarthai eleven = new Vaarthai("பௌ", "ர்", "ண", "மி");
         Vaarthai twelve = new Vaarthai("க","ஃ","றீ","து");
+        Vaarthai thirteen = new Vaarthai("ஶ்ரீ","ஹ","ரி");
 
 
         expected.add(one);
@@ -58,10 +66,11 @@ public class ProcessorTest {
         expected.add(ten);
         expected.add(eleven);
         expected.add(twelve);
+        expected.add(thirteen);
 
-        Processed actual = Processor.process("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது");
+        Processed actual = Processor.process("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது ஶ்ரீஹரி");
 
-        assert actual.vaarthaigal().length == 12;
+        assert actual.vaarthaigal().length == 13;
 
         assertEquals(expected, actual.vaakiyam);
     }

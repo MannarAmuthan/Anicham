@@ -17,10 +17,6 @@ public class Vaakiyam {
         words = new LinkedList<>();
     }
 
-    public void add(Vaakiyam vaakiyam) {
-        words.addAll(vaakiyam.words);
-    }
-
     public void add(Vaarthai vaarthai) {
         words.add(vaarthai);
     }
