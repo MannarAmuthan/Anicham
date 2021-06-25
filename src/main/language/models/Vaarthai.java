@@ -4,29 +4,31 @@
 
 package language.models;
 
+import language.exceptions.VaarthaiException;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class Vaarthai {
-    List<String> letters;
+    private List<String> letters;
 
 
     public Vaarthai() {
         letters = new LinkedList<>();
     }
 
-    public Vaarthai(String ... eluthukkal) {
+    public Vaarthai(String... eluthukkal) {
         letters = new LinkedList<>();
         Collections.addAll(letters, eluthukkal);
     }
 
-    public void add(String ... eluthukkal) {
+    public void add(String... eluthukkal) {
         Collections.addAll(letters, eluthukkal);
     }
 
-    public int elutthuCount(){
+    public int elutthuCount() {
         return letters.size();
     }
 
@@ -39,12 +41,12 @@ public class Vaarthai {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vaarthai vaarthai = (Vaarthai) o;
-        if(vaarthai.elutthuCount() != letters.size()) return false;
+        if (vaarthai.elutthuCount() != letters.size()) return false;
 
-        int size=letters.size();
+        int size = letters.size();
         List<String> elutthukkal = vaarthai.elutthukkal();
-        for(int i=0;i<size;i++){
-            if(!elutthukkal.get(i).equals(letters.get(i))){
+        for (int i = 0; i < size; i++) {
+            if (!elutthukkal.get(i).equals(letters.get(i))) {
                 return false;
             }
         }
@@ -55,5 +57,22 @@ public class Vaarthai {
     @Override
     public int hashCode() {
         return Objects.hash(letters);
+    }
+
+    public Vaarthai substring(int startIndex, int endIndex) throws VaarthaiException {
+        if (startIndex > endIndex) {
+            throw new VaarthaiException("Starting index should be less than endIndex");
+        }
+        if (startIndex < 0) {
+            throw new VaarthaiException("Negative indices found");
+        }
+        if (startIndex >= this.elutthuCount() || endIndex > this.elutthuCount()) {
+            throw new VaarthaiException("Index out of bound");
+        }
+        Vaarthai v = new Vaarthai();
+        for (int i = startIndex; i < endIndex; i++) {
+            v.add(this.elutthukkal().get(i));
+        }
+        return v;
     }
 }
