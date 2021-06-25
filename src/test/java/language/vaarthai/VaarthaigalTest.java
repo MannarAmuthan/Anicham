@@ -1,29 +1,21 @@
-package language;
+package language.vaarthai;
 
 import language.exceptions.VaarthaiException;
-import language.models.Vaarthai;
+import language.models.vaarthai.Vaarthai;
+import language.models.vaarthai.Vaarthaigal;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-public class VaarthaiTest {
-    @Test
-    public void shouldAbleToEquateTwoVaarthaigal() {
-        Vaarthai v1 = new Vaarthai();
-        v1.add("க", "ல்");
-
-        Vaarthai v2 = new Vaarthai();
-        v2.add("க", "ல்");
-
-        assertEquals(v1,v2);
-    }
+public class VaarthaigalTest {
 
     @Test
     public void shouldGetSubstring() throws VaarthaiException {
         Vaarthai v1 = new Vaarthai("பு","து","மை","ப்","பி","த்","த","ன்");
         Vaarthai expected=new Vaarthai("பி","த்","த","ன்");
 
-        Vaarthai actual = v1.substring(4, 8);
+        Vaarthai actual = Vaarthaigal.substring(v1,4, 8);
 
         assertEquals(actual,expected);
     }
@@ -33,24 +25,17 @@ public class VaarthaiTest {
         Vaarthai v1 = new Vaarthai("பு","து","மை","ப்","பி","த்","த","ன்");
 
         try {
-            v1.substring(4, 9);
+            Vaarthaigal.substring(v1,4, 9);
             fail();
         } catch (VaarthaiException vaarthaiException) {
             assertEquals(vaarthaiException.getMessage(),"Index out of bound");
         }
 
         try {
-            v1.substring(-1, 2);
+            Vaarthaigal.substring(v1,-1, 2);
             fail();
         } catch (VaarthaiException vaarthaiException) {
             assertEquals(vaarthaiException.getMessage(),"Negative indices found");
-        }
-
-        try {
-            v1.substring(3, 2);
-            fail();
-        } catch (VaarthaiException vaarthaiException) {
-            assertEquals(vaarthaiException.getMessage(),"Starting index should be less than endIndex");
         }
 
     }

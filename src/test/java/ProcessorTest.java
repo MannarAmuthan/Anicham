@@ -1,5 +1,5 @@
 import language.models.Vaakiyam;
-import language.models.Vaarthai;
+import language.models.vaarthai.Vaarthai;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

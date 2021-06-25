@@ -7,8 +7,9 @@ package language;
 import grammar.TamizhBaseVisitor;
 import grammar.TamizhParser;
 import language.models.Vaakiyam;
-import language.models.Vaarthai;
+import language.models.vaarthai.Vaarthai;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Visitor extends TamizhBaseVisitor {
@@ -43,13 +44,14 @@ public class Visitor extends TamizhBaseVisitor {
 
     @Override
     public Object visitVaarthai(TamizhParser.VaarthaiContext ctx) {
-        Vaarthai vaarthai = new Vaarthai();
+        List<String> stringList = new LinkedList<>();
         List<TamizhParser.ElutthuContext> elutthuList = ctx.elutthu();
         for (TamizhParser.ElutthuContext ec : elutthuList) {
             String s = (String) visitElutthu(ec);
-            vaarthai.add(s);
+            stringList.add(s);
         }
-        return vaarthai;
+
+        return new Vaarthai(stringList);
     }
 
     @Override

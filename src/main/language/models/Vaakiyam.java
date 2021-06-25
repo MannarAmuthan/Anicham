@@ -4,6 +4,8 @@
 
 package language.models;
 
+import language.models.vaarthai.Vaarthai;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;

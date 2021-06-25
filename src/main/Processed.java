@@ -3,7 +3,7 @@
  */
 
 import language.models.Vaakiyam;
-import language.models.Vaarthai;
+import language.models.vaarthai.Vaarthai;
 
 import java.util.ArrayList;
 import java.util.Arrays;

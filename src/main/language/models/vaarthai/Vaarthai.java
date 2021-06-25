@@ -2,7 +2,7 @@
  * @author Amuthan Mannan
  */
 
-package language.models;
+package language.models.vaarthai;
 
 import language.exceptions.VaarthaiException;
 
@@ -14,17 +14,12 @@ import java.util.Objects;
 public class Vaarthai {
     private List<String> letters;
 
-
-    public Vaarthai() {
-        letters = new LinkedList<>();
+    public Vaarthai(List<String> letters) {
+        this.letters = letters;
     }
 
     public Vaarthai(String... eluthukkal) {
         letters = new LinkedList<>();
-        Collections.addAll(letters, eluthukkal);
-    }
-
-    public void add(String... eluthukkal) {
         Collections.addAll(letters, eluthukkal);
     }
 
@@ -59,20 +54,4 @@ public class Vaarthai {
         return Objects.hash(letters);
     }
 
-    public Vaarthai substring(int startIndex, int endIndex) throws VaarthaiException {
-        if (startIndex > endIndex) {
-            throw new VaarthaiException("Starting index should be less than endIndex");
-        }
-        if (startIndex < 0) {
-            throw new VaarthaiException("Negative indices found");
-        }
-        if (startIndex >= this.elutthuCount() || endIndex > this.elutthuCount()) {
-            throw new VaarthaiException("Index out of bound");
-        }
-        Vaarthai v = new Vaarthai();
-        for (int i = startIndex; i < endIndex; i++) {
-            v.add(this.elutthukkal().get(i));
-        }
-        return v;
-    }
 }
