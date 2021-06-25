@@ -26,9 +26,9 @@ public class TamizhParser extends Parser {
 		OU=26, AAYTHAM=27, SRI=28, GRANTHA_JA=29, GRANTHA_SH=30, GRANTHA_SS=31, 
 		GRANTHA_S=32, GRANTHA_H=33, WS=34, STOP_POINT=35, NEWLINE=36;
 	public static final int
-		RULE_start = 0, RULE_vaakiyam = 1, RULE_vaarthai = 2, RULE_elutthu = 3;
+		RULE_start = 0, RULE_vaakiyam = 1, RULE_sol = 2, RULE_ezhuththu = 3;
 	public static final String[] ruleNames = {
-		"start", "vaakiyam", "vaarthai", "elutthu"
+		"start", "vaakiyam", "sol", "ezhuththu"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -170,8 +170,8 @@ public class TamizhParser extends Parser {
 	}
 
 	public static class VaakiyamContext extends ParserRuleContext {
-		public VaarthaiContext vaarthai() {
-			return getRuleContext(VaarthaiContext.class,0);
+		public SolContext sol() {
+			return getRuleContext(SolContext.class,0);
 		}
 		public List<VaakiyamContext> vaakiyam() {
 			return getRuleContexts(VaakiyamContext.class);
@@ -216,7 +216,7 @@ public class TamizhParser extends Parser {
 			{
 			{
 			setState(13);
-			vaarthai();
+			sol();
 			}
 			_ctx.stop = _input.LT(-1);
 			setState(20);
@@ -256,35 +256,35 @@ public class TamizhParser extends Parser {
 		return _localctx;
 	}
 
-	public static class VaarthaiContext extends ParserRuleContext {
-		public List<ElutthuContext> elutthu() {
-			return getRuleContexts(ElutthuContext.class);
+	public static class SolContext extends ParserRuleContext {
+		public List<EzhuththuContext> ezhuththu() {
+			return getRuleContexts(EzhuththuContext.class);
 		}
-		public ElutthuContext elutthu(int i) {
-			return getRuleContext(ElutthuContext.class,i);
+		public EzhuththuContext ezhuththu(int i) {
+			return getRuleContext(EzhuththuContext.class,i);
 		}
-		public VaarthaiContext(ParserRuleContext parent, int invokingState) {
+		public SolContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_vaarthai; }
+		@Override public int getRuleIndex() { return RULE_sol; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterVaarthai(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterSol(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitVaarthai(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitSol(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitVaarthai(this);
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitSol(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final VaarthaiContext vaarthai() throws RecognitionException {
-		VaarthaiContext _localctx = new VaarthaiContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_vaarthai);
+	public final SolContext sol() throws RecognitionException {
+		SolContext _localctx = new SolContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_sol);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
@@ -298,7 +298,7 @@ public class TamizhParser extends Parser {
 					{
 					{
 					setState(23);
-					elutthu();
+					ezhuththu();
 					}
 					}
 					break;
@@ -322,7 +322,7 @@ public class TamizhParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ElutthuContext extends ParserRuleContext {
+	public static class EzhuththuContext extends ParserRuleContext {
 		public TerminalNode UYIR() { return getToken(TamizhParser.UYIR, 0); }
 		public TerminalNode MEI() { return getToken(TamizhParser.MEI, 0); }
 		public TerminalNode AAYTHAM() { return getToken(TamizhParser.AAYTHAM, 0); }
@@ -339,28 +339,28 @@ public class TamizhParser extends Parser {
 		public TerminalNode UYIR_MEI_AA() { return getToken(TamizhParser.UYIR_MEI_AA, 0); }
 		public TerminalNode UYIR_MEI_A() { return getToken(TamizhParser.UYIR_MEI_A, 0); }
 		public TerminalNode SRI() { return getToken(TamizhParser.SRI, 0); }
-		public ElutthuContext(ParserRuleContext parent, int invokingState) {
+		public EzhuththuContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_elutthu; }
+		@Override public int getRuleIndex() { return RULE_ezhuththu; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterElutthu(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterEzhuththu(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitElutthu(this);
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitEzhuththu(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitElutthu(this);
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitEzhuththu(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final ElutthuContext elutthu() throws RecognitionException {
-		ElutthuContext _localctx = new ElutthuContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_elutthu);
+	public final EzhuththuContext ezhuththu() throws RecognitionException {
+		EzhuththuContext _localctx = new EzhuththuContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_ezhuththu);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);

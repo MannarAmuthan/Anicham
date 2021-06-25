@@ -7,7 +7,7 @@ package language;
 import grammar.TamizhBaseVisitor;
 import grammar.TamizhParser;
 import language.models.Vaakiyam;
-import language.models.vaarthai.Vaarthai;
+import language.models.sol.Sol;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -36,26 +36,26 @@ public class Visitor extends TamizhBaseVisitor {
             }
         }
         else {
-            Vaarthai v = (Vaarthai) visitVaarthai(ctx.vaarthai());
+            Sol v = (Sol) visitSol(ctx.sol());
             this.vaakiyam.add(v);
         }
         return null;
     }
 
     @Override
-    public Object visitVaarthai(TamizhParser.VaarthaiContext ctx) {
+    public Object visitSol(TamizhParser.SolContext ctx) {
         List<String> stringList = new LinkedList<>();
-        List<TamizhParser.ElutthuContext> elutthuList = ctx.elutthu();
-        for (TamizhParser.ElutthuContext ec : elutthuList) {
-            String s = (String) visitElutthu(ec);
+        List<TamizhParser.EzhuththuContext> elutthuList = ctx.ezhuththu();
+        for (TamizhParser.EzhuththuContext ec : elutthuList) {
+            String s = (String) visitEzhuththu(ec);
             stringList.add(s);
         }
 
-        return new Vaarthai(stringList);
+        return new Sol(stringList);
     }
 
     @Override
-    public Object visitElutthu(TamizhParser.ElutthuContext ctx) {
+    public Object visitEzhuththu(TamizhParser.EzhuththuContext ctx) {
         return ctx.getText();
     }
 }

@@ -42,25 +42,25 @@ public class TamizhBaseListener implements TamizhListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVaarthai(TamizhParser.VaarthaiContext ctx) { }
+	@Override public void enterSol(TamizhParser.SolContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVaarthai(TamizhParser.VaarthaiContext ctx) { }
+	@Override public void exitSol(TamizhParser.SolContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElutthu(TamizhParser.ElutthuContext ctx) { }
+	@Override public void enterEzhuththu(TamizhParser.EzhuththuContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElutthu(TamizhParser.ElutthuContext ctx) { }
+	@Override public void exitEzhuththu(TamizhParser.EzhuththuContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

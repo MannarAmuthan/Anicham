@@ -9,11 +9,11 @@ package grammar;
 
 start: vaakiyam | EOF;
 
-vaakiyam: vaarthai | vaakiyam WS vaakiyam ;
+vaakiyam: sol | vaakiyam WS vaakiyam ;
 
-vaarthai : elutthu+;
+sol : ezhuththu+;
 
-elutthu: UYIR
+ezhuththu: UYIR
         | MEI
         | AAYTHAM
         | UYIR_MEI_OU

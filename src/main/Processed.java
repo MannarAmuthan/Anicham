@@ -3,7 +3,7 @@
  */
 
 import language.models.Vaakiyam;
-import language.models.vaarthai.Vaarthai;
+import language.models.sol.Sol;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,16 +20,16 @@ public class Processed {
         return vaakiyam;
     }
 
-    public Vaarthai[] vaarthaigal() {
-        Object[] objects = vaakiyam.vaarthaigal().toArray();
-        return Arrays.copyOf(objects, objects.length, Vaarthai[].class);
+    public Sol[] vaarthaigal() {
+        Object[] objects = vaakiyam.sorkkal().toArray();
+        return Arrays.copyOf(objects, objects.length, Sol[].class);
     }
 
     public String[] eluthukkal() {
         ArrayList<String> arrayList = new ArrayList<>();
-        LinkedList<Vaarthai> vaarthaigal = vaakiyam.vaarthaigal();
-        for (Vaarthai v : vaarthaigal) {
-            arrayList.addAll(v.elutthukkal());
+        LinkedList<Sol> vaarthaigal = vaakiyam.sorkkal();
+        for (Sol v : vaarthaigal) {
+            arrayList.addAll(v.ezhutthukkal());
         }
         Object[] strings = arrayList.toArray();
         return Arrays.copyOf(strings, strings.length, String[].class);

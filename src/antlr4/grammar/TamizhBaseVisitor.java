@@ -33,12 +33,12 @@ public class TamizhBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVaarthai(TamizhParser.VaarthaiContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSol(TamizhParser.SolContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitElutthu(TamizhParser.ElutthuContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEzhuththu(TamizhParser.EzhuththuContext ctx) { return visitChildren(ctx); }
 }

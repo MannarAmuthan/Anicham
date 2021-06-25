@@ -25,15 +25,15 @@ public interface TamizhVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVaakiyam(TamizhParser.VaakiyamContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link TamizhParser#vaarthai}.
+	 * Visit a parse tree produced by {@link TamizhParser#sol}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVaarthai(TamizhParser.VaarthaiContext ctx);
+	T visitSol(TamizhParser.SolContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link TamizhParser#elutthu}.
+	 * Visit a parse tree produced by {@link TamizhParser#ezhuththu}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitElutthu(TamizhParser.ElutthuContext ctx);
+	T visitEzhuththu(TamizhParser.EzhuththuContext ctx);
 }

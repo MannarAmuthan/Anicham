@@ -1,5 +1,5 @@
 import language.models.Vaakiyam;
-import language.models.vaarthai.Vaarthai;
+import language.models.sol.Sol;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -39,19 +39,19 @@ public class ProcessorTest {
     @Test
     public void testShouldGetVaakiyamForProvidedInput() {
         Vaakiyam expected = new Vaakiyam();
-        Vaarthai one = new Vaarthai("க", "ல்");
-        Vaarthai two = new Vaarthai("கா", "ல்");
-        Vaarthai three = new Vaarthai("க", "ப்", "ப", "லி", "ன்");
-        Vaarthai four = new Vaarthai("பீ", "ட", "ம்");
-        Vaarthai five = new Vaarthai("பு", "து", "மை", "ப்", "பி", "த்", "த", "ன்");
-        Vaarthai six = new Vaarthai("கூ", "கை");
-        Vaarthai seven = new Vaarthai("பெ", "ரி", "யா", "ர்");
-        Vaarthai eight = new Vaarthai("சா", "ன்", "றோ", "ர்");
-        Vaarthai nine = new Vaarthai("பே", "தை", "மை");
-        Vaarthai ten = new Vaarthai("ஒ", "ற்", "று", "மை");
-        Vaarthai eleven = new Vaarthai("பௌ", "ர்", "ண", "மி");
-        Vaarthai twelve = new Vaarthai("க","ஃ","றீ","து");
-        Vaarthai thirteen = new Vaarthai("ஶ்ரீ","ஹ","ரி");
+        Sol one = new Sol("க", "ல்");
+        Sol two = new Sol("கா", "ல்");
+        Sol three = new Sol("க", "ப்", "ப", "லி", "ன்");
+        Sol four = new Sol("பீ", "ட", "ம்");
+        Sol five = new Sol("பு", "து", "மை", "ப்", "பி", "த்", "த", "ன்");
+        Sol six = new Sol("கூ", "கை");
+        Sol seven = new Sol("பெ", "ரி", "யா", "ர்");
+        Sol eight = new Sol("சா", "ன்", "றோ", "ர்");
+        Sol nine = new Sol("பே", "தை", "மை");
+        Sol ten = new Sol("ஒ", "ற்", "று", "மை");
+        Sol eleven = new Sol("பௌ", "ர்", "ண", "மி");
+        Sol twelve = new Sol("க","ஃ","றீ","து");
+        Sol thirteen = new Sol("ஶ்ரீ","ஹ","ரி");
 
 
         expected.add(one);

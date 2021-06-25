@@ -30,23 +30,23 @@ public interface TamizhListener extends ParseTreeListener {
 	 */
 	void exitVaakiyam(TamizhParser.VaakiyamContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TamizhParser#vaarthai}.
+	 * Enter a parse tree produced by {@link TamizhParser#sol}.
 	 * @param ctx the parse tree
 	 */
-	void enterVaarthai(TamizhParser.VaarthaiContext ctx);
+	void enterSol(TamizhParser.SolContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link TamizhParser#vaarthai}.
+	 * Exit a parse tree produced by {@link TamizhParser#sol}.
 	 * @param ctx the parse tree
 	 */
-	void exitVaarthai(TamizhParser.VaarthaiContext ctx);
+	void exitSol(TamizhParser.SolContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TamizhParser#elutthu}.
+	 * Enter a parse tree produced by {@link TamizhParser#ezhuththu}.
 	 * @param ctx the parse tree
 	 */
-	void enterElutthu(TamizhParser.ElutthuContext ctx);
+	void enterEzhuththu(TamizhParser.EzhuththuContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link TamizhParser#elutthu}.
+	 * Exit a parse tree produced by {@link TamizhParser#ezhuththu}.
 	 * @param ctx the parse tree
 	 */
-	void exitElutthu(TamizhParser.ElutthuContext ctx);
+	void exitEzhuththu(TamizhParser.EzhuththuContext ctx);
 }
