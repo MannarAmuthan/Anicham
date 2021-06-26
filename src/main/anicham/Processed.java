@@ -18,20 +18,22 @@ public class Processed {
         this.patthigal=patthigal;
     }
 
-    public List<Patthi> getPatthigal() {
-        return patthigal;
+    public Patthi[] getPatthigal() {
+        Object[] patthigal = this.patthigal.toArray();
+        return Arrays.copyOf(patthigal, patthigal.length, Patthi[].class);
     }
 
-    public List<Vaakiyam> vaakiyangal() {
+    public Vaakiyam[] vaakiyangal() {
         List<Vaakiyam> vaakiyangal=new LinkedList<>();
         for(Patthi p:patthigal){
             vaakiyangal.addAll(p.getVaakiyangal());
         }
-        return vaakiyangal;
+        Object[] objects = vaakiyangal.toArray();
+        return Arrays.copyOf(objects, objects.length, Vaakiyam[].class);
     }
 
     public Sol[] sorkkal() {
-        List<Vaakiyam> vaakiyangal=vaakiyangal();
+        Vaakiyam[] vaakiyangal=vaakiyangal();
         List<Sol> sorkkal=new LinkedList<>();
         for(Vaakiyam v:vaakiyangal){
             sorkkal.addAll(v.sorkkal());

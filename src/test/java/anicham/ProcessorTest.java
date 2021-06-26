@@ -13,6 +13,7 @@ public class ProcessorTest {
     public void testShouldIdentifyUyirEluthukal() {
         Processed actual = Processor.process("அஆஇஈஉஊஎஏஐஒஓஔஃ");
 
+        assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 13;
     }
 
@@ -21,6 +22,7 @@ public class ProcessorTest {
     public void testShouldIdentifyMeiEluthukal() {
         Processed actual = Processor.process("க்ங்ச்ஞ்ட்ண்த்ந்ப்ம்ய்ர்ல்வ்ழ்ள்ற்ன்");
 
+        assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 18;
     }
 
@@ -28,6 +30,7 @@ public class ProcessorTest {
     public void testShouldIdentifyUyirMeiEluthukal() {
         Processed actual = Processor.process("கஙாசிஞீடுணூதேநைபொமோயௌரௌலௌவூழூளூறைனை");
 
+        assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 18;
     }
 
@@ -35,6 +38,7 @@ public class ProcessorTest {
     public void testShouldIdentifyGranthaEluthukkal() {
         Processed actual = Processor.process("ஜிஶிஷாஶ்ரீஹ");
 
+        assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 5;
     }
 
@@ -59,9 +63,11 @@ public class ProcessorTest {
 
         Processed actual = Processor.process("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது ஶ்ரீஹரி");
 
+
+        assert actual.vaakiyangal().length == 1;
         assert actual.sorkkal().length == 13;
 
-        assertEquals(expected, actual.getPatthigal().get(0).getVaakiyangal().get(0));
+        assertEquals(expected, actual.getPatthigal()[0].getVaakiyangal().get(0));
     }
 
     @Test
@@ -82,7 +88,7 @@ public class ProcessorTest {
 
         assert actual.sorkkal().length == 9;
 
-        assertEquals(expected, actual.getPatthigal().get(0).getVaakiyangal().get(0));
+        assertEquals(expected, actual.getPatthigal()[0].getVaakiyangal().get(0));
     }
 
     @Test
@@ -97,7 +103,7 @@ public class ProcessorTest {
 
         assert actual.sorkkal().length == 3;
 
-        assertEquals(expected, actual.getPatthigal().get(0).getVaakiyangal().get(0));
+        assertEquals(expected, actual.getPatthigal()[0].getVaakiyangal().get(0));
     }
 
     @Test
@@ -107,8 +113,8 @@ public class ProcessorTest {
                 "இங்கு உள்ள லிங்கத்திற்கு அபிஷேக ஆராதனை எதுவும் செய்யப்படுவதில்லை.ஓடும் ஆற்றின் ஆற்றின் நீரினால் லிங்கத்திற்கு தினம் தினம் அபிஷேகம்.ஆண்டுதோறும் மகா சிவராத்திரியின் போது மக்கள் கூட்டம் இங்கு அலைமோதும்.இறைவன் எங்கும் இருக்கின்றான் என்பதை இது நமக்கு உணர்த்துகிறது.");
 
 
-        assert actual.getPatthigal().size() == 2;
-        assert actual.getPatthigal().get(0).getVaakiyangal().size() == 3;
-        assert actual.getPatthigal().get(1).getVaakiyangal().size() == 4;
+        assert actual.getPatthigal().length == 2;
+        assert actual.getPatthigal()[0].getVaakiyangal().size() == 3;
+        assert actual.getPatthigal()[1].getVaakiyangal().size() == 4;
     }
 }

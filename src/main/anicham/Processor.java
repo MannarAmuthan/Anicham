@@ -28,21 +28,21 @@ public class Processor {
         return new Processed(visitor.getPatthigal());
     }
 
-    static public Vaakiyam vaakiyam(String stringToProcess){
-        List<Vaakiyam> vaakiyangal = Processor.process(stringToProcess).vaakiyangal();
-        if(vaakiyangal.size()!=1) throw new AnichamExceptions("Not a valid Ezhuththu");
-        return vaakiyangal.get(0);
+    static public Vaakiyam vaakiyam(String stringToProcess) {
+        Vaakiyam[] vaakiyangal = Processor.process(stringToProcess).vaakiyangal();
+        if (vaakiyangal.length != 1) throw new AnichamExceptions("Not a valid Ezhuththu");
+        return vaakiyangal[0];
     }
 
-    static public Sol sol(String stringToProcess){
+    static public Sol sol(String stringToProcess) {
         Sol[] sorkkal = Processor.process(stringToProcess).sorkkal();
-        if(sorkkal.length!=1) throw new AnichamExceptions("Not a valid Sol");
+        if (sorkkal.length != 1) throw new AnichamExceptions("Not a valid Sol");
         return sorkkal[0];
     }
 
-    static public Ezhuththu ezhuththu(String stringToProcess){
+    static public Ezhuththu ezhuththu(String stringToProcess) {
         Ezhuththu[] ezhuththukkal = Processor.process(stringToProcess).ezhuththukkal();
-        if(ezhuththukkal.length!=1) throw new AnichamExceptions("Not a valid Ezhuththu");
+        if (ezhuththukkal.length != 1) throw new AnichamExceptions("Not a valid Ezhuththu");
         return ezhuththukkal[0];
     }
 }
