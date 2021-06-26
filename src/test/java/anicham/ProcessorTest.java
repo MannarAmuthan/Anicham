@@ -41,19 +41,19 @@ public class ProcessorTest {
     @Test
     public void testShouldGetVaakiyamForProvidedInput() {
         Vaakiyam expected = new Vaakiyam();
-        Sol one = Processor.process("கல்").sorkkal()[0];
-        Sol two = Processor.process("கால்").sorkkal()[0];
-        Sol three = Processor.process("கப்பலின்").sorkkal()[0];
-        Sol four = Processor.process("பீடம்").sorkkal()[0];
-        Sol five = Processor.process("புதுமைப்பித்தன்").sorkkal()[0];
-        Sol six = Processor.process("கூகை").sorkkal()[0];
-        Sol seven = Processor.process("பெரியார்").sorkkal()[0];
-        Sol eight = Processor.process("சான்றோர்").sorkkal()[0];
-        Sol nine = Processor.process("பேதைமை").sorkkal()[0];
-        Sol ten = Processor.process("ஒற்றுமை").sorkkal()[0];
-        Sol eleven = Processor.process("பௌர்ணமி").sorkkal()[0];
-        Sol twelve = Processor.process("கஃறீது").sorkkal()[0];
-        Sol thirteen = Processor.process("ஶ்ரீஹரி").sorkkal()[0];
+        Sol one = Processor.sol("கல்");
+        Sol two = Processor.sol("கால்");
+        Sol three = Processor.sol("கப்பலின்");
+        Sol four = Processor.sol("பீடம்");
+        Sol five = Processor.sol("புதுமைப்பித்தன்");
+        Sol six = Processor.sol("கூகை");
+        Sol seven = Processor.sol("பெரியார்");
+        Sol eight = Processor.sol("சான்றோர்");
+        Sol nine = Processor.sol("பேதைமை");
+        Sol ten = Processor.sol("ஒற்றுமை");
+        Sol eleven = Processor.sol("பௌர்ணமி");
+        Sol twelve = Processor.sol("கஃறீது");
+        Sol thirteen = Processor.sol("ஶ்ரீஹரி");
 
         expected.add(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen);
 
@@ -67,15 +67,15 @@ public class ProcessorTest {
     @Test
     public void shouldIdentifySeparationBetweenSorkkal(){
         Vaakiyam expected = new Vaakiyam();
-        Sol one = Processor.process("கல்").sorkkal()[0];
-        Sol two = Processor.process("கால்").sorkkal()[0];
-        Sol three = Processor.process("கப்பலின்").sorkkal()[0];
-        Sol four = Processor.process("பீடம்").sorkkal()[0];
-        Sol five = Processor.process("புதுமைப்பித்தன்").sorkkal()[0];
-        Sol six = Processor.process("கூகை").sorkkal()[0];
-        Sol seven = Processor.process("பெரியார்").sorkkal()[0];
-        Sol eight = Processor.process("சான்றோர்").sorkkal()[0];
-        Sol nine = Processor.process("பேதைமை").sorkkal()[0];
+        Sol one = Processor.sol("கல்");
+        Sol two = Processor.sol("கால்");
+        Sol three = Processor.sol("கப்பலின்");
+        Sol four = Processor.sol("பீடம்");
+        Sol five = Processor.sol("புதுமைப்பித்தன்");
+        Sol six = Processor.sol("கூகை");
+        Sol seven = Processor.sol("பெரியார்");
+        Sol eight = Processor.sol("சான்றோர்");
+        Sol nine = Processor.sol("பேதைமை");
         expected.add(one,two,three,four,five,six,seven,eight,nine);
 
         Processed actual = Processor.process("கல்,கால்,கப்பலின், பீடம் புதுமைப்பித்தன் கூகை,பெரியார் சான்றோர் ,பேதைமை.");
@@ -88,9 +88,9 @@ public class ProcessorTest {
     @Test
     public void shouldIgnoreSpecialCharacters() {
         Vaakiyam expected = new Vaakiyam();
-        Sol one = Processor.process("கல்").sorkkal()[0];
-        Sol two = Processor.process("கால்").sorkkal()[0];
-        Sol three = Processor.process("கப்பலின்").sorkkal()[0];
+        Sol one = Processor.sol("கல்");
+        Sol two = Processor.sol("கால்");
+        Sol three = Processor.sol("கப்பலின்");
         expected.add(one,two,three);
 
         Processed actual = Processor.process("கல்!?,`கால்`-,\"கப்பலின்\"'");

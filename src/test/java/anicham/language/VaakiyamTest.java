@@ -12,11 +12,11 @@ public class VaakiyamTest {
     public void testAbleToEquateTwoVaakiyam() {
 
         Vaakiyam one=new Vaakiyam();
-        Sol v1 = Processor.process("கல்").sorkkal()[0];
+        Sol v1 = Processor.sol("கல்");
         one.add(v1);
 
         Vaakiyam two=new Vaakiyam();
-        Sol v2 = Processor.process("கல்").sorkkal()[0];
+        Sol v2 = Processor.sol("கல்");
         two.add(v2);
 
         assertEquals(one,two);

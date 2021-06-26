@@ -9,8 +9,8 @@ import static org.junit.Assert.assertEquals;
 public class SolTest {
     @Test
     public void shouldAbleToEquateTwoSorkkal() {
-        Sol v1=Processor.process("கல்").sorkkal()[0];
-        Sol v2=Processor.process("கல்").sorkkal()[0];
+        Sol v1=Processor.sol("கல்");
+        Sol v2=Processor.sol("கல்");
 
         assertEquals(v1,v2);
     }
