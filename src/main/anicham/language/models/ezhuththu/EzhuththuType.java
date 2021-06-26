@@ -1,6 +1,6 @@
 package anicham.language.models.ezhuththu;
 
-public enum EzhuththuEnum {
+public enum EzhuththuType {
     UYIR,
     MEI,
     UYIR_MEI,
