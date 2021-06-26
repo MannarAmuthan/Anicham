@@ -5,10 +5,14 @@
 package language;
 
 import grammar.TamizhBaseVisitor;
+import grammar.TamizhLexer;
 import grammar.TamizhParser;
 import language.models.Patthi;
 import language.models.Vaakiyam;
+import language.models.ezhuththu.Ezhuththu;
 import language.models.sol.Sol;
+import org.antlr.v4.runtime.Token;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,18 +66,18 @@ public class Visitor extends TamizhBaseVisitor {
 
     @Override
     public Object visitSol(TamizhParser.SolContext ctx) {
-        List<String> stringList = new LinkedList<>();
+        List<Ezhuththu> ezhuththuList = new LinkedList<>();
         List<TamizhParser.EzhuththuContext> elutthuList = ctx.ezhuththu();
         for (TamizhParser.EzhuththuContext ec : elutthuList) {
-            String s = (String) visitEzhuththu(ec);
-            stringList.add(s);
+            Ezhuththu s = (Ezhuththu) visitEzhuththu(ec);
+            ezhuththuList.add(s);
         }
 
-        return new Sol(stringList);
+        return new Sol(ezhuththuList);
     }
 
     @Override
     public Object visitEzhuththu(TamizhParser.EzhuththuContext ctx) {
-        return ctx.getText();
+        return Ezhuththu.create(ctx.getStop());
     }
 }

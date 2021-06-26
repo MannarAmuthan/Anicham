@@ -13,13 +13,13 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface TamizhVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by .
+	 * Visit a parse tree produced by {@link TamizhParser#patthi}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPatthi(TamizhParser.PatthiContext ctx);
 	/**
-	 * Visit a parse tree produced by .
+	 * Visit a parse tree produced by {@link TamizhParser#vaakiyam}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

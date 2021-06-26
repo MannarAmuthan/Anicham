@@ -4,19 +4,21 @@
 
 package language.models.sol;
 
+import language.models.ezhuththu.Ezhuththu;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class Sol {
-    private final List<String> letters;
+    private final List<Ezhuththu> letters;
 
-    public Sol(List<String> letters) {
+    public Sol(List<Ezhuththu> letters) {
         this.letters = letters;
     }
 
-    public Sol(String... ezhutthukkal) {
+    public Sol(Ezhuththu... ezhutthukkal) {
         letters = new LinkedList<>();
         Collections.addAll(letters, ezhutthukkal);
     }
@@ -25,7 +27,7 @@ public class Sol {
         return letters.size();
     }
 
-    public List<String> ezhutthukkal() {
+    public List<Ezhuththu> ezhutthukkal() {
         return letters;
     }
 
@@ -37,7 +39,7 @@ public class Sol {
         if (sol.ezhutthuCount() != letters.size()) return false;
 
         int size = letters.size();
-        List<String> ezhutthukkal = sol.ezhutthukkal();
+        List<Ezhuththu> ezhutthukkal = sol.ezhutthukkal();
         for (int i = 0; i < size; i++) {
             if (!ezhutthukkal.get(i).equals(letters.get(i))) {
                 return false;

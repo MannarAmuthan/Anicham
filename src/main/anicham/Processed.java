@@ -1,12 +1,13 @@
-/**
+package anicham; /**
  * @author Amuthan Mannan
  */
 
 import language.models.Patthi;
 import language.models.Vaakiyam;
+import language.models.ezhuththu.Ezhuththu;
 import language.models.sol.Sol;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -40,13 +41,13 @@ public class Processed {
         return Arrays.copyOf(objects, objects.length, Sol[].class);
     }
 
-    public String[] ezhuththukkal() {
+    public Ezhuththu[] ezhuththukkal() {
         Sol[] sorkkal=sorkkal();
-        List<String> ezhuththukkal = new LinkedList<>();
+        List<Ezhuththu> ezhuththukkal = new LinkedList<>();
         for (Sol s : sorkkal) {
             ezhuththukkal.addAll(s.ezhutthukkal());
         }
         Object[] strings = ezhuththukkal.toArray();
-        return Arrays.copyOf(strings, strings.length, String[].class);
+        return Arrays.copyOf(strings, strings.length, Ezhuththu[].class);
     }
 }

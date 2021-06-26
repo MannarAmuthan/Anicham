@@ -1,6 +1,7 @@
 package language.models.sol;
 
 import language.exceptions.SolException;
+import language.models.ezhuththu.Ezhuththu;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Sorkkal {
         if (startIndex >= sol.ezhutthuCount() || endIndex > sol.ezhutthuCount()) {
             throw new SolException("Index out of bound");
         }
-        List<String> stringList = new LinkedList<>();
+        List<Ezhuththu> stringList = new LinkedList<>();
         for (int i = startIndex; i < endIndex; i++) {
             stringList.add(sol.ezhutthukkal().get(i));
         }
@@ -22,7 +23,7 @@ public class Sorkkal {
     }
 
     static public Sol reverse(Sol sol){
-        List<String> stringList = new LinkedList<>();
+        List<Ezhuththu> stringList = new LinkedList<>();
         for (int i = sol.ezhutthuCount()-1; i > -1; i--) {
             stringList.add(sol.ezhutthukkal().get(i));
         }
@@ -33,7 +34,7 @@ public class Sorkkal {
         if (index < 0 || index>=sol.ezhutthuCount()) {
             throw new SolException("Invalid index for Sol : "+index);
         }
-        List<String> stringList = new LinkedList<>();
+        List<Ezhuththu> stringList = new LinkedList<>();
         for (int i = 0; i < sol.ezhutthuCount(); i++) {
             if(i==index) continue;
             stringList.add(sol.ezhutthukkal().get(i));

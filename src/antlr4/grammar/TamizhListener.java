@@ -10,22 +10,22 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface TamizhListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by .
+	 * Enter a parse tree produced by {@link TamizhParser#patthi}.
 	 * @param ctx the parse tree
 	 */
 	void enterPatthi(TamizhParser.PatthiContext ctx);
 	/**
-	 * Exit a parse tree produced by .
+	 * Exit a parse tree produced by {@link TamizhParser#patthi}.
 	 * @param ctx the parse tree
 	 */
 	void exitPatthi(TamizhParser.PatthiContext ctx);
 	/**
-	 * Enter a parse tree produced by .
+	 * Enter a parse tree produced by {@link TamizhParser#vaakiyam}.
 	 * @param ctx the parse tree
 	 */
 	void enterVaakiyam(TamizhParser.VaakiyamContext ctx);
 	/**
-	 * Exit a parse tree produced by .
+	 * Exit a parse tree produced by {@link TamizhParser#vaakiyam}.
 	 * @param ctx the parse tree
 	 */
 	void exitVaakiyam(TamizhParser.VaakiyamContext ctx);

@@ -1,5 +1,6 @@
 package language.sol;
 
+import anicham.Processor;
 import language.exceptions.SolException;
 import language.models.sol.Sol;
 import language.models.sol.Sorkkal;
@@ -12,8 +13,8 @@ public class SorkkalTest {
 
     @Test
     public void shouldGetSubstring() throws SolException {
-        Sol v1 = new Sol("பு","து","மை","ப்","பி","த்","த","ன்");
-        Sol expected=new Sol("பி","த்","த","ன்");
+        Sol v1 = Processor.process("புதுமைப்பித்தன்").sorkkal()[0];
+        Sol expected=Processor.process("பித்தன்").sorkkal()[0];
 
         Sol actual = Sorkkal.substring(v1,4, 8);
 
@@ -22,7 +23,7 @@ public class SorkkalTest {
 
     @Test
     public void shouldThrowExceptionForIndexErrors() {
-        Sol v1 = new Sol("பு","து","மை","ப்","பி","த்","த","ன்");
+        Sol v1 = Processor.process("புதுமைப்பித்தன்").sorkkal()[0];
 
         try {
             Sorkkal.substring(v1,4, 9);
@@ -41,8 +42,8 @@ public class SorkkalTest {
 
     @Test
     public void shouldReverseTheGivenSol() {
-        Sol v1 = new Sol("ஸ்ரீ","ர","ங்","க","ம்");
-        Sol expected=new Sol("ம்","க","ங்","ர","ஸ்ரீ");
+        Sol v1 = Processor.process("ஶ்ரீரங்கம்").sorkkal()[0];
+        Sol expected=Processor.process("ம்கங்ரஶ்ரீ").sorkkal()[0];
 
         Sol actual = Sorkkal.reverse(v1);
 
@@ -51,8 +52,8 @@ public class SorkkalTest {
 
     @Test
     public void shouldRemoveTheElutthuFromSol() throws SolException {
-        Sol v1 = new Sol("ஸ்ரீ","ர","ங்","க","ம்");
-        Sol expected=new Sol("ஸ்ரீ","ர","ங்","க");
+        Sol v1 = Processor.process("ஶ்ரீரங்கம்").sorkkal()[0];
+        Sol expected=Processor.process("ஶ்ரீரங்க").sorkkal()[0];
 
         Sol actual = Sorkkal.remove(v1,4);
 

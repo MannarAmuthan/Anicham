@@ -1,4 +1,4 @@
-/**
+package anicham; /**
  * @author Amuthan Mannan
  */
 
@@ -13,7 +13,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 public class Processor {
 
-    static Processed process(String stringToProcess) {
+    static public Processed process(String stringToProcess) {
         TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         TamizhParser parser = new TamizhParser(tokens);
