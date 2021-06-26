@@ -1,9 +1,9 @@
-package language.sol;
+package anicham.language.sol;
 
 import anicham.Processor;
-import language.exceptions.SolException;
-import language.models.sol.Sol;
-import language.models.sol.Sorkkal;
+import anicham.language.exceptions.SolException;
+import anicham.language.models.sol.Sol;
+import anicham.language.models.sol.Sorkkal;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

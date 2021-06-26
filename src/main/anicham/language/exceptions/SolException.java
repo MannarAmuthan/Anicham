@@ -1,4 +1,4 @@
-package language.exceptions;
+package anicham.language.exceptions;
 
 public class SolException extends Exception {
     public SolException(String message) {

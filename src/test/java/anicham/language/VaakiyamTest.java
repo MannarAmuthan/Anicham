@@ -1,8 +1,8 @@
-package language;
+package anicham.language;
 
 import anicham.Processor;
-import language.models.Vaakiyam;
-import language.models.sol.Sol;
+import anicham.language.models.Vaakiyam;
+import anicham.language.models.sol.Sol;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

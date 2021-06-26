@@ -2,14 +2,14 @@
  * @author Amuthan Mannan
  */
 
-package language;
+package anicham.language;
 
 import grammar.TamizhBaseVisitor;
 import grammar.TamizhParser;
-import language.models.Patthi;
-import language.models.Vaakiyam;
-import language.models.ezhuththu.Ezhuththu;
-import language.models.sol.Sol;
+import anicham.language.models.Patthi;
+import anicham.language.models.Vaakiyam;
+import anicham.language.models.ezhuththu.Ezhuththu;
+import anicham.language.models.sol.Sol;
 
 import java.util.LinkedList;
 import java.util.List;

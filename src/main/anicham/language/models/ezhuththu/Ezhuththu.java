@@ -1,4 +1,4 @@
-package language.models.ezhuththu;
+package anicham.language.models.ezhuththu;
 
 import grammar.TamizhLexer;
 import org.antlr.v4.runtime.Token;

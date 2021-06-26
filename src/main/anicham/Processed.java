@@ -2,10 +2,10 @@ package anicham; /**
  * @author Amuthan Mannan
  */
 
-import language.models.Patthi;
-import language.models.Vaakiyam;
-import language.models.ezhuththu.Ezhuththu;
-import language.models.sol.Sol;
+import anicham.language.models.Patthi;
+import anicham.language.models.Vaakiyam;
+import anicham.language.models.ezhuththu.Ezhuththu;
+import anicham.language.models.sol.Sol;
 
 import java.util.Arrays;
 import java.util.LinkedList;

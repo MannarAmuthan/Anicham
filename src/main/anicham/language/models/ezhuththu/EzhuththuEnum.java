@@ -1,4 +1,4 @@
-package language.models.ezhuththu;
+package anicham.language.models.ezhuththu;
 
 public enum EzhuththuEnum {
     UYIR,

@@ -1,7 +1,7 @@
-package language.models.sol;
+package anicham.language.models.sol;
 
-import language.exceptions.SolException;
-import language.models.ezhuththu.Ezhuththu;
+import anicham.language.exceptions.SolException;
+import anicham.language.models.ezhuththu.Ezhuththu;
 
 import java.util.LinkedList;
 import java.util.List;

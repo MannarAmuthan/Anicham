@@ -2,9 +2,9 @@
  * @author Amuthan Mannan
  */
 
-package language.models.sol;
+package anicham.language.models.sol;
 
-import language.models.ezhuththu.Ezhuththu;
+import anicham.language.models.ezhuththu.Ezhuththu;
 
 import java.util.Collections;
 import java.util.LinkedList;

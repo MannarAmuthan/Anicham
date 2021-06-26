@@ -2,9 +2,9 @@
  * @author Amuthan Mannan
  */
 
-package language.models;
+package anicham.language.models;
 
-import language.models.sol.Sol;
+import anicham.language.models.sol.Sol;
 
 import java.util.Arrays;
 import java.util.LinkedList;

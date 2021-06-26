@@ -4,7 +4,7 @@ package anicham; /**
 
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
-import language.Visitor;
+import anicham.language.Visitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
