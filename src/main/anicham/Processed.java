@@ -7,7 +7,6 @@ import language.models.Vaakiyam;
 import language.models.ezhuththu.Ezhuththu;
 import language.models.sol.Sol;
 
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;

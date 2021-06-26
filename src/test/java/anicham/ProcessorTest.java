@@ -1,7 +1,5 @@
 package anicham;
 
-import anicham.Processed;
-import anicham.Processor;
 import language.models.Vaakiyam;
 import language.models.sol.Sol;
 import org.junit.Test;

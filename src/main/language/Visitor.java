@@ -5,13 +5,11 @@
 package language;
 
 import grammar.TamizhBaseVisitor;
-import grammar.TamizhLexer;
 import grammar.TamizhParser;
 import language.models.Patthi;
 import language.models.Vaakiyam;
 import language.models.ezhuththu.Ezhuththu;
 import language.models.sol.Sol;
-import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 import java.util.List;
