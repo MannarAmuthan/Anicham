@@ -5,5 +5,5 @@ public enum EzhuththuType {
     MEI,
     UYIR_MEI,
     AAYTHAM,
-    SRI
+    GRANTHA
 }

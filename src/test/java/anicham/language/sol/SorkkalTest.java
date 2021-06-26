@@ -76,15 +76,18 @@ public class SorkkalTest {
     public void shouldGetCountOfEzhuththuOfGivenTypeInGivenSol() {
         Sol sol=Processor.sol("உத்திரட்டாதி");
         Sol sol2=Processor.sol("கஃறீது");
+        Sol sol3=Processor.sol("ஷஹாபுதீன்");
 
         long actualUyirCount=Sorkkal.countTypeOf(sol, EzhuththuType.UYIR);
         long actualMeiCount=Sorkkal.countTypeOf(sol, EzhuththuType.MEI);
         long actualUyirMeiCount=Sorkkal.countTypeOf(sol, EzhuththuType.UYIR_MEI);
         long actualAythamCount= Sorkkal.countTypeOf(sol2,EzhuththuType.AAYTHAM);
+        long actualGranthaCount= Sorkkal.countTypeOf(sol3,EzhuththuType.GRANTHA);
 
         assertEquals(1,actualUyirCount);
         assertEquals(2,actualMeiCount);
         assertEquals(4,actualUyirMeiCount);
         assertEquals(1,actualAythamCount);
+        assertEquals(2,actualGranthaCount);
     }
 }

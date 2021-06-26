@@ -32,7 +32,20 @@ ezhuththu: UYIR
         | UYIR_MEI_I
         | UYIR_MEI_AA
         | UYIR_MEI_A
-        | SRI;
+        | GRANTHA_MEI
+        | GRANTHA_OU
+        | GRANTHA_OA
+        | GRANTHA_O
+        | GRANTHA_AI
+        | GRANTHA_AE
+        | GRANTHA_E
+        | GRANTHA_OO
+        | GRANTHA_U
+        | GRANTHA_EE
+        | GRANTHA_I
+        | GRANTHA_AA
+        | GRANTHA_A
+        | GRANTHA_SRI;
 
 MEI : (UYIR_MEI_A) (PULLI);
 
@@ -58,7 +71,7 @@ UYIR_MEI_I : (UYIR_MEI_A) (SULI);
 
 UYIR_MEI_AA : (UYIR_MEI_A) (KAAL);
 
-UYIR_MEI_A : ('\u0B95' | '\u0B99' | '\u0B9A' | '\u0B9E' | '\u0B9F' | '\u0BA3' | '\u0BA4' | '\u0BA8'..'\u0BAA' | '\u0BAE'..'\u0BB5') | GRANTHA_JA | GRANTHA_SH | GRANTHA_SS | GRANTHA_S | GRANTHA_H;
+UYIR_MEI_A : ('\u0B95' | '\u0B99' | '\u0B9A' | '\u0B9E' | '\u0B9F' | '\u0BA3' | '\u0BA4' | '\u0BA8'..'\u0BAA' | '\u0BAE'..'\u0BB5');
 
 UYIR : ('\u0B85'..'\u0B8A' | '\u0B8E'..'\u0B90' | '\u0B92'..'\u0B94') ;
 
@@ -88,7 +101,36 @@ OU : '\u0BCC';
 
 AAYTHAM : '\u0B83';
 
-SRI: (GRANTHA_SH) (PULLI) ('\u0BB0')(NEDIL_SULI);
+
+// Grantha Script
+
+GRANTHA_SRI: (GRANTHA_SH) (PULLI) ('\u0BB0')(NEDIL_SULI);
+
+GRANTHA_MEI : (GRANTHA_A) (PULLI);
+
+GRANTHA_OU : (GRANTHA_A) (OU);
+
+GRANTHA_OA : (GRANTHA_A) (O_NEDIL);
+
+GRANTHA_O : (GRANTHA_A) (O_KURIL);
+
+GRANTHA_AI : (GRANTHA_A) (I);
+
+GRANTHA_AE : (GRANTHA_A) (EA_NEDIL);
+
+GRANTHA_E : (GRANTHA_A) (EA_KURIL);
+
+GRANTHA_OO : (GRANTHA_A) (U_NEDIL);
+
+GRANTHA_U : (GRANTHA_A) (U_KURIL);
+
+GRANTHA_EE : (GRANTHA_A) (NEDIL_SULI);
+
+GRANTHA_I : (GRANTHA_A) (SULI);
+
+GRANTHA_AA : (GRANTHA_A) (KAAL);
+
+GRANTHA_A: (GRANTHA_JA) | (GRANTHA_SH) | (GRANTHA_SS) | (GRANTHA_S) | (GRANTHA_H);
 
 GRANTHA_JA: '\u0B9C';
 

@@ -37,7 +37,7 @@ public class Ezhuththu {
         if (tokenName.equals("AAYTHAM")) {
             return new Ezhuththu(EzhuththuType.AAYTHAM, token.getText());
         }
-        return new Ezhuththu(EzhuththuType.SRI, token.getText());
+        return new Ezhuththu(EzhuththuType.GRANTHA, token.getText());
     }
 
     @Override

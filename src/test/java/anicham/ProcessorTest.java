@@ -36,10 +36,10 @@ public class ProcessorTest {
 
     @Test
     public void testShouldIdentifyGranthaEluthukkal() {
-        Processed actual = Processor.process("ஜிஶிஷாஶ்ரீஹ");
+        Processed actual = Processor.process("ஜிஶிஷாஶ்ரீஹஷே");
 
         assert actual.vaakiyangal().length == 1;
-        assert actual.ezhuththukkal().length == 5;
+        assert actual.ezhuththukkal().length == 6;
     }
 
     @Test
@@ -61,13 +61,12 @@ public class ProcessorTest {
 
         expected.add(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen);
 
-        Processed actual = Processor.process("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது ஶ்ரீஹரி");
+        Vaakiyam actual = Processor.vaakiyam("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது ஶ்ரீஹரி");
 
 
-        assert actual.vaakiyangal().length == 1;
-        assert actual.sorkkal().length == 13;
+        assert actual.sorkkalCount() == 13;
 
-        assertEquals(expected, actual.getPatthigal()[0].getVaakiyangal().get(0));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -84,11 +83,11 @@ public class ProcessorTest {
         Sol nine = Processor.sol("பேதைமை");
         expected.add(one,two,three,four,five,six,seven,eight,nine);
 
-        Processed actual = Processor.process("கல்,கால்,கப்பலின், பீடம் புதுமைப்பித்தன் கூகை,பெரியார் சான்றோர் ,பேதைமை.");
+        Vaakiyam actual = Processor.vaakiyam("கல்,கால்,கப்பலின், பீடம் புதுமைப்பித்தன் கூகை,பெரியார் சான்றோர் ,பேதைமை.");
 
-        assert actual.sorkkal().length == 9;
+        assert actual.sorkkalCount()== 9;
 
-        assertEquals(expected, actual.getPatthigal()[0].getVaakiyangal().get(0));
+        assertEquals(expected, actual);
     }
 
     @Test
