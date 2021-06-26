@@ -6,6 +6,7 @@ package language.models;
 
 import language.models.sol.Sol;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -17,8 +18,12 @@ public class Vaakiyam {
         words = new LinkedList<>();
     }
 
-    public void add(Sol sol) {
-        words.add(sol);
+    public void add(Sol... sol) {
+        words.addAll(Arrays.asList(sol));
+    }
+
+    public void add(Vaakiyam vaakiyam){
+        words.addAll(vaakiyam.words);
     }
 
     public int sorkkalCount(){

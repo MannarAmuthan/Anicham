@@ -17,9 +17,9 @@ public class Processor {
         TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         TamizhParser parser = new TamizhParser(tokens);
-        ParseTree tree = parser.start();
+        ParseTree tree = parser.patthi();
         Visitor visitor = new Visitor();
         visitor.visit(tree);
-        return new Processed(visitor.vaakiyam);
+        return new Processed(visitor.getPatthigal());
     }
 }

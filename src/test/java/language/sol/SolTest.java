@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class SolTest {
     @Test
-    public void shouldAbleToEquateTwoVaarthaigal() {
+    public void shouldAbleToEquateTwoSorkkal() {
         Sol v1 = new Sol("க", "ல்");
 
         Sol v2 = new Sol("க", "ல்");

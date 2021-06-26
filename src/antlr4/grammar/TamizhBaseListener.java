@@ -18,13 +18,13 @@ public class TamizhBaseListener implements TamizhListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStart(TamizhParser.StartContext ctx) { }
+	@Override public void enterPatthi(TamizhParser.PatthiContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStart(TamizhParser.StartContext ctx) { }
+	@Override public void exitPatthi(TamizhParser.PatthiContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

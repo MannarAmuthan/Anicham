@@ -11,7 +11,7 @@ public class ProcessorTest {
     public void testShouldIdentifyUyirEluthukal() {
         Processed actual = Processor.process("அஆஇஈஉஊஎஏஐஒஓஔஃ");
 
-        assert actual.eluthukkal().length == 13;
+        assert actual.ezhuththukkal().length == 13;
     }
 
 
@@ -19,21 +19,21 @@ public class ProcessorTest {
     public void testShouldIdentifyMeiEluthukal() {
         Processed actual = Processor.process("க்ங்ச்ஞ்ட்ண்த்ந்ப்ம்ய்ர்ல்வ்ழ்ள்ற்ன்");
 
-        assert actual.eluthukkal().length == 18;
+        assert actual.ezhuththukkal().length == 18;
     }
 
     @Test
     public void testShouldIdentifyUyirMeiEluthukal() {
         Processed actual = Processor.process("கஙாசிஞீடுணூதேநைபொமோயௌரௌலௌவூழூளூறைனை");
 
-        assert actual.eluthukkal().length == 18;
+        assert actual.ezhuththukkal().length == 18;
     }
 
     @Test
     public void testShouldIdentifyGranthaEluthukkal() {
         Processed actual = Processor.process("ஜிஶிஷாஶ்ரீஹ");
 
-        assert actual.eluthukkal().length == 5;
+        assert actual.ezhuththukkal().length == 5;
     }
 
     @Test
@@ -53,26 +53,60 @@ public class ProcessorTest {
         Sol twelve = new Sol("க","ஃ","றீ","து");
         Sol thirteen = new Sol("ஶ்ரீ","ஹ","ரி");
 
-
-        expected.add(one);
-        expected.add(two);
-        expected.add(three);
-        expected.add(four);
-        expected.add(five);
-        expected.add(six);
-        expected.add(seven);
-        expected.add(eight);
-        expected.add(nine);
-        expected.add(ten);
-        expected.add(eleven);
-        expected.add(twelve);
-        expected.add(thirteen);
+        expected.add(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen);
 
         Processed actual = Processor.process("கல் கால் கப்பலின் பீடம் புதுமைப்பித்தன் கூகை பெரியார் சான்றோர் பேதைமை ஒற்றுமை பௌர்ணமி கஃறீது ஶ்ரீஹரி");
 
-        assert actual.vaarthaigal().length == 13;
+        assert actual.sorkkal().length == 13;
 
-        assertEquals(expected, actual.vaakiyam);
+        assertEquals(expected, actual.getPatthigal().get(0).getVaakiyangal().get(0));
     }
 
+    @Test
+    public void shouldIdentifySeparationBetweenSorkkal(){
+        Vaakiyam expected = new Vaakiyam();
+        Sol one = new Sol("க", "ல்");
+        Sol two = new Sol("கா", "ல்");
+        Sol three = new Sol("க", "ப்", "ப", "லி", "ன்");
+        Sol four = new Sol("பீ", "ட", "ம்");
+        Sol five = new Sol("பு", "து", "மை", "ப்", "பி", "த்", "த", "ன்");
+        Sol six = new Sol("கூ", "கை");
+        Sol seven = new Sol("பெ", "ரி", "யா", "ர்");
+        Sol eight = new Sol("சா", "ன்", "றோ", "ர்");
+        Sol nine = new Sol("பே", "தை", "மை");
+        expected.add(one,two,three,four,five,six,seven,eight,nine);
+
+        Processed actual = Processor.process("கல்,கால்,கப்பலின், பீடம் புதுமைப்பித்தன் கூகை,பெரியார் சான்றோர் ,பேதைமை.");
+
+        assert actual.sorkkal().length == 9;
+
+        assertEquals(expected, actual.getPatthigal().get(0).getVaakiyangal().get(0));
+    }
+
+    @Test
+    public void shouldIgnoreSpecialCharacters() {
+        Vaakiyam expected = new Vaakiyam();
+        Sol one = new Sol("க", "ல்");
+        Sol two = new Sol("கா", "ல்");
+        Sol three = new Sol("க", "ப்", "ப", "லி", "ன்");
+        expected.add(one,two,three);
+
+        Processed actual = Processor.process("கல்!?,`கால்`-,\"கப்பலின்\"'");
+
+        assert actual.sorkkal().length == 3;
+
+        assertEquals(expected, actual.getPatthigal().get(0).getVaakiyangal().get(0));
+    }
+
+    @Test
+    public void shouldProvidePatthiForGivenInput() {
+
+        Processed actual = Processor.process("கர்நாடக மாநிலத்தில் உள்ள சிர்ஷி என்ற ஊரில் இருந்து சுமார் கிலோ மீட்டர் பயணம் செய்தால், சால்மலா ஆறு வந்துவிடும்.வற்றாமல் ஓடும் இந்த ஆற்றின் நீரை நம்பி அங்கு பல்லாயிரம் மக்கள் வாழ்கின்றனர்.மேற்குத் தொடர்ச்சி மலைப் பகுதியான இங்கு தென்மேற்கு பருவமழையின் போது வெள்ளம் கரைபுரண்டு ஓடும்.\n" +
+                "இங்கு உள்ள லிங்கத்திற்கு அபிஷேக ஆராதனை எதுவும் செய்யப்படுவதில்லை.ஓடும் ஆற்றின் ஆற்றின் நீரினால் லிங்கத்திற்கு தினம் தினம் அபிஷேகம்.ஆண்டுதோறும் மகா சிவராத்திரியின் போது மக்கள் கூட்டம் இங்கு அலைமோதும்.இறைவன் எங்கும் இருக்கின்றான் என்பதை இது நமக்கு உணர்த்துகிறது.");
+
+
+        assert actual.getPatthigal().size() == 2;
+        assert actual.getPatthigal().get(0).getVaakiyangal().size() == 3;
+        assert actual.getPatthigal().get(1).getVaakiyangal().size() == 4;
+    }
 }
