@@ -151,71 +151,40 @@ public class TamizhParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(15);
-			switch (_input.LA(1)) {
-			case MEI:
-			case UYIR_MEI_OU:
-			case UYIR_MEI_OA:
-			case UYIR_MEI_O:
-			case UYIR_MEI_AI:
-			case UYIR_MEI_AE:
-			case UYIR_MEI_E:
-			case UYIR_MEI_OO:
-			case UYIR_MEI_U:
-			case UYIR_MEI_EE:
-			case UYIR_MEI_I:
-			case UYIR_MEI_AA:
-			case UYIR_MEI_A:
-			case UYIR:
-			case AAYTHAM:
-			case GRANTHA_SRI:
-			case GRANTHA_MEI:
-			case GRANTHA_OU:
-			case GRANTHA_OA:
-			case GRANTHA_O:
-			case GRANTHA_AI:
-			case GRANTHA_AE:
-			case GRANTHA_E:
-			case GRANTHA_OO:
-			case GRANTHA_U:
-			case GRANTHA_EE:
-			case GRANTHA_I:
-			case GRANTHA_AA:
-			case GRANTHA_A:
-				{
-				setState(10); 
-				_errHandler.sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						setState(9);
-						vaakiyam(0);
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
+			{
+			setState(10); 
+			_errHandler.sync(this);
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
+					{
+					{
+					setState(9);
+					vaakiyam();
 					}
-					setState(12); 
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-				break;
-			case EOF:
+				setState(12); 
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+			setState(15);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			case 1:
 				{
 				setState(14);
 				match(EOF);
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+			}
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(24);
+			setState(25);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -227,23 +196,25 @@ public class TamizhParser extends Parser {
 					_localctx = new PatthiContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_patthi);
 					setState(17);
-					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
 					setState(18);
 					match(NEWLINE);
-					setState(20);
+					setState(19);
+					patthi(0);
+					setState(21);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
-						setState(19);
-						patthi(0);
+						setState(20);
+						match(EOF);
 						}
 						break;
 					}
 					}
 					} 
 				}
-				setState(26);
+				setState(27);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
@@ -261,18 +232,11 @@ public class TamizhParser extends Parser {
 	}
 
 	public static class VaakiyamContext extends ParserRuleContext {
-		public SolContext sol() {
-			return getRuleContext(SolContext.class,0);
+		public List<SolContext> sol() {
+			return getRuleContexts(SolContext.class);
 		}
-		public List<VaakiyamContext> vaakiyam() {
-			return getRuleContexts(VaakiyamContext.class);
-		}
-		public VaakiyamContext vaakiyam(int i) {
-			return getRuleContext(VaakiyamContext.class,i);
-		}
-		public List<TerminalNode> SOL_SEPARATOR() { return getTokens(TamizhParser.SOL_SEPARATOR); }
-		public TerminalNode SOL_SEPARATOR(int i) {
-			return getToken(TamizhParser.SOL_SEPARATOR, i);
+		public SolContext sol(int i) {
+			return getRuleContext(SolContext.class,i);
 		}
 		public TerminalNode STOP_POINT() { return getToken(TamizhParser.STOP_POINT, 0); }
 		public VaakiyamContext(ParserRuleContext parent, int invokingState) {
@@ -295,77 +259,41 @@ public class TamizhParser extends Parser {
 	}
 
 	public final VaakiyamContext vaakiyam() throws RecognitionException {
-		return vaakiyam(0);
-	}
-
-	private VaakiyamContext vaakiyam(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		VaakiyamContext _localctx = new VaakiyamContext(_ctx, _parentState);
-		VaakiyamContext _prevctx = _localctx;
-		int _startState = 2;
-		enterRecursionRule(_localctx, 2, RULE_vaakiyam, _p);
-		int _la;
+		VaakiyamContext _localctx = new VaakiyamContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_vaakiyam);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(28);
-			sol();
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(41);
+			setState(29); 
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
 					{
-					setState(39);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-					case 1:
-						{
-						_localctx = new VaakiyamContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_vaakiyam);
-						setState(30);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(32); 
-						_errHandler.sync(this);
-						_la = _input.LA(1);
-						do {
-							{
-							{
-							setState(31);
-							match(SOL_SEPARATOR);
-							}
-							}
-							setState(34); 
-							_errHandler.sync(this);
-							_la = _input.LA(1);
-						} while ( _la==SOL_SEPARATOR );
-						setState(36);
-						vaakiyam(3);
-						}
-						break;
-					case 2:
-						{
-						_localctx = new VaakiyamContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_vaakiyam);
-						setState(37);
-						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(38);
-						match(STOP_POINT);
-						}
-						break;
+					{
+					setState(28);
+					sol();
 					}
-					} 
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-				setState(43);
+				setState(31); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+			setState(34);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
+				{
+				setState(33);
+				match(STOP_POINT);
+				}
+				break;
 			}
 			}
 		}
@@ -375,7 +303,7 @@ public class TamizhParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
 		}
 		return _localctx;
 	}
@@ -387,6 +315,7 @@ public class TamizhParser extends Parser {
 		public EzhuththuContext ezhuththu(int i) {
 			return getRuleContext(EzhuththuContext.class,i);
 		}
+		public TerminalNode SOL_SEPARATOR() { return getToken(TamizhParser.SOL_SEPARATOR, 0); }
 		public SolContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -413,7 +342,7 @@ public class TamizhParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(45); 
+			setState(37); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -421,7 +350,7 @@ public class TamizhParser extends Parser {
 				case 1:
 					{
 					{
-					setState(44);
+					setState(36);
 					ezhuththu();
 					}
 					}
@@ -429,10 +358,20 @@ public class TamizhParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(47); 
+				setState(39); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+			setState(42);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+			case 1:
+				{
+				setState(41);
+				match(SOL_SEPARATOR);
+				}
+				break;
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -502,7 +441,7 @@ public class TamizhParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(44);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_OU) | (1L << UYIR_MEI_OA) | (1L << UYIR_MEI_O) | (1L << UYIR_MEI_AI) | (1L << UYIR_MEI_AE) | (1L << UYIR_MEI_E) | (1L << UYIR_MEI_OO) | (1L << UYIR_MEI_U) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR) | (1L << AAYTHAM) | (1L << GRANTHA_SRI) | (1L << GRANTHA_MEI) | (1L << GRANTHA_OU) | (1L << GRANTHA_OA) | (1L << GRANTHA_O) | (1L << GRANTHA_AI) | (1L << GRANTHA_AE) | (1L << GRANTHA_E) | (1L << GRANTHA_OO) | (1L << GRANTHA_U) | (1L << GRANTHA_EE) | (1L << GRANTHA_I) | (1L << GRANTHA_AA) | (1L << GRANTHA_A))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -526,44 +465,32 @@ public class TamizhParser extends Parser {
 		switch (ruleIndex) {
 		case 0:
 			return patthi_sempred((PatthiContext)_localctx, predIndex);
-		case 1:
-			return vaakiyam_sempred((VaakiyamContext)_localctx, predIndex);
 		}
 		return true;
 	}
 	private boolean patthi_sempred(PatthiContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 2);
-		}
-		return true;
-	}
-	private boolean vaakiyam_sempred(VaakiyamContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 1:
-			return precpred(_ctx, 2);
-		case 2:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\65\66\4\2\t\2\4\3"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\65\61\4\2\t\2\4\3"+
 		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\2\5\2\22\n\2\3\2"+
-		"\3\2\3\2\5\2\27\n\2\7\2\31\n\2\f\2\16\2\34\13\2\3\3\3\3\3\3\3\3\3\3\6"+
-		"\3#\n\3\r\3\16\3$\3\3\3\3\3\3\7\3*\n\3\f\3\16\3-\13\3\3\4\6\4\60\n\4\r"+
-		"\4\16\4\61\3\5\3\5\3\5\2\4\2\4\6\2\4\6\b\2\3\4\2\3\20\35+9\2\21\3\2\2"+
-		"\2\4\35\3\2\2\2\6/\3\2\2\2\b\63\3\2\2\2\n\f\b\2\1\2\13\r\5\4\3\2\f\13"+
-		"\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\22\3\2\2\2\20\22\7"+
-		"\2\2\3\21\n\3\2\2\2\21\20\3\2\2\2\22\32\3\2\2\2\23\24\f\4\2\2\24\26\7"+
-		"\65\2\2\25\27\5\2\2\2\26\25\3\2\2\2\26\27\3\2\2\2\27\31\3\2\2\2\30\23"+
-		"\3\2\2\2\31\34\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\3\3\2\2\2\34\32"+
-		"\3\2\2\2\35\36\b\3\1\2\36\37\5\6\4\2\37+\3\2\2\2 \"\f\4\2\2!#\7\62\2\2"+
-		"\"!\3\2\2\2#$\3\2\2\2$\"\3\2\2\2$%\3\2\2\2%&\3\2\2\2&*\5\4\3\5\'(\f\3"+
-		"\2\2(*\7\64\2\2) \3\2\2\2)\'\3\2\2\2*-\3\2\2\2+)\3\2\2\2+,\3\2\2\2,\5"+
-		"\3\2\2\2-+\3\2\2\2.\60\5\b\5\2/.\3\2\2\2\60\61\3\2\2\2\61/\3\2\2\2\61"+
-		"\62\3\2\2\2\62\7\3\2\2\2\63\64\t\2\2\2\64\t\3\2\2\2\n\16\21\26\32$)+\61";
+		"\3\2\3\2\3\2\5\2\30\n\2\7\2\32\n\2\f\2\16\2\35\13\2\3\3\6\3 \n\3\r\3\16"+
+		"\3!\3\3\5\3%\n\3\3\4\6\4(\n\4\r\4\16\4)\3\4\5\4-\n\4\3\5\3\5\3\5\2\3\2"+
+		"\6\2\4\6\b\2\3\4\2\3\20\35+\64\2\n\3\2\2\2\4\37\3\2\2\2\6\'\3\2\2\2\b"+
+		".\3\2\2\2\n\f\b\2\1\2\13\r\5\4\3\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2"+
+		"\2\2\16\17\3\2\2\2\17\21\3\2\2\2\20\22\7\2\2\3\21\20\3\2\2\2\21\22\3\2"+
+		"\2\2\22\33\3\2\2\2\23\24\f\3\2\2\24\25\7\65\2\2\25\27\5\2\2\2\26\30\7"+
+		"\2\2\3\27\26\3\2\2\2\27\30\3\2\2\2\30\32\3\2\2\2\31\23\3\2\2\2\32\35\3"+
+		"\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\3\3\2\2\2\35\33\3\2\2\2\36 \5\6"+
+		"\4\2\37\36\3\2\2\2 !\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"$\3\2\2\2#%\7\64"+
+		"\2\2$#\3\2\2\2$%\3\2\2\2%\5\3\2\2\2&(\5\b\5\2\'&\3\2\2\2()\3\2\2\2)\'"+
+		"\3\2\2\2)*\3\2\2\2*,\3\2\2\2+-\7\62\2\2,+\3\2\2\2,-\3\2\2\2-\7\3\2\2\2"+
+		"./\t\2\2\2/\t\3\2\2\2\n\16\21\27\33!$),";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

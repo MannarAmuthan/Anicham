@@ -33,11 +33,12 @@ public class Visitor extends TamizhBaseVisitor {
                 visitPatthi(pc);
             }
         }
-        List<TamizhParser.VaakiyamContext> vaakiyangal = ctx.vaakiyam();
-        if(vaakiyangal.size()>0){
+
+        List<TamizhParser.VaakiyamContext> vaakiyam = ctx.vaakiyam();
+        if(vaakiyam.size()>0){
             Patthi patthi=new Patthi();
-            for(TamizhParser.VaakiyamContext vc:vaakiyangal){
-                patthi.add((Vaakiyam) visitVaakiyam(vc));
+            for (TamizhParser.VaakiyamContext vc: vaakiyam){
+                patthi.add((Vaakiyam)visitVaakiyam(vc));
             }
             this.patthigal.add(patthi);
         }
@@ -46,20 +47,16 @@ public class Visitor extends TamizhBaseVisitor {
 
     @Override
     public Object visitVaakiyam(TamizhParser.VaakiyamContext ctx) {
-        List<TamizhParser.VaakiyamContext> vaakiyam = ctx.vaakiyam();
-        if (vaakiyam.size() > 0) {
-            Vaakiyam v1=new Vaakiyam();
-            for (TamizhParser.VaakiyamContext vc: vaakiyam){
-                v1.add((Vaakiyam) visitVaakiyam(vc));
+        List<TamizhParser.SolContext> sol = ctx.sol();
+        if(sol.size()>0){
+            Vaakiyam v1 = new Vaakiyam();
+            for(TamizhParser.SolContext sc:sol) {
+                Sol v = (Sol) visitSol(sc);
+                v1.add(v);
             }
             return v1;
         }
-        else {
-            Sol v = (Sol) visitSol(ctx.sol());
-            Vaakiyam v1=new Vaakiyam();
-            v1.add(v);
-            return v1;
-        }
+        return null;
     }
 
     @Override
