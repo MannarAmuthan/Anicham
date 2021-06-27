@@ -3,15 +3,21 @@ package anicham; /**
  */
 
 import anicham.exceptions.AnichamExceptions;
+import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.ezhuththu.Ezhuththu;
 import anicham.language.models.sol.Sol;
+import anicham.language.visitors.EzhuththuVisitor;
+import anicham.language.visitors.SolVisitor;
+import anicham.language.visitors.VaakiyamVisitor;
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
-import anicham.language.Visitor;
+import anicham.language.visitors.Visitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+
+import java.util.List;
 
 
 public class Processor {
@@ -25,8 +31,8 @@ public class Processor {
 
     private static Processed getProcessed(ParseTree tree) {
         Visitor visitor = new Visitor();
-        visitor.visit(tree);
-        return new Processed(visitor.getPatthigal());
+        List<Patthi> patthigal = visitor.visit(tree);
+        return new Processed(patthigal);
     }
 
     static public Processed process(String stringToProcess) {
@@ -36,20 +42,23 @@ public class Processor {
     }
 
     static public Vaakiyam vaakiyam(String stringToProcess) {
-        Vaakiyam[] vaakiyangal = Processor.process(stringToProcess).vaakiyangal();
-        if (vaakiyangal.length != 1) throw new AnichamExceptions("Not a valid Ezhuththu");
-        return vaakiyangal[0];
+        TamizhParser parser = getTamizhParser(stringToProcess);
+        ParseTree tree = parser.vaakiyam();
+        VaakiyamVisitor vaakiyamVisitor=new VaakiyamVisitor();
+        return vaakiyamVisitor.visit(tree);
     }
 
     static public Sol sol(String stringToProcess) {
-        Sol[] sorkkal = Processor.process(stringToProcess).sorkkal();
-        if (sorkkal.length != 1) throw new AnichamExceptions("Not a valid Sol");
-        return sorkkal[0];
+        TamizhParser parser = getTamizhParser(stringToProcess);
+        ParseTree tree = parser.sol();
+        SolVisitor solVisitor=new SolVisitor();
+        return solVisitor.visit(tree);
     }
 
     static public Ezhuththu ezhuththu(String stringToProcess) {
-        Ezhuththu[] ezhuththukkal = Processor.process(stringToProcess).ezhuththukkal();
-        if (ezhuththukkal.length != 1) throw new AnichamExceptions("Not a valid Ezhuththu");
-        return ezhuththukkal[0];
+        TamizhParser parser = getTamizhParser(stringToProcess);
+        ParseTree tree = parser.ezhuththu();
+        EzhuththuVisitor ezhuththuVisitor=new EzhuththuVisitor();
+        return ezhuththuVisitor.visit(tree);
     }
 }
