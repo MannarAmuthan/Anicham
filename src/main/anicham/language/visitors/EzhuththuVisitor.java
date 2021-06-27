@@ -6,7 +6,6 @@ import grammar.TamizhParser;
 
 public class EzhuththuVisitor extends TamizhBaseVisitor<Ezhuththu> {
 
-
     @Override
     public Ezhuththu visitEzhuththu(TamizhParser.EzhuththuContext ctx) {
         return Ezhuththu.create(ctx.getStop());

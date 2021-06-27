@@ -129,4 +129,9 @@ public class ProcessorTest {
         assert actual2.getPatthigal()[2].getVaakiyangal().size() == 3;
 
     }
+
+    @Test
+    public void test() {
+        Processor.vaakiyam("விடுதலை. ");
+    }
 }

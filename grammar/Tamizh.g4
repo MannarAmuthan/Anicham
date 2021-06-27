@@ -12,10 +12,9 @@ tamizh_script: patthi+ EOF;
 
 patthi: vaakiyam+ NEWLINE;
 
-vaakiyam : sol+ STOP_POINT;
+vaakiyam : sol+ STOP_POINT WS;
 
-
-sol : ezhuththu+ SOL_SEPARATOR?;
+sol : ezhuththu+ (COMMA | WS)*;
 
 ezhuththu: UYIR
         | MEI
@@ -144,7 +143,7 @@ GRANTHA_H: '\u0BB9';
 
 PUNCTUATIONS: [!?\\-\\"'`‘]+ -> skip ;
 
-SOL_SEPARATOR: ((WS) | [,])+;
+COMMA: ([,]);
 
 WS : (' '|[\t])+;
 

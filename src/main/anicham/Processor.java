@@ -2,7 +2,6 @@ package anicham; /**
  * @author Amuthan Mannan
  */
 
-import anicham.exceptions.AnichamExceptions;
 import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.ezhuththu.Ezhuththu;

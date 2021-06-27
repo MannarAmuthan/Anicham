@@ -1,7 +1,6 @@
 package anicham.language.visitors;
 
 import anicham.language.models.Patthi;
-import anicham.language.models.Vaakiyam;
 import grammar.TamizhBaseVisitor;
 import grammar.TamizhParser;
 
