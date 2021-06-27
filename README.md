@@ -1,6 +1,14 @@
 # **அனிச்சம்(Anicham)**
 
-Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides functions for identify and manipulate tamizh strings. Grammatical rules are implemented using ANTLR4. 
+Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides functions for identify and manipulate tamizh strings. Structured by hierchical elements of Tamizh native grammar rules (Ezhuthu, Sol, Vaakiyam). 
+
+- [Core Elements](#core-elements)
+    - [எழுத்து(Ezhuththu)](#எழுத்து(Ezhuththu))
+    - [சொல்(Sol)](#சொல்(Sol))
+    - [வாக்கியம்(Vaakiyam)](#வாக்கியம்(Vaakiyam))
+    - [பத்தி(Patthi)](#பத்தி(Patthi))
+    
+- [More Utils](#more-utils)
 
 #### **Core elements:**
 
