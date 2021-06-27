@@ -1,5 +1,6 @@
 /**
  * @author Amuthan Mannan
+ Tamizh antlr4 grammar
  */
 
 grammar Tamizh;
