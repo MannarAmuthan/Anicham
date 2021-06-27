@@ -13,19 +13,26 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-import java.util.List;
-
 
 public class Processor {
 
-    static public Processed process(String stringToProcess) {
+    private static TamizhParser getTamizhParser(String stringToProcess) {
         TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         TamizhParser parser = new TamizhParser(tokens);
-        ParseTree tree = parser.tamizh_script();
+        return parser;
+    }
+
+    private static Processed getProcessed(ParseTree tree) {
         Visitor visitor = new Visitor();
         visitor.visit(tree);
         return new Processed(visitor.getPatthigal());
+    }
+
+    static public Processed process(String stringToProcess) {
+        TamizhParser parser = getTamizhParser(stringToProcess);
+        ParseTree tree = parser.tamizh_script();
+        return getProcessed(tree);
     }
 
     static public Vaakiyam vaakiyam(String stringToProcess) {
