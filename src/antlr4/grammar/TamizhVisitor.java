@@ -1,6 +1,6 @@
 // Generated from grammar/Tamizh.g4 by ANTLR 4.5.1
 
-package grammar;
+    package grammar;
 
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 

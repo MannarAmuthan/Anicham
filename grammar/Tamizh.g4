@@ -4,7 +4,7 @@
 
 grammar Tamizh;
 @header {
-package grammar;
+    package grammar;
 }
 
 
