@@ -1,9 +1,9 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'org.anicham'
+version '1.0.0'
 
 sourceSets {
     main.java.srcDirs  = ['src/antlr4', 'src/main']
@@ -11,6 +11,12 @@ sourceSets {
 
 repositories {
     mavenCentral()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 task generateParser(type:JavaExec) {
