@@ -1,6 +1,6 @@
 package anicham.language.sol;
 
-import anicham.Processor;
+import anicham.Anicham;
 import anicham.language.exceptions.SolException;
 import anicham.language.models.ezhuththu.Ezhuththu;
 import anicham.language.models.ezhuththu.EzhuththuType;
@@ -15,8 +15,8 @@ public class SorkkalTest {
 
     @Test
     public void shouldGetSubstring(){
-        Sol v1 = Processor.sol("புதுமைப்பித்தன்");
-        Sol expected=Processor.sol("பித்தன்");
+        Sol v1 = Anicham.sol("புதுமைப்பித்தன்");
+        Sol expected= Anicham.sol("பித்தன்");
 
         Sol actual = Sorkkal.substring(v1,4, 8);
 
@@ -25,7 +25,7 @@ public class SorkkalTest {
 
     @Test
     public void shouldThrowExceptionForIndexErrors() {
-        Sol v1 = Processor.sol("புதுமைப்பித்தன்");
+        Sol v1 = Anicham.sol("புதுமைப்பித்தன்");
 
         try {
             Sorkkal.substring(v1,4, 9);
@@ -44,8 +44,8 @@ public class SorkkalTest {
 
     @Test
     public void shouldReverseTheGivenSol() {
-        Sol v1 = Processor.sol("ஶ்ரீரங்கம்");
-        Sol expected=Processor.sol("ம்கங்ரஶ்ரீ");
+        Sol v1 = Anicham.sol("ஶ்ரீரங்கம்");
+        Sol expected= Anicham.sol("ம்கங்ரஶ்ரீ");
 
         Sol actual = Sorkkal.reverse(v1);
 
@@ -54,8 +54,8 @@ public class SorkkalTest {
 
     @Test
     public void shouldRemoveTheElutthuFromSol(){
-        Sol v1 = Processor.sol("ஶ்ரீரங்கம்");
-        Sol expected=Processor.sol("ஶ்ரீரங்க");
+        Sol v1 = Anicham.sol("ஶ்ரீரங்கம்");
+        Sol expected= Anicham.sol("ஶ்ரீரங்க");
 
         Sol actual = Sorkkal.remove(v1,4);
 
@@ -64,7 +64,7 @@ public class SorkkalTest {
 
     @Test
     public void shouldGetEzhuththuForGivenPosition() {
-        Sol v1 = Processor.sol("புதுமைப்பித்தன்");
+        Sol v1 = Anicham.sol("புதுமைப்பித்தன்");
 
         Ezhuththu ezhuththu = Sorkkal.ezhuththuAt(v1, 2);
 
@@ -74,9 +74,9 @@ public class SorkkalTest {
 
     @Test
     public void shouldGetCountOfEzhuththuOfGivenTypeInGivenSol() {
-        Sol sol=Processor.sol("உத்திரட்டாதி");
-        Sol sol2=Processor.sol("கஃறீது");
-        Sol sol3=Processor.sol("ஷஹாபுதீன்");
+        Sol sol= Anicham.sol("உத்திரட்டாதி");
+        Sol sol2= Anicham.sol("கஃறீது");
+        Sol sol3= Anicham.sol("ஷஹாபுதீன்");
 
         long actualUyirCount=Sorkkal.countTypeOf(sol, EzhuththuType.UYIR);
         long actualMeiCount=Sorkkal.countTypeOf(sol, EzhuththuType.MEI);

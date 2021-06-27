@@ -1,6 +1,6 @@
 package anicham.language;
 
-import anicham.Processor;
+import anicham.Anicham;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.sol.Sol;
 import org.junit.Test;
@@ -12,11 +12,11 @@ public class VaakiyamTest {
     public void testAbleToEquateTwoVaakiyam() {
 
         Vaakiyam one=new Vaakiyam();
-        Sol v1 = Processor.sol("கல்");
+        Sol v1 = Anicham.sol("கல்");
         one.add(v1);
 
         Vaakiyam two=new Vaakiyam();
-        Sol v2 = Processor.sol("கல்");
+        Sol v2 = Anicham.sol("கல்");
         two.add(v2);
 
         assertEquals(one,two);

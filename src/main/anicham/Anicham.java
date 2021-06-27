@@ -19,7 +19,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import java.util.List;
 
 
-public class Processor {
+public class Anicham {
 
     private static TamizhParser getTamizhParser(String stringToProcess) {
         TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
