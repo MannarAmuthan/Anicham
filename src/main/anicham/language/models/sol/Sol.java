@@ -50,6 +50,13 @@ public class Sol {
     }
 
     @Override
+    public String toString() {
+        StringBuilder stringBuilder=new StringBuilder();
+        ezhutthukkal().forEach(ezhuththu -> stringBuilder.append(ezhuththu.toString()));
+        return stringBuilder.toString();
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(letters);
     }
