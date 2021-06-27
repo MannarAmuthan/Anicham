@@ -2,15 +2,8 @@
 
 Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides functions for identify and manipulate tamizh strings. Structured by hierchical elements of Tamizh native grammar rules (Ezhuthu, Sol, Vaakiyam). 
 
-- [Core Elements](#core-elements)
-    - [எழுத்து(Ezhuththu)](#எழுத்து(Ezhuththu))
-    - [சொல்(Sol)](#சொல்(Sol))
-    - [வாக்கியம்(Vaakiyam)](#வாக்கியம்(Vaakiyam))
-    - [பத்தி(Patthi)](#பத்தி(Patthi))
-    
-- [More Utils](#more-utils)
 
-#### **Core elements:**
+## **Core elements:**
 
 **1.எழுத்து(Ezhuththu) - _A Letter_**:
 
@@ -75,9 +68,7 @@ Usage:
         LinkedList<Vaakiyam> vaakiyangal = patthigal.get(0).getVaakiyangal();
 ```
 
-
-
-#### **More Utils:**
+## **More Utils:**
 
 Currently All utils operates only on Sorkkal.
     
@@ -126,3 +117,14 @@ Currently All utils operates only on Sorkkal.
         
         Sorkkal.countTypeOf(shahaaputheen,EzhuththuType.GRANTHA); //returns 2
 ```
+
+## Features to be implemented or Limitations
+
+1. Numbers and other token type needs to be recognised.
+2. Currently inputs are given as UTF-8, needs to explore more on other tamil encoded fonts and formats.
+3. More grammatical rules , for auto correction features for Sol(tamizh words) can be done.
+4. Dictionary and more linguistic resources.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.
