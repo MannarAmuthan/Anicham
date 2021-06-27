@@ -10,6 +10,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface TamizhListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link TamizhParser#tamizh_script}.
+	 * @param ctx the parse tree
+	 */
+	void enterTamizh_script(TamizhParser.Tamizh_scriptContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TamizhParser#tamizh_script}.
+	 * @param ctx the parse tree
+	 */
+	void exitTamizh_script(TamizhParser.Tamizh_scriptContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TamizhParser#patthi}.
 	 * @param ctx the parse tree
 	 */

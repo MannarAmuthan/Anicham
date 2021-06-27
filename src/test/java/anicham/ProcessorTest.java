@@ -126,7 +126,7 @@ public class ProcessorTest {
         assert actual2.getPatthigal().length == 3;
         assert actual2.getPatthigal()[0].getVaakiyangal().size() == 2;
         assert actual2.getPatthigal()[1].getVaakiyangal().size() == 1;
-        assert actual2.getPatthigal()[2].getVaakiyangal().size() == 3;
+        assert actual2.getPatthigal()[2].getVaakiyangal().size() == 2;
 
     }
 }

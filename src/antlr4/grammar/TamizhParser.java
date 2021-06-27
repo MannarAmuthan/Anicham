@@ -29,9 +29,10 @@ public class TamizhParser extends Parser {
 		GRANTHA_JA=42, GRANTHA_SH=43, GRANTHA_SS=44, GRANTHA_S=45, GRANTHA_H=46, 
 		PUNCTUATIONS=47, SOL_SEPARATOR=48, WS=49, STOP_POINT=50, NEWLINE=51;
 	public static final int
-		RULE_patthi = 0, RULE_vaakiyam = 1, RULE_sol = 2, RULE_ezhuththu = 3;
+		RULE_tamizh_script = 0, RULE_patthi = 1, RULE_vaakiyam = 2, RULE_sol = 3, 
+		RULE_ezhuththu = 4;
 	public static final String[] ruleNames = {
-		"patthi", "vaakiyam", "sol", "ezhuththu"
+		"tamizh_script", "patthi", "vaakiyam", "sol", "ezhuththu"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -102,13 +103,7 @@ public class TamizhParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class PatthiContext extends ParserRuleContext {
-		public List<VaakiyamContext> vaakiyam() {
-			return getRuleContexts(VaakiyamContext.class);
-		}
-		public VaakiyamContext vaakiyam(int i) {
-			return getRuleContext(VaakiyamContext.class,i);
-		}
+	public static class Tamizh_scriptContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(TamizhParser.EOF, 0); }
 		public List<PatthiContext> patthi() {
 			return getRuleContexts(PatthiContext.class);
@@ -116,7 +111,69 @@ public class TamizhParser extends Parser {
 		public PatthiContext patthi(int i) {
 			return getRuleContext(PatthiContext.class,i);
 		}
+		public Tamizh_scriptContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_tamizh_script; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).enterTamizh_script(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof TamizhListener ) ((TamizhListener)listener).exitTamizh_script(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TamizhVisitor ) return ((TamizhVisitor<? extends T>)visitor).visitTamizh_script(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Tamizh_scriptContext tamizh_script() throws RecognitionException {
+		Tamizh_scriptContext _localctx = new Tamizh_scriptContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_tamizh_script);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(11); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(10);
+				patthi();
+				}
+				}
+				setState(13); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_OU) | (1L << UYIR_MEI_OA) | (1L << UYIR_MEI_O) | (1L << UYIR_MEI_AI) | (1L << UYIR_MEI_AE) | (1L << UYIR_MEI_E) | (1L << UYIR_MEI_OO) | (1L << UYIR_MEI_U) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR) | (1L << AAYTHAM) | (1L << GRANTHA_SRI) | (1L << GRANTHA_MEI) | (1L << GRANTHA_OU) | (1L << GRANTHA_OA) | (1L << GRANTHA_O) | (1L << GRANTHA_AI) | (1L << GRANTHA_AE) | (1L << GRANTHA_E) | (1L << GRANTHA_OO) | (1L << GRANTHA_U) | (1L << GRANTHA_EE) | (1L << GRANTHA_I) | (1L << GRANTHA_AA) | (1L << GRANTHA_A))) != 0) );
+			setState(15);
+			match(EOF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class PatthiContext extends ParserRuleContext {
 		public TerminalNode NEWLINE() { return getToken(TamizhParser.NEWLINE, 0); }
+		public List<VaakiyamContext> vaakiyam() {
+			return getRuleContexts(VaakiyamContext.class);
+		}
+		public VaakiyamContext vaakiyam(int i) {
+			return getRuleContext(VaakiyamContext.class,i);
+		}
 		public PatthiContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -137,87 +194,28 @@ public class TamizhParser extends Parser {
 	}
 
 	public final PatthiContext patthi() throws RecognitionException {
-		return patthi(0);
-	}
-
-	private PatthiContext patthi(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		PatthiContext _localctx = new PatthiContext(_ctx, _parentState);
-		PatthiContext _prevctx = _localctx;
-		int _startState = 0;
-		enterRecursionRule(_localctx, 0, RULE_patthi, _p);
+		PatthiContext _localctx = new PatthiContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_patthi);
+		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(10); 
+			setState(18); 
 			_errHandler.sync(this);
-			_alt = 1;
+			_la = _input.LA(1);
 			do {
-				switch (_alt) {
-				case 1:
-					{
-					{
-					setState(9);
-					vaakiyam();
-					}
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(12); 
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
-			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-			setState(15);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
-			case 1:
 				{
-				setState(14);
-				match(EOF);
+				{
+				setState(17);
+				vaakiyam();
 				}
-				break;
-			}
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(25);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new PatthiContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_patthi);
-					setState(17);
-					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(18);
-					match(NEWLINE);
-					setState(19);
-					patthi(0);
-					setState(21);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
-					case 1:
-						{
-						setState(20);
-						match(EOF);
-						}
-						break;
-					}
-					}
-					} 
 				}
-				setState(27);
+				setState(20); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			}
+				_la = _input.LA(1);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_OU) | (1L << UYIR_MEI_OA) | (1L << UYIR_MEI_O) | (1L << UYIR_MEI_AI) | (1L << UYIR_MEI_AE) | (1L << UYIR_MEI_E) | (1L << UYIR_MEI_OO) | (1L << UYIR_MEI_U) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR) | (1L << AAYTHAM) | (1L << GRANTHA_SRI) | (1L << GRANTHA_MEI) | (1L << GRANTHA_OU) | (1L << GRANTHA_OA) | (1L << GRANTHA_O) | (1L << GRANTHA_AI) | (1L << GRANTHA_AE) | (1L << GRANTHA_E) | (1L << GRANTHA_OO) | (1L << GRANTHA_U) | (1L << GRANTHA_EE) | (1L << GRANTHA_I) | (1L << GRANTHA_AA) | (1L << GRANTHA_A))) != 0) );
+			setState(22);
+			match(NEWLINE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -226,19 +224,19 @@ public class TamizhParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
 		}
 		return _localctx;
 	}
 
 	public static class VaakiyamContext extends ParserRuleContext {
+		public TerminalNode STOP_POINT() { return getToken(TamizhParser.STOP_POINT, 0); }
 		public List<SolContext> sol() {
 			return getRuleContexts(SolContext.class);
 		}
 		public SolContext sol(int i) {
 			return getRuleContext(SolContext.class,i);
 		}
-		public TerminalNode STOP_POINT() { return getToken(TamizhParser.STOP_POINT, 0); }
 		public VaakiyamContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -260,41 +258,27 @@ public class TamizhParser extends Parser {
 
 	public final VaakiyamContext vaakiyam() throws RecognitionException {
 		VaakiyamContext _localctx = new VaakiyamContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_vaakiyam);
+		enterRule(_localctx, 4, RULE_vaakiyam);
+		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29); 
+			setState(25); 
 			_errHandler.sync(this);
-			_alt = 1;
+			_la = _input.LA(1);
 			do {
-				switch (_alt) {
-				case 1:
-					{
-					{
-					setState(28);
-					sol();
-					}
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(31); 
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-			setState(34);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-			case 1:
 				{
-				setState(33);
-				match(STOP_POINT);
+				{
+				setState(24);
+				sol();
 				}
-				break;
-			}
+				}
+				setState(27); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_OU) | (1L << UYIR_MEI_OA) | (1L << UYIR_MEI_O) | (1L << UYIR_MEI_AI) | (1L << UYIR_MEI_AE) | (1L << UYIR_MEI_E) | (1L << UYIR_MEI_OO) | (1L << UYIR_MEI_U) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR) | (1L << AAYTHAM) | (1L << GRANTHA_SRI) | (1L << GRANTHA_MEI) | (1L << GRANTHA_OU) | (1L << GRANTHA_OA) | (1L << GRANTHA_O) | (1L << GRANTHA_AI) | (1L << GRANTHA_AE) | (1L << GRANTHA_E) | (1L << GRANTHA_OO) | (1L << GRANTHA_U) | (1L << GRANTHA_EE) | (1L << GRANTHA_I) | (1L << GRANTHA_AA) | (1L << GRANTHA_A))) != 0) );
+			setState(29);
+			match(STOP_POINT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -337,12 +321,13 @@ public class TamizhParser extends Parser {
 
 	public final SolContext sol() throws RecognitionException {
 		SolContext _localctx = new SolContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_sol);
+		enterRule(_localctx, 6, RULE_sol);
+		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(37); 
+			setState(32); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -350,7 +335,7 @@ public class TamizhParser extends Parser {
 				case 1:
 					{
 					{
-					setState(36);
+					setState(31);
 					ezhuththu();
 					}
 					}
@@ -358,20 +343,19 @@ public class TamizhParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(39); 
+				setState(34); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-			setState(42);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
-			case 1:
+			setState(37);
+			_la = _input.LA(1);
+			if (_la==SOL_SEPARATOR) {
 				{
-				setState(41);
+				setState(36);
 				match(SOL_SEPARATOR);
 				}
-				break;
 			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -436,12 +420,12 @@ public class TamizhParser extends Parser {
 
 	public final EzhuththuContext ezhuththu() throws RecognitionException {
 		EzhuththuContext _localctx = new EzhuththuContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_ezhuththu);
+		enterRule(_localctx, 8, RULE_ezhuththu);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(39);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MEI) | (1L << UYIR_MEI_OU) | (1L << UYIR_MEI_OA) | (1L << UYIR_MEI_O) | (1L << UYIR_MEI_AI) | (1L << UYIR_MEI_AE) | (1L << UYIR_MEI_E) | (1L << UYIR_MEI_OO) | (1L << UYIR_MEI_U) | (1L << UYIR_MEI_EE) | (1L << UYIR_MEI_I) | (1L << UYIR_MEI_AA) | (1L << UYIR_MEI_A) | (1L << UYIR) | (1L << AAYTHAM) | (1L << GRANTHA_SRI) | (1L << GRANTHA_MEI) | (1L << GRANTHA_OU) | (1L << GRANTHA_OA) | (1L << GRANTHA_O) | (1L << GRANTHA_AI) | (1L << GRANTHA_AE) | (1L << GRANTHA_E) | (1L << GRANTHA_OO) | (1L << GRANTHA_U) | (1L << GRANTHA_EE) | (1L << GRANTHA_I) | (1L << GRANTHA_AA) | (1L << GRANTHA_A))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -461,36 +445,19 @@ public class TamizhParser extends Parser {
 		return _localctx;
 	}
 
-	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
-		switch (ruleIndex) {
-		case 0:
-			return patthi_sempred((PatthiContext)_localctx, predIndex);
-		}
-		return true;
-	}
-	private boolean patthi_sempred(PatthiContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 0:
-			return precpred(_ctx, 1);
-		}
-		return true;
-	}
-
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\65\61\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\2\5\2\22\n\2\3\2"+
-		"\3\2\3\2\3\2\5\2\30\n\2\7\2\32\n\2\f\2\16\2\35\13\2\3\3\6\3 \n\3\r\3\16"+
-		"\3!\3\3\5\3%\n\3\3\4\6\4(\n\4\r\4\16\4)\3\4\5\4-\n\4\3\5\3\5\3\5\2\3\2"+
-		"\6\2\4\6\b\2\3\4\2\3\20\35+\64\2\n\3\2\2\2\4\37\3\2\2\2\6\'\3\2\2\2\b"+
-		".\3\2\2\2\n\f\b\2\1\2\13\r\5\4\3\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2"+
-		"\2\2\16\17\3\2\2\2\17\21\3\2\2\2\20\22\7\2\2\3\21\20\3\2\2\2\21\22\3\2"+
-		"\2\2\22\33\3\2\2\2\23\24\f\3\2\2\24\25\7\65\2\2\25\27\5\2\2\2\26\30\7"+
-		"\2\2\3\27\26\3\2\2\2\27\30\3\2\2\2\30\32\3\2\2\2\31\23\3\2\2\2\32\35\3"+
-		"\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\3\3\2\2\2\35\33\3\2\2\2\36 \5\6"+
-		"\4\2\37\36\3\2\2\2 !\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"$\3\2\2\2#%\7\64"+
-		"\2\2$#\3\2\2\2$%\3\2\2\2%\5\3\2\2\2&(\5\b\5\2\'&\3\2\2\2()\3\2\2\2)\'"+
-		"\3\2\2\2)*\3\2\2\2*,\3\2\2\2+-\7\62\2\2,+\3\2\2\2,-\3\2\2\2-\7\3\2\2\2"+
-		"./\t\2\2\2/\t\3\2\2\2\n\16\21\27\33!$),";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\65,\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\6\2\16\n\2\r\2\16\2\17\3\2\3\2\3\3\6\3"+
+		"\25\n\3\r\3\16\3\26\3\3\3\3\3\4\6\4\34\n\4\r\4\16\4\35\3\4\3\4\3\5\6\5"+
+		"#\n\5\r\5\16\5$\3\5\5\5(\n\5\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\3\4\2\3\20"+
+		"\35++\2\r\3\2\2\2\4\24\3\2\2\2\6\33\3\2\2\2\b\"\3\2\2\2\n)\3\2\2\2\f\16"+
+		"\5\4\3\2\r\f\3\2\2\2\16\17\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20\21\3"+
+		"\2\2\2\21\22\7\2\2\3\22\3\3\2\2\2\23\25\5\6\4\2\24\23\3\2\2\2\25\26\3"+
+		"\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\30\3\2\2\2\30\31\7\65\2\2\31\5\3"+
+		"\2\2\2\32\34\5\b\5\2\33\32\3\2\2\2\34\35\3\2\2\2\35\33\3\2\2\2\35\36\3"+
+		"\2\2\2\36\37\3\2\2\2\37 \7\64\2\2 \7\3\2\2\2!#\5\n\6\2\"!\3\2\2\2#$\3"+
+		"\2\2\2$\"\3\2\2\2$%\3\2\2\2%\'\3\2\2\2&(\7\62\2\2\'&\3\2\2\2\'(\3\2\2"+
+		"\2(\t\3\2\2\2)*\t\2\2\2*\13\3\2\2\2\7\17\26\35$\'";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

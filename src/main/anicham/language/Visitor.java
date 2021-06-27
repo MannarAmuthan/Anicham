@@ -26,13 +26,18 @@ public class Visitor extends TamizhBaseVisitor {
     }
 
     @Override
-    public Object visitPatthi(TamizhParser.PatthiContext ctx) {
+    public Object visitTamizh_script(TamizhParser.Tamizh_scriptContext ctx) {
         List<TamizhParser.PatthiContext> patthigal = ctx.patthi();
         if(patthigal.size()>0){
             for(TamizhParser.PatthiContext pc:patthigal){
                 visitPatthi(pc);
             }
         }
+        return null;
+    }
+
+    @Override
+    public Object visitPatthi(TamizhParser.PatthiContext ctx) {
 
         List<TamizhParser.VaakiyamContext> vaakiyam = ctx.vaakiyam();
         if(vaakiyam.size()>0){
@@ -47,6 +52,7 @@ public class Visitor extends TamizhBaseVisitor {
 
     @Override
     public Object visitVaakiyam(TamizhParser.VaakiyamContext ctx) {
+
         List<TamizhParser.SolContext> sol = ctx.sol();
         if(sol.size()>0){
             Vaakiyam v1 = new Vaakiyam();

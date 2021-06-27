@@ -7,10 +7,13 @@ grammar Tamizh;
 package grammar;
 }
 
-patthi: vaakiyam+ EOF?
-        | patthi NEWLINE patthi EOF?;
 
-vaakiyam: sol+ STOP_POINT?;
+tamizh_script: patthi+ EOF;
+
+patthi: vaakiyam+ NEWLINE;
+
+vaakiyam : sol+ STOP_POINT;
+
 
 sol : ezhuththu+ SOL_SEPARATOR?;
 
@@ -139,11 +142,11 @@ GRANTHA_S: '\u0BB8';
 
 GRANTHA_H: '\u0BB9';
 
-PUNCTUATIONS: [!?\\-\\"'`]+ -> skip ;
+PUNCTUATIONS: [!?\\-\\"'`‘]+ -> skip ;
 
 SOL_SEPARATOR: ((WS) | [,])+;
 
-WS : (' '|'\t')+;
+WS : (' '|[\t])+;
 
 STOP_POINT : '.';
 
