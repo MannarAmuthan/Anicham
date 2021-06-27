@@ -6,12 +6,9 @@ import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.ezhuththu.Ezhuththu;
 import anicham.language.models.sol.Sol;
-import anicham.language.visitors.EzhuththuVisitor;
-import anicham.language.visitors.SolVisitor;
-import anicham.language.visitors.VaakiyamVisitor;
+import anicham.language.visitors.*;
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
-import anicham.language.visitors.Visitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -38,6 +35,13 @@ public class Anicham {
         TamizhParser parser = getTamizhParser(stringToProcess);
         ParseTree tree = parser.tamizh_script();
         return getProcessed(tree);
+    }
+
+    static public List<Patthi> patthigal(String stringToProcess) {
+        TamizhParser parser = getTamizhParser(stringToProcess);
+        ParseTree tree = parser.tamizh_script();
+        Visitor visitor=new Visitor();
+        return visitor.visit(tree);
     }
 
     static public Vaakiyam vaakiyam(String stringToProcess) {

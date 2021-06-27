@@ -54,7 +54,7 @@ public class Sorkkal {
     static public long countTypeOf(Sol sol, EzhuththuType ezhuththuType){
         return sol.ezhutthukkal()
                 .parallelStream()
-                .filter(ezhuththu ->ezhuththu.getTokenType()==ezhuththuType)
+                .filter(ezhuththu ->ezhuththu.getEzhuththuType()==ezhuththuType)
                 .count();
     }
 

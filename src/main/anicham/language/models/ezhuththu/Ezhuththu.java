@@ -19,7 +19,7 @@ public class Ezhuththu {
         return s;
     }
 
-    public EzhuththuType getTokenType() {
+    public EzhuththuType getEzhuththuType() {
         return tokenType;
     }
 

@@ -22,10 +22,6 @@ public class Vaakiyam {
         words.addAll(Arrays.asList(sol));
     }
 
-    public void add(Vaakiyam vaakiyam){
-        words.addAll(vaakiyam.words);
-    }
-
     public int sorkkalCount(){
         return words.size();
     }

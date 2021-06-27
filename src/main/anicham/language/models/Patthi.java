@@ -13,10 +13,6 @@ public class Patthi {
         vaakiyangal.add(vaakiyam);
     }
 
-    public void add(Patthi patthi){
-        vaakiyangal.addAll(patthi.vaakiyangal);
-    }
-
     public LinkedList<Vaakiyam> getVaakiyangal() {
         return vaakiyangal;
     }
