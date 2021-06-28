@@ -1,7 +1,6 @@
-package anicham.language.sol;
+package anicham.language.models.sol;
 
 import anicham.Anicham;
-import anicham.language.models.sol.Sol;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

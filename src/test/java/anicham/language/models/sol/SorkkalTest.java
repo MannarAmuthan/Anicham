@@ -1,11 +1,9 @@
-package anicham.language.sol;
+package anicham.language.models.sol;
 
 import anicham.Anicham;
 import anicham.language.exceptions.SolException;
 import anicham.language.models.ezhuththu.Ezhuththu;
 import anicham.language.models.ezhuththu.EzhuththuType;
-import anicham.language.models.sol.Sol;
-import anicham.language.models.sol.Sorkkal;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

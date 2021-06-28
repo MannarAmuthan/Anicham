@@ -3,11 +3,13 @@ package anicham.language.models.ezhuththu;
 import grammar.TamizhLexer;
 import org.antlr.v4.runtime.Token;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Ezhuththu {
     EzhuththuType tokenType;
     String s;
+    private static HashMap<String, Ezhuththu> ezhutthuCache = new HashMap<>();
 
     private Ezhuththu(EzhuththuType tokenType, String s) {
         this.tokenType = tokenType;
@@ -24,20 +26,33 @@ public class Ezhuththu {
     }
 
     public static Ezhuththu create(Token token) {
+        if (ezhutthuCache.containsKey(token.getText())) return ezhutthuCache.get(token.getText());
+
         String tokenName = TamizhLexer.VOCABULARY.getSymbolicName(token.getType());
         if (tokenName.startsWith("MEI")) {
-            return new Ezhuththu(EzhuththuType.MEI, token.getText());
+            Ezhuththu ezhuththu = new Ezhuththu(EzhuththuType.MEI, token.getText());
+            ezhutthuCache.put(token.getText(), ezhuththu);
+            return ezhuththu;
         }
         if (tokenName.startsWith("UYIR_MEI")) {
-            return new Ezhuththu(EzhuththuType.UYIR_MEI, token.getText());
+            Ezhuththu ezhuththu = new Ezhuththu(EzhuththuType.UYIR_MEI, token.getText());
+            ezhutthuCache.put(token.getText(), ezhuththu);
+            return ezhuththu;
         }
         if (tokenName.startsWith("UYIR")) {
-            return new Ezhuththu(EzhuththuType.UYIR, token.getText());
+            Ezhuththu ezhuththu = new Ezhuththu(EzhuththuType.UYIR, token.getText());
+            ezhutthuCache.put(token.getText(), ezhuththu);
+            return ezhuththu;
         }
         if (tokenName.equals("AAYTHAM")) {
-            return new Ezhuththu(EzhuththuType.AAYTHAM, token.getText());
+            Ezhuththu ezhuththu = new Ezhuththu(EzhuththuType.AAYTHAM, token.getText());
+            ezhutthuCache.put(token.getText(), ezhuththu);
+            return ezhuththu;
         }
-        return new Ezhuththu(EzhuththuType.GRANTHA, token.getText());
+        Ezhuththu ezhuththu = new Ezhuththu(EzhuththuType.GRANTHA, token.getText());
+        ezhutthuCache.put(token.getText(), ezhuththu);
+        return ezhuththu;
+
     }
 
     @Override

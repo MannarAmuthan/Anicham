@@ -1,4 +1,4 @@
-package anicham.language;
+package anicham.language.models;
 
 import anicham.Anicham;
 import anicham.language.models.Vaakiyam;
