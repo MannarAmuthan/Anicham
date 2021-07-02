@@ -25,6 +25,12 @@ task generateParser(type:JavaExec) {
     args = ['-Dlanguage=Java', 'grammar/Tamizh.g4','-visitor', '-o', 'src/antlr4']
 }
 
+task generateVenbaParser(type:JavaExec) {
+    main = 'org.antlr.v4.Tool'
+    classpath = sourceSets.main.compileClasspath
+    args = ['-Dlanguage=Java', 'grammar/Yaappu/Venba.g4','-visitor', '-o', 'src/antlr4']
+}
+
 dependencies {
     implementation'org.antlr:antlr4:4.5.2'
     testImplementation 'org.hamcrest:hamcrest:2.2'

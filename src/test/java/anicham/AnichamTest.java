@@ -1,5 +1,13 @@
 package anicham;
 
+import anicham.ilakkanam.models.Adi;
+import anicham.ilakkanam.models.Asai;
+import anicham.ilakkanam.models.Ozhi;
+import anicham.ilakkanam.models.Venba;
+import anicham.ilakkanam.models.seer.EerasaiSeer;
+import anicham.ilakkanam.models.seer.EetruSeer;
+import anicham.ilakkanam.models.seer.MoovasaiSeer;
+import anicham.ilakkanam.models.seer.Seer;
 import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.sol.Sol;
@@ -131,6 +139,42 @@ public class AnichamTest {
         assert actual2.get(0).getVaakiyangal().size() == 2;
         assert actual2.get(1).getVaakiyangal().size() == 1;
         assert actual2.get(2).getVaakiyangal().size() == 2;
+    }
 
+    @Test
+    public void shouldGetVenbaForGivenInput() {
+        String thirukkural="அகர முதல எழுத்தெல்லாம் ஆதி\n"+"பகவன் முதற்றே உலகு";
+
+        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril));
+        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril));
+        MoovasaiSeer seerThree=MoovasaiSeer.getPulimangai(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril,Ozhi.otru),
+                Asai.getNerAsai(Ozhi.kuril,Ozhi.otru),Asai.getNerAsai(Ozhi.nedil,Ozhi.otru));
+        EerasaiSeer seerFour=EerasaiSeer.getThema(Asai.getNerAsai(Ozhi.nedil),Asai.getNerAsai(Ozhi.kuril));
+
+        EerasaiSeer seerFive=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril,Ozhi.otru));
+        EerasaiSeer seerSix=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril,Ozhi.otru),Asai.getNerAsai(Ozhi.nedil));
+        EetruSeer seerSeven=EetruSeer.getPirappu(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril));
+
+
+        Adi adiOne=Adi.getAdi(new Seer[]{seerOne,seerTwo,seerThree,seerFour});
+        Adi adiTwo=Adi.getEetraAdi(new Seer[]{seerFive,seerSix,seerSeven});
+
+        Venba expected=new Venba(new Adi[]{adiOne},adiTwo);
+
+        Venba venba = Anicham.venba(thirukkural);
+
+        assertEquals(venba,expected);
+    }
+
+    @Test
+    public void shouldGetStringRepresentationOfVenba() {
+        String thirukkural="ஒழுக்கத்தின் எய்துவர் மேன்மை இழுக்கத்தின்\n" +"எய்துவர் எய்தாப் பழி.";
+
+        String expected="PULIMANGAI KOOVILAM THEMA PULIMANGAI\n"+"KOOVILAM THEMA MALAR";
+
+
+        Venba venba = Anicham.venba(thirukkural);
+
+        assertEquals(venba.toString(),expected);
     }
 }
