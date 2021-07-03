@@ -2,8 +2,8 @@ package anicham; /**
  * @author Amuthan Mannan
  */
 
-import anicham.ilakkanam.VenbaVisitor;
 import anicham.ilakkanam.models.Venba;
+import anicham.ilakkanam.visitors.VenbaVisitor;
 import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.ezhuththu.Ezhuththu;

@@ -13,7 +13,6 @@ import anicham.language.models.Vaakiyam;
 import anicham.language.models.sol.Sol;
 import org.junit.Test;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -163,7 +162,7 @@ public class AnichamTest {
 
         Venba venba = Anicham.venba(thirukkural);
 
-        assertEquals(venba,expected);
+        assertEquals(expected,venba);
     }
 
     @Test
@@ -175,6 +174,12 @@ public class AnichamTest {
 
         Venba venba = Anicham.venba(thirukkural);
 
-        assertEquals(venba.toString(),expected);
+        assertEquals(expected,venba.toString());
+
+        String thirukkuralTwo="உடுக்கை இழந்தவன் கைபோல ஆங்கே\n" +"இடுக்கண் களைவதாம் நட்பு.";
+
+        String expectedTwo="PULIMA KARUVILAM THEMANGAI THEMA\n"+ "PULIMA KARUVILAM KAASU";
+
+        assertEquals(expectedTwo,Anicham.venba(thirukkuralTwo).toString());
     }
 }

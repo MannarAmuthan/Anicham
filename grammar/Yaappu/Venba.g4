@@ -67,7 +67,7 @@ nedil : AA_UYIR | EE_UYIR | OO_UYIR |
         UYIR_MEI_OO | UYIR_MEI_AE | UYIR_MEI_AI |
         UYIR_MEI_OA | UYIR_MEI_OU;
 
-otru: MEI;
+otru: MEI | AAYTHAM;
 
 
 MEI : (UYIR_MEI_A) (PULLI);
