@@ -8,7 +8,10 @@ import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.ezhuththu.Ezhuththu;
 import anicham.language.models.sol.Sol;
-import anicham.language.visitors.*;
+import anicham.language.visitors.EzhuththuVisitor;
+import anicham.language.visitors.SolVisitor;
+import anicham.language.visitors.VaakiyamVisitor;
+import anicham.language.visitors.Visitor;
 import grammar.TamizhLexer;
 import grammar.TamizhParser;
 import grammar.Yaappu.VenbaLexer;
@@ -21,6 +24,7 @@ import java.util.List;
 
 
 public class Anicham {
+    /*Parsers*/
 
     private static TamizhParser getTamizhParser(String stringToProcess) {
         TamizhLexer lexer = new TamizhLexer(new ANTLRInputStream(stringToProcess));
@@ -34,6 +38,9 @@ public class Anicham {
         return new VenbaParser(tokens);
     }
 
+
+    /*Grammar*/
+
     public static Venba venba(String stringToProcess){
         VenbaParser parser = getVenbaParser(stringToProcess);
         ParseTree tree = parser.venpa();
@@ -41,16 +48,15 @@ public class Anicham {
         return (Venba) visitor.visit(tree);
     }
 
-    private static Processed getProcessed(ParseTree tree) {
+
+    /*Language*/
+
+    static public Processed processTamizhString(String stringToProcess) {
+        TamizhParser parser = getTamizhParser(stringToProcess);
+        ParseTree tree = parser.tamizh_script();
         Visitor visitor = new Visitor();
         List<Patthi> patthigal = visitor.visit(tree);
         return new Processed(patthigal);
-    }
-
-    static public Processed process(String stringToProcess) {
-        TamizhParser parser = getTamizhParser(stringToProcess);
-        ParseTree tree = parser.tamizh_script();
-        return getProcessed(tree);
     }
 
     static public List<Patthi> patthigal(String stringToProcess) {

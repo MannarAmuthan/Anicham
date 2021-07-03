@@ -1,6 +1,5 @@
 package anicham.ilakkanam.models.seer;
 
-import anicham.ilakkanam.models.Adi;
 import anicham.ilakkanam.models.Asai;
 
 import java.util.Arrays;

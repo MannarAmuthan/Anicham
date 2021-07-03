@@ -3,6 +3,7 @@ package anicham.language.models.sol;
 import anicham.language.exceptions.SolException;
 import anicham.language.models.ezhuththu.Ezhuththu;
 import anicham.language.models.ezhuththu.EzhuththuType;
+
 import java.util.LinkedList;
 import java.util.List;
 

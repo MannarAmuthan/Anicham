@@ -1,7 +1,5 @@
 package anicham.ilakkanam.models;
 
-import java.util.Arrays;
-
 public class Venba {
     Adi[] adigal;
     Adi eeru;

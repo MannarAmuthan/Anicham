@@ -1,7 +1,6 @@
 package anicham.language.models;
 
 import anicham.Anicham;
-import anicham.language.models.Vaakiyam;
 import anicham.language.models.sol.Sol;
 import org.junit.Test;
 

@@ -22,7 +22,7 @@ public class AnichamTest {
 
     @Test
     public void testShouldIdentifyUyirEluthukal() {
-        Processed actual = Anicham.process("அஆஇஈஉஊஎஏஐஒஓஔஃ");
+        Processed actual = Anicham.processTamizhString("அஆஇஈஉஊஎஏஐஒஓஔஃ");
 
         assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 13;
@@ -31,7 +31,7 @@ public class AnichamTest {
 
     @Test
     public void testShouldIdentifyMeiEluthukal() {
-        Processed actual = Anicham.process("க்ங்ச்ஞ்ட்ண்த்ந்ப்ம்ய்ர்ல்வ்ழ்ள்ற்ன்");
+        Processed actual = Anicham.processTamizhString("க்ங்ச்ஞ்ட்ண்த்ந்ப்ம்ய்ர்ல்வ்ழ்ள்ற்ன்");
 
         assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 18;
@@ -39,7 +39,7 @@ public class AnichamTest {
 
     @Test
     public void testShouldIdentifyUyirMeiEluthukal() {
-        Processed actual = Anicham.process("கஙாசிஞீடுணூதேநைபொமோயௌரௌலௌவூழூளூறைனை");
+        Processed actual = Anicham.processTamizhString("கஙாசிஞீடுணூதேநைபொமோயௌரௌலௌவூழூளூறைனை");
 
         assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 18;
@@ -47,7 +47,7 @@ public class AnichamTest {
 
     @Test
     public void testShouldIdentifyGranthaEluthukkal() {
-        Processed actual = Anicham.process("ஜிஶிஷாஶ்ரீஹஷே");
+        Processed actual = Anicham.processTamizhString("ஜிஶிஷாஶ்ரீஹஷே");
 
         assert actual.vaakiyangal().length == 1;
         assert actual.ezhuththukkal().length == 6;
@@ -109,7 +109,7 @@ public class AnichamTest {
         Sol three = Anicham.sol("கப்பலின்");
         expected.add(one,two,three);
 
-        Processed actual = Anicham.process("கல்!?,`கால்`-,\"கப்பலின்\"'");
+        Processed actual = Anicham.processTamizhString("கல்!?,`கால்`-,\"கப்பலின்\"'");
 
         assert actual.sorkkal().length == 3;
 
@@ -119,7 +119,7 @@ public class AnichamTest {
     @Test
     public void shouldProvidePatthiForGivenInput() {
 
-        Processed actual = Anicham.process("கர்நாடக மாநிலத்தில் உள்ள சிர்ஷி என்ற ஊரில் இருந்து சுமார் கிலோ மீட்டர் பயணம் செய்தால், சால்மலா ஆறு வந்துவிடும். வற்றாமல் ஓடும் இந்த ஆற்றின் நீரை நம்பி அங்கு பல்லாயிரம் மக்கள் வாழ்கின்றனர். மேற்குத் தொடர்ச்சி மலைப் பகுதியான இங்கு தென்மேற்கு பருவமழையின் போது வெள்ளம் கரைபுரண்டு ஓடும்.\n" +
+        Processed actual = Anicham.processTamizhString("கர்நாடக மாநிலத்தில் உள்ள சிர்ஷி என்ற ஊரில் இருந்து சுமார் கிலோ மீட்டர் பயணம் செய்தால், சால்மலா ஆறு வந்துவிடும். வற்றாமல் ஓடும் இந்த ஆற்றின் நீரை நம்பி அங்கு பல்லாயிரம் மக்கள் வாழ்கின்றனர். மேற்குத் தொடர்ச்சி மலைப் பகுதியான இங்கு தென்மேற்கு பருவமழையின் போது வெள்ளம் கரைபுரண்டு ஓடும்.\n" +
                 "இங்கு உள்ள லிங்கத்திற்கு அபிஷேக ஆராதனை எதுவும் செய்யப்படுவதில்லை. ஓடும் ஆற்றின் ஆற்றின் நீரினால் லிங்கத்திற்கு தினம் தினம் அபிஷேகம். ஆண்டுதோறும் மகா சிவராத்திரியின் போது மக்கள் கூட்டம் இங்கு அலைமோதும். இறைவன் எங்கும் இருக்கின்றான் என்பதை இது நமக்கு உணர்த்துகிறது.");
 
 
