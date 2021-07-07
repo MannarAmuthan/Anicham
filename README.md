@@ -2,10 +2,26 @@
 
 Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides functions for identify and manipulate tamizh strings. Structured by hierchical elements of Tamizh native grammar rules (Ezhuthu, Sol, Vaakiyam). 
 
+## Contents
+
+[Core Elements](#core-elements)
+- [எழுத்து](#ezhuththu)
+- [சொல்](#sol)
+- [வாக்கியம்](#vaakiyam)
+- [பத்தி](#patthi)
+
+[Grammatical Tools](#grammatical-tools)
+- [வெண்பா](#venba)
+
+[More Utils](#more-utils)
+- [Sol Utils](#sol-utils)
+
+[Features to be implemented or Limitations](#features-to-be-implemented-or-limitations)
+
 
 ## **Core elements:**
 
-**1.எழுத்து(Ezhuththu) - _A Letter_**:
+##### <a id="ezhuththu">1.எழுத்து(Ezhuththu) - _A Letter_:</a>
 
 A Letter , final smallest entity of all components in a language.
     
@@ -21,7 +37,7 @@ Usage:
         System.out.println(thea.getEzhuththuType()); //Prints : UYIR_MEI
 ```
 
-**2.சொல்(Sol) - _A word_**:
+##### <a id="sol">2.சொல்(Sol) - _A word_:</a>
 
 A word , group of letters(ezhuththukal) create Sol.
 
@@ -36,7 +52,7 @@ Usage:
 ```
 
 
-**3.வாக்கியம்(Vaakiyam) - _A Sentence_**:
+##### <a id="vaakiyam">3.வாக்கியம்(Vaakiyam) - _A Sentence_:</a>
 
 A sentence , group of words(sorkkal) creates Vaakiyangal.
 
@@ -51,7 +67,7 @@ Usage:
 ```
 
 
-**3.பத்தி(Patthi) - _A Paragraph_**:
+##### <a id="patthi">3.பத்தி(Patthi) - _A Paragraph_:</a>
 
 A Paragraph , group of sentences(patthigal) creates Patthi.
 
@@ -67,10 +83,23 @@ Usage:
         // To get vaakiyangal of First patthi from given input
         LinkedList<Vaakiyam> vaakiyangal = patthigal.get(0).getVaakiyangal();
 ```
+## **Grammatical Tools:**
+##### <a id="ezhuththu">1.வெண்பா(Venba)</a>
+Venba is a form of classical Tamil poetry. You can provide venba poems as input , and can be parsed.
+
+Usage:
+```java
+        String thirukkuralTwo="உடுக்கை இழந்தவன் கைபோல ஆங்கே\n" +"இடுக்கண் களைவதாம் நட்பு.";
+
+        System.out.println(Anicham.venba(thirukkuralTwo).toString());
+        //Prints : "PULIMA KARUVILAM THEMANGAI THEMA\n"+ "PULIMA KARUVILAM KAASU";
+```
 
 ## **More Utils:**
 
 Currently All utils operates only on Sorkkal.
+
+##### Sol Utils
     
 ``` java
         //Substring: Similar to anyother substring operations.
