@@ -84,7 +84,7 @@ Usage:
         LinkedList<Vaakiyam> vaakiyangal = patthigal.get(0).getVaakiyangal();
 ```
 ## **Grammatical Tools:**
-##### <a id="ezhuththu">1.வெண்பா(Venba)</a>
+##### <a id="venba">1.வெண்பா(Venba)</a>
 Venba is a form of classical Tamil poetry. You can provide venba poems as input , and can be parsed.
 
 Usage:
