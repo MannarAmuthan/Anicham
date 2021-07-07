@@ -3,6 +3,7 @@ package anicham; /**
  */
 
 import anicham.ilakkanam.models.Venba;
+import anicham.ilakkanam.models.seer.Seer;
 import anicham.ilakkanam.visitors.VenbaVisitor;
 import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
