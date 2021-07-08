@@ -145,7 +145,7 @@ public class AnichamTest {
     public void shouldGetOasaiFromGivenInput() {
         String inputOne="த";
         String inputTwo="டா";
-        String inputThree="ர்";
+        String inputThree="ர";
 
         Oasai actualOne=Anicham.oasai(inputOne);
         Oasai actualTwo=Anicham.oasai(inputTwo);
