@@ -4,6 +4,7 @@ package anicham; /**
 
 import anicham.ilakkanam.models.Venba;
 import anicham.ilakkanam.models.seer.Seer;
+import anicham.ilakkanam.visitors.SeerVisitor;
 import anicham.ilakkanam.visitors.VenbaVisitor;
 import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
@@ -46,7 +47,14 @@ public class Anicham {
         VenbaParser parser = getVenbaParser(stringToProcess);
         ParseTree tree = parser.venpa();
         VenbaVisitor visitor=new VenbaVisitor();
-        return (Venba) visitor.visit(tree);
+        return visitor.visit(tree);
+    }
+
+    public static Seer seer(String stringToProcess){
+        VenbaParser parser = getVenbaParser(stringToProcess);
+        ParseTree tree = parser.seer();
+        SeerVisitor visitor=new SeerVisitor();
+        return visitor.visit(tree);
     }
 
 

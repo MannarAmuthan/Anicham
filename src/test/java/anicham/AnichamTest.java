@@ -141,6 +141,29 @@ public class AnichamTest {
     }
 
     @Test
+    public void shouldGetSeerFromGivenInput() {
+        String inputOne="ஊடுதல்";
+        String inputTwo="இடுக்கண்";
+        String inputThree="ஆங்கே";
+        String inputFour="களைவதாம்";
+
+        Seer expectedOne=EerasaiSeer.getKoovilam(Asai.getNerAsai(Ozhi.nedil),Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril,Ozhi.otru));
+        Seer expectedTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril,Ozhi.otru),Asai.getNerAsai(Ozhi.kuril,Ozhi.otru));
+        Seer expectedThree=EerasaiSeer.getThema(Asai.getNerAsai(Ozhi.nedil,Ozhi.otru),Asai.getNerAsai(Ozhi.nedil));
+        Seer expectedFour=EerasaiSeer.getKaruvilam(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.nedil),Asai.getNiraiAsai(Ozhi.kuril,Ozhi.nedil,Ozhi.otru));
+
+        Seer actualOne=Anicham.seer(inputOne);
+        Seer actualTwo=Anicham.seer(inputTwo);
+        Seer actualThree=Anicham.seer(inputThree);
+        Seer actualFour=Anicham.seer(inputFour);
+
+        assertEquals(expectedOne,actualOne);
+        assertEquals(expectedTwo,actualTwo);
+        assertEquals(expectedThree,actualThree);
+        assertEquals(expectedFour,actualFour);
+    }
+
+    @Test
     public void shouldGetVenbaForGivenInput() {
         String thirukkural="அகர முதல எழுத்தெல்லாம் ஆதி\n"+"பகவன் முதற்றே உலகு";
 

@@ -2,17 +2,14 @@
 
     package grammar.Yaappu;
 
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNDeserializer;
-import org.antlr.v4.runtime.atn.ParserATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class VenbaParser extends Parser {
@@ -483,8 +480,8 @@ public class VenbaParser extends Parser {
 	}
 
 	public static class EerasaiContext extends ParserRuleContext {
-		public ThemaContext thema() {
-			return getRuleContext(ThemaContext.class,0);
+		public KaruvilamContext karuvilam() {
+			return getRuleContext(KaruvilamContext.class,0);
 		}
 		public PulimaContext pulima() {
 			return getRuleContext(PulimaContext.class,0);
@@ -492,8 +489,8 @@ public class VenbaParser extends Parser {
 		public KoovilamContext koovilam() {
 			return getRuleContext(KoovilamContext.class,0);
 		}
-		public KaruvilamContext karuvilam() {
-			return getRuleContext(KaruvilamContext.class,0);
+		public ThemaContext thema() {
+			return getRuleContext(ThemaContext.class,0);
 		}
 		public EerasaiContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -525,7 +522,7 @@ public class VenbaParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(84);
-				thema();
+				karuvilam();
 				}
 				break;
 			case 2:
@@ -546,7 +543,7 @@ public class VenbaParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(87);
-				karuvilam();
+				thema();
 				}
 				break;
 			}
@@ -1654,8 +1651,8 @@ public class VenbaParser extends Parser {
 		"\2G\7\3\2\2\2HK\5\f\7\2IK\5\n\6\2JH\3\2\2\2JI\3\2\2\2K\t\3\2\2\2LU\5\16"+
 		"\b\2MU\5\22\n\2NU\5\26\f\2OU\5\32\16\2PU\5\20\t\2QU\5\24\13\2RU\5\30\r"+
 		"\2SU\5\34\17\2TL\3\2\2\2TM\3\2\2\2TN\3\2\2\2TO\3\2\2\2TP\3\2\2\2TQ\3\2"+
-		"\2\2TR\3\2\2\2TS\3\2\2\2U\13\3\2\2\2V[\5\36\20\2W[\5 \21\2X[\5\"\22\2"+
-		"Y[\5$\23\2ZV\3\2\2\2ZW\3\2\2\2ZX\3\2\2\2ZY\3\2\2\2[\r\3\2\2\2\\]\5\36"+
+		"\2\2TR\3\2\2\2TS\3\2\2\2U\13\3\2\2\2V[\5$\23\2W[\5 \21\2X[\5\"\22\2Y["+
+		"\5\36\20\2ZV\3\2\2\2ZW\3\2\2\2ZX\3\2\2\2ZY\3\2\2\2[\r\3\2\2\2\\]\5\36"+
 		"\20\2]^\5*\26\2^\17\3\2\2\2_`\5\36\20\2`a\5(\25\2a\21\3\2\2\2bc\5 \21"+
 		"\2cd\5*\26\2d\23\3\2\2\2ef\5 \21\2fg\5(\25\2g\25\3\2\2\2hi\5\"\22\2ij"+
 		"\5*\26\2j\27\3\2\2\2kl\5\"\22\2lm\5(\25\2m\31\3\2\2\2no\5$\23\2op\5*\26"+

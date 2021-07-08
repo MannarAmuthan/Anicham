@@ -20,7 +20,7 @@ seer : eerasai | moovasai;
 
 moovasai : themangai | pulimangai | koovilangai | karuvilangai | themangani | pulimangani | koovilangani | karuvilangani;
 
-eerasai : thema | pulima | koovilam | karuvilam;
+eerasai : karuvilam | pulima | koovilam | thema ;
 
 themangai: thema ner_asai;
 
