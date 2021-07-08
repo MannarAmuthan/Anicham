@@ -2,9 +2,11 @@ package anicham; /**
  * @author Amuthan Mannan
  */
 
+import anicham.ilakkanam.models.Adi;
 import anicham.ilakkanam.models.Asai;
 import anicham.ilakkanam.models.Venba;
 import anicham.ilakkanam.models.seer.Seer;
+import anicham.ilakkanam.visitors.AdiVisitor;
 import anicham.ilakkanam.visitors.AsaiVisitor;
 import anicham.ilakkanam.visitors.SeerVisitor;
 import anicham.ilakkanam.visitors.VenbaVisitor;
@@ -66,6 +68,16 @@ public class Anicham {
             return visitNirai;
         }
         return visitor.visit(getVenbaParser(stringToProcess).ner_asai());
+    }
+
+    public static Adi adi(String stringToProcess){
+        AdiVisitor visitor=new AdiVisitor();
+        try {
+            return visitor.visit(getVenbaParser(stringToProcess).adi());
+        }
+        catch (NullPointerException e){
+            return visitor.visit(getVenbaParser(stringToProcess).eetradi());
+        }
     }
 
     /*Language*/

@@ -1,22 +1,22 @@
 package anicham.ilakkanam.visitors;
 
-import anicham.ilakkanam.models.Ozhi;
+import anicham.ilakkanam.models.Oasai;
 import grammar.Yaappu.VenbaBaseVisitor;
 import grammar.Yaappu.VenbaParser;
 
-public class OzhiVisitor extends VenbaBaseVisitor<Ozhi> {
+public class OzhiVisitor extends VenbaBaseVisitor<Oasai> {
     @Override
-    public Ozhi visitKuril(VenbaParser.KurilContext ctx) {
-        return Ozhi.kuril;
+    public Oasai visitKuril(VenbaParser.KurilContext ctx) {
+        return Oasai.kuril;
     }
 
     @Override
-    public Ozhi visitNedil(VenbaParser.NedilContext ctx) {
-        return Ozhi.nedil;
+    public Oasai visitNedil(VenbaParser.NedilContext ctx) {
+        return Oasai.nedil;
     }
 
     @Override
-    public Ozhi visitOtru(VenbaParser.OtruContext ctx) {
-        return Ozhi.otru;
+    public Oasai visitOtru(VenbaParser.OtruContext ctx) {
+        return Oasai.otru;
     }
 }

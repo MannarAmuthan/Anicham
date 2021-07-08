@@ -1,7 +1,7 @@
 package anicham.ilakkanam.visitors;
 
 import anicham.ilakkanam.models.Asai;
-import anicham.ilakkanam.models.Ozhi;
+import anicham.ilakkanam.models.Oasai;
 import grammar.Yaappu.VenbaBaseVisitor;
 import grammar.Yaappu.VenbaParser;
 
@@ -16,40 +16,40 @@ public class AsaiVisitor extends VenbaBaseVisitor<Asai> {
 
     @Override
     public Asai visitNirai_asai(VenbaParser.Nirai_asaiContext ctx) {
-        List<Ozhi> ozhis=new LinkedList<>();
+        List<Oasai> oasais =new LinkedList<>();
 
         List<VenbaParser.KurilContext> kurilkal = ctx.kuril();
         for(VenbaParser.KurilContext kurilC: kurilkal){
-            ozhis.add(ozhiVisitor.visitKuril(kurilC));
+            oasais.add(ozhiVisitor.visitKuril(kurilC));
         }
 
         if(ctx.nedil()!=null){
-            ozhis.add(ozhiVisitor.visitNedil(ctx.nedil()));
+            oasais.add(ozhiVisitor.visitNedil(ctx.nedil()));
         }
         List<VenbaParser.OtruContext> otrukal = ctx.otru();
         for(VenbaParser.OtruContext oruC: otrukal){
-            ozhis.add(ozhiVisitor.visitOtru(oruC));
+            oasais.add(ozhiVisitor.visitOtru(oruC));
         }
-        if(ozhis.size()==0) return null;
-        return Asai.getNiraiAsai(ozhis.toArray(new Ozhi[0]));
+        if(oasais.size()==0) return null;
+        return Asai.getNiraiAsai(oasais.toArray(new Oasai[0]));
     }
 
     @Override
     public Asai visitNer_asai(VenbaParser.Ner_asaiContext ctx) {
-        List<Ozhi> ozhis=new LinkedList<>();
+        List<Oasai> oasais =new LinkedList<>();
 
         if(ctx.kuril()!=null){
-            ozhis.add(ozhiVisitor.visitKuril(ctx.kuril()));
+            oasais.add(ozhiVisitor.visitKuril(ctx.kuril()));
         }
         if(ctx.nedil()!=null){
-            ozhis.add(ozhiVisitor.visitNedil(ctx.nedil()));
+            oasais.add(ozhiVisitor.visitNedil(ctx.nedil()));
         }
         List<VenbaParser.OtruContext> otrukal = ctx.otru();
         for(VenbaParser.OtruContext oruC: otrukal){
-            ozhis.add(ozhiVisitor.visitOtru(oruC));
+            oasais.add(ozhiVisitor.visitOtru(oruC));
         }
 
-        if(ozhis.size()==0) return null;
-        return Asai.getNerAsai(ozhis.toArray(new Ozhi[0]));
+        if(oasais.size()==0) return null;
+        return Asai.getNerAsai(oasais.toArray(new Oasai[0]));
     }
 }

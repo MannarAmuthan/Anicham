@@ -7,17 +7,17 @@ import java.util.Objects;
 
 public class Asai {
     AsaiType type;
-    Ozhi[] ozhigal;
+    Oasai[] ozhigal;
 
-    private Asai(AsaiType type,Ozhi[] ozhigal){
+    private Asai(AsaiType type, Oasai[] ozhigal){
         this.ozhigal=ozhigal;
         this.type=type;
     }
-    public static Asai getNerAsai(Ozhi... ozhigal){
+    public static Asai getNerAsai(Oasai... ozhigal){
        return new Asai(AsaiType.NER,ozhigal);
     }
 
-    public static Asai getNiraiAsai(Ozhi... ozhigal){
+    public static Asai getNiraiAsai(Oasai... ozhigal){
         return new Asai(AsaiType.NIRAI,ozhigal);
     }
 

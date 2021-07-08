@@ -1,7 +1,7 @@
 package anicham.ilakkanam;
 
 import anicham.ilakkanam.models.Asai;
-import anicham.ilakkanam.models.Ozhi;
+import anicham.ilakkanam.models.Oasai;
 import anicham.ilakkanam.models.seer.EerasaiSeer;
 import org.junit.Test;
 
@@ -12,13 +12,13 @@ public class SeerTest {
 
     @Test
     public void shouldEquateTwoSeergal() {
-        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril));
-        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril));
+        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
+        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
 
         assertEquals(seerOne,seerTwo);
 
-        EerasaiSeer seerThree=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.nedil),Asai.getNerAsai(Ozhi.kuril));
-        EerasaiSeer seerFour=EerasaiSeer.getPulima(Asai.getNiraiAsai(Ozhi.kuril,Ozhi.kuril),Asai.getNerAsai(Ozhi.kuril));
+        EerasaiSeer seerThree=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.nedil),Asai.getNerAsai(Oasai.kuril));
+        EerasaiSeer seerFour=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
 
         assertNotEquals(seerThree,seerFour);
     }

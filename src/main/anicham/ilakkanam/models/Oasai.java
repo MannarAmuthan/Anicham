@@ -1,5 +1,5 @@
 package anicham.ilakkanam.models;
 
-public enum Ozhi {
+public enum Oasai {
     kuril,nedil,otru;
 }

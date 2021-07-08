@@ -1,25 +1,26 @@
 package anicham.ilakkanam.models;
 
 import anicham.ilakkanam.models.seer.Seer;
+import anicham.ilakkanam.types.AdiType;
 
 public class Adi {
-    String type;
+    AdiType type;
     Seer[] seergal;
 
-    private Adi(String type,Seer[] seergal) {
+    private Adi(AdiType type,Seer[] seergal) {
         this.type = type;
         this.seergal = seergal;
     }
 
     public static Adi getAdi(Seer[] seergal){
-        return new Adi("ADI",seergal);
+        return new Adi(AdiType.ADI,seergal);
     }
 
     public static Adi getEetraAdi(Seer[] seergal){
-        return new Adi("EETRADI",seergal);
+        return new Adi(AdiType.EETRADI,seergal);
     }
 
-    public String getType() {
+    public AdiType getType() {
         return type;
     }
 
