@@ -4,19 +4,22 @@ import anicham.ilakkanam.models.Oasai;
 import grammar.Yaappu.VenbaBaseVisitor;
 import grammar.Yaappu.VenbaParser;
 
-public class OzhiVisitor extends VenbaBaseVisitor<Oasai> {
+public class OasaiVisitor extends VenbaBaseVisitor<Oasai> {
     @Override
     public Oasai visitKuril(VenbaParser.KurilContext ctx) {
-        return Oasai.kuril;
+        if(ctx.exception!=null) return null;
+        return Oasai.KURIL;
     }
 
     @Override
     public Oasai visitNedil(VenbaParser.NedilContext ctx) {
-        return Oasai.nedil;
+        if(ctx.exception!=null) return null;
+        return Oasai.NEDIL;
     }
 
     @Override
     public Oasai visitOtru(VenbaParser.OtruContext ctx) {
-        return Oasai.otru;
+        if(ctx.exception!=null) return null;
+        return Oasai.OTRU;
     }
 }

@@ -142,16 +142,34 @@ public class AnichamTest {
     }
 
     @Test
+    public void shouldGetOasaiFromGivenInput() {
+        String inputOne="த";
+        String inputTwo="டா";
+        String inputThree="ர்";
+
+        Oasai actualOne=Anicham.oasai(inputOne);
+        Oasai actualTwo=Anicham.oasai(inputTwo);
+        Oasai actualThree=Anicham.oasai(inputThree);
+
+        assertEquals(Oasai.KURIL,actualOne);
+        assertEquals(Oasai.NEDIL,actualTwo);
+        assertEquals(Oasai.OTRU,actualThree);
+
+        Oasai oasai=Anicham.oasai("ர்");
+        System.out.println(oasai); //Prints OTRU
+    }
+
+    @Test
     public void shouldGetAsaiFromGivenInput() {
         String inputOne= "தன்";
         String inputTwo= "தான்";
         String inputThree= "அடா";
         String inputFour= "தொழார்";
 
-        Asai expectedOne=Asai.getNerAsai(Oasai.kuril, Oasai.otru);
-        Asai expectedTwo=Asai.getNerAsai(Oasai.nedil, Oasai.otru);
-        Asai expectedThree=Asai.getNiraiAsai(Oasai.kuril, Oasai.nedil);
-        Asai expectedFour=Asai.getNiraiAsai(Oasai.kuril, Oasai.nedil, Oasai.otru);
+        Asai expectedOne=Asai.getNerAsai(Oasai.KURIL, Oasai.OTRU);
+        Asai expectedTwo=Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU);
+        Asai expectedThree=Asai.getNiraiAsai(Oasai.KURIL, Oasai.NEDIL);
+        Asai expectedFour=Asai.getNiraiAsai(Oasai.KURIL, Oasai.NEDIL, Oasai.OTRU);
 
         Asai actualOne=Anicham.asai(inputOne);
         Asai actualTwo=Anicham.asai(inputTwo);
@@ -171,10 +189,10 @@ public class AnichamTest {
         String inputThree="ஆங்கே";
         String inputFour="களைவதாம்";
 
-        Seer expectedOne=EerasaiSeer.getKoovilam(Asai.getNerAsai(Oasai.nedil),Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril, Oasai.otru));
-        Seer expectedTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril, Oasai.otru),Asai.getNerAsai(Oasai.kuril, Oasai.otru));
-        Seer expectedThree=EerasaiSeer.getThema(Asai.getNerAsai(Oasai.nedil, Oasai.otru),Asai.getNerAsai(Oasai.nedil));
-        Seer expectedFour=EerasaiSeer.getKaruvilam(Asai.getNiraiAsai(Oasai.kuril, Oasai.nedil),Asai.getNiraiAsai(Oasai.kuril, Oasai.nedil, Oasai.otru));
+        Seer expectedOne=EerasaiSeer.getKoovilam(Asai.getNerAsai(Oasai.NEDIL),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL, Oasai.OTRU));
+        Seer expectedTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL, Oasai.OTRU),Asai.getNerAsai(Oasai.KURIL, Oasai.OTRU));
+        Seer expectedThree=EerasaiSeer.getThema(Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL));
+        Seer expectedFour=EerasaiSeer.getKaruvilam(Asai.getNiraiAsai(Oasai.KURIL, Oasai.NEDIL),Asai.getNiraiAsai(Oasai.KURIL, Oasai.NEDIL, Oasai.OTRU));
 
         Seer actualOne=Anicham.seer(inputOne);
         Seer actualTwo=Anicham.seer(inputTwo);
@@ -210,15 +228,15 @@ public class AnichamTest {
     public void shouldGetVenbaForGivenInput() {
         String thirukkural="அகர முதல எழுத்தெல்லாம் ஆதி\n"+"பகவன் முதற்றே உலகு";
 
-        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
-        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
-        MoovasaiSeer seerThree=MoovasaiSeer.getPulimangai(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril, Oasai.otru),
-                Asai.getNerAsai(Oasai.kuril, Oasai.otru),Asai.getNerAsai(Oasai.nedil, Oasai.otru));
-        EerasaiSeer seerFour=EerasaiSeer.getThema(Asai.getNerAsai(Oasai.nedil),Asai.getNerAsai(Oasai.kuril));
+        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL));
+        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL));
+        MoovasaiSeer seerThree=MoovasaiSeer.getPulimangai(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL, Oasai.OTRU),
+                Asai.getNerAsai(Oasai.KURIL, Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU));
+        EerasaiSeer seerFour=EerasaiSeer.getThema(Asai.getNerAsai(Oasai.NEDIL),Asai.getNerAsai(Oasai.KURIL));
 
-        EerasaiSeer seerFive=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril, Oasai.otru));
-        EerasaiSeer seerSix=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril, Oasai.otru),Asai.getNerAsai(Oasai.nedil));
-        EetruSeer seerSeven=EetruSeer.getPirappu(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
+        EerasaiSeer seerFive=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL, Oasai.OTRU));
+        EerasaiSeer seerSix=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL, Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL));
+        EetruSeer seerSeven=EetruSeer.getPirappu(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL));
 
 
         Adi adiOne=Adi.getAdi(new Seer[]{seerOne,seerTwo,seerThree,seerFour});

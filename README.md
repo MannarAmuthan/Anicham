@@ -94,8 +94,22 @@ Usage:
 Yappu literally means compilation grammar. It defines semanticity of sound,letter,word,stanza in Tamil poems. See more [here](#https://ta.wikipedia.org/wiki/%E0%AE%AF%E0%AE%BE%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BF%E0%AE%B2%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AE%AE%E0%AF%8D)
 
 ##### <a id="ezhuththu-oasai">எழுத்து(ஓசை)(Oasai)</a>
-As we see earlier, Ezhuththu is first entity, in yappu , it represents sound form.From the perspective of Phonetics , Tamizh letters catagorized into 3 types.
+As we see earlier, Ezhuththu is first entity, in yappu , it represents phonetic length form. From the perspective of Phonetics , Tamizh letters catagorized into 3 types.
 Kuril, Nedil, Otru (குறில்,நெடில்,ஒற்று).
+
+Usage:
+```java
+        Oasai oasai=Anicham.oasai("த");
+        System.out.println(oasai); //Prints KURIL
+```
+```java
+        Oasai oasai=Anicham.oasai("டா");
+        System.out.println(oasai); //Prints NEDIL
+```
+```java
+        Oasai oasai=Anicham.oasai("ர்");
+        System.out.println(oasai); //Prints OTRU
+```
 
 
 ##### <a id="asai">அசை(Asai)</a>
@@ -114,8 +128,8 @@ Usage:
 
 ##### <a id="seer">சீர்(Seer)</a>
 Based on Arrangement of Asai, Tamizh word which is Seer (in Yaapilakkam terminology), is catagorized into 14 types.
-First two types contains 1 asai , mostly comes at last point of poetry(called eetru-seer)
-In that first 4 types contains 2 asai inside so They are called Eerasai Seer (2 Asai Seer).
+First two types contains 1 asai , mostly comes at last point of poetry(called eetru-seer).
+Next 4 types contains 2 asai inside so They are called Eerasai Seer (2 Asai Seer).
 and last 8 types contains 3 asai inside so,  They are called Moovasai Seer (3 Asai Seer). Read abot all types [here](#https://ta.wikipedia.org/wiki/%E0%AE%9A%E0%AF%80%E0%AE%B0%E0%AF%8D_(%E0%AE%AF%E0%AE%BE%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BF%E0%AE%B2%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AE%AE%E0%AF%8D)#%E0%AE%9A%E0%AF%80%E0%AE%B0%E0%AF%8D_%E0%AE%B5%E0%AE%95%E0%AF%88%E0%AE%95%E0%AE%B3%E0%AF%8D)
 
 Usage:
@@ -128,6 +142,22 @@ Usage:
         System.out.println(seer.getType()); //Prints THEMANGAI
 ```
 
+##### <a id="adi">அடி(Adi)</a>
+Basically it means line of poem. Adi contains 4 seer. 
+Last line of the poem is called "Eetradi", which contains 3 seer. Last seer is known as eetru-seer.
+Read more [here](#https://ta.wikipedia.org/wiki/%E0%AE%85%E0%AE%9F%E0%AE%BF_(%E0%AE%AF%E0%AE%BE%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BF%E0%AE%B2%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AE%AE%E0%AF%8D,_%E0%AE%9A%E0%AF%80%E0%AE%B0%E0%AF%8D_%E0%AE%8E%E0%AE%A3%E0%AF%8D%E0%AE%A3%E0%AE%BF%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%88)).
+
+Usage:
+```java
+        Adi adi=Anicham.adi("பாலும் தெளிதேனும் பாகும் பருப்புமிவை");
+        System.out.println(adi.getType()); //Prints ADI
+        System.out.println(adi.toString()); //Prints THEMA PULIMANGAI THEMA KARUVILANGAI
+```
+```java
+        Adi adi=Anicham.adi("சங்கத் தமிழ்மூன்றுந் தா");
+        System.out.println(adi.getType()); //Prints EETRADI
+        System.out.println(adi.toString()); //Prints THEMA PULIMANGAI NAAL
+```
 
 ##### <a id="venba">வெண்பா(Venba)</a>
 Venba is a form of classical Tamil poetry. You can provide venba poems as input , and can be parsed.

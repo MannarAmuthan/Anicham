@@ -9,9 +9,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AsaiVisitor extends VenbaBaseVisitor<Asai> {
-    OzhiVisitor ozhiVisitor;
+    OasaiVisitor oasaiVisitor;
     public AsaiVisitor() {
-        ozhiVisitor=new OzhiVisitor();
+        oasaiVisitor =new OasaiVisitor();
     }
 
     @Override
@@ -20,15 +20,15 @@ public class AsaiVisitor extends VenbaBaseVisitor<Asai> {
 
         List<VenbaParser.KurilContext> kurilkal = ctx.kuril();
         for(VenbaParser.KurilContext kurilC: kurilkal){
-            oasais.add(ozhiVisitor.visitKuril(kurilC));
+            oasais.add(oasaiVisitor.visitKuril(kurilC));
         }
 
         if(ctx.nedil()!=null){
-            oasais.add(ozhiVisitor.visitNedil(ctx.nedil()));
+            oasais.add(oasaiVisitor.visitNedil(ctx.nedil()));
         }
         List<VenbaParser.OtruContext> otrukal = ctx.otru();
         for(VenbaParser.OtruContext oruC: otrukal){
-            oasais.add(ozhiVisitor.visitOtru(oruC));
+            oasais.add(oasaiVisitor.visitOtru(oruC));
         }
         if(oasais.size()==0) return null;
         return Asai.getNiraiAsai(oasais.toArray(new Oasai[0]));
@@ -39,14 +39,14 @@ public class AsaiVisitor extends VenbaBaseVisitor<Asai> {
         List<Oasai> oasais =new LinkedList<>();
 
         if(ctx.kuril()!=null){
-            oasais.add(ozhiVisitor.visitKuril(ctx.kuril()));
+            oasais.add(oasaiVisitor.visitKuril(ctx.kuril()));
         }
         if(ctx.nedil()!=null){
-            oasais.add(ozhiVisitor.visitNedil(ctx.nedil()));
+            oasais.add(oasaiVisitor.visitNedil(ctx.nedil()));
         }
         List<VenbaParser.OtruContext> otrukal = ctx.otru();
         for(VenbaParser.OtruContext oruC: otrukal){
-            oasais.add(ozhiVisitor.visitOtru(oruC));
+            oasais.add(oasaiVisitor.visitOtru(oruC));
         }
 
         if(oasais.size()==0) return null;

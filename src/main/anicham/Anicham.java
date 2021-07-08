@@ -4,12 +4,10 @@ package anicham; /**
 
 import anicham.ilakkanam.models.Adi;
 import anicham.ilakkanam.models.Asai;
+import anicham.ilakkanam.models.Oasai;
 import anicham.ilakkanam.models.Venba;
 import anicham.ilakkanam.models.seer.Seer;
-import anicham.ilakkanam.visitors.AdiVisitor;
-import anicham.ilakkanam.visitors.AsaiVisitor;
-import anicham.ilakkanam.visitors.SeerVisitor;
-import anicham.ilakkanam.visitors.VenbaVisitor;
+import anicham.ilakkanam.visitors.*;
 import anicham.language.models.Patthi;
 import anicham.language.models.Vaakiyam;
 import anicham.language.models.ezhuththu.Ezhuththu;
@@ -78,6 +76,17 @@ public class Anicham {
         catch (NullPointerException e){
             return visitor.visit(getVenbaParser(stringToProcess).eetradi());
         }
+    }
+
+    public static Oasai oasai(String stringToProcess){
+        OasaiVisitor visitor=new OasaiVisitor();
+        Oasai visitedKuril = visitor.visit(getVenbaParser(stringToProcess).kuril());
+        if(visitedKuril!=null) return visitedKuril;
+
+        Oasai visitedNedil = visitor.visit(getVenbaParser(stringToProcess).nedil());
+        if(visitedNedil!=null) return visitedNedil;
+
+        return  visitor.visit(getVenbaParser(stringToProcess).otru());
     }
 
     /*Language*/

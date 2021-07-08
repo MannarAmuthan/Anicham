@@ -12,13 +12,13 @@ public class SeerTest {
 
     @Test
     public void shouldEquateTwoSeergal() {
-        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
-        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
+        EerasaiSeer seerOne=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL));
+        EerasaiSeer seerTwo=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL));
 
         assertEquals(seerOne,seerTwo);
 
-        EerasaiSeer seerThree=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.nedil),Asai.getNerAsai(Oasai.kuril));
-        EerasaiSeer seerFour=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.kuril, Oasai.kuril),Asai.getNerAsai(Oasai.kuril));
+        EerasaiSeer seerThree=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.NEDIL),Asai.getNerAsai(Oasai.KURIL));
+        EerasaiSeer seerFour=EerasaiSeer.getPulima(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.KURIL));
 
         assertNotEquals(seerThree,seerFour);
     }
