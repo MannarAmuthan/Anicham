@@ -19,6 +19,10 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+test {
+    useJUnit()
+}
+
 task generateParser(type:JavaExec) {
     main = 'org.antlr.v4.Tool'
     classpath = sourceSets.main.compileClasspath

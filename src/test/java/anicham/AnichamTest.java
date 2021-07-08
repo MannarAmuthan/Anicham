@@ -154,9 +154,6 @@ public class AnichamTest {
         assertEquals(Oasai.KURIL,actualOne);
         assertEquals(Oasai.NEDIL,actualTwo);
         assertEquals(Oasai.OTRU,actualThree);
-
-        Oasai oasai=Anicham.oasai("ர்");
-        System.out.println(oasai); //Prints OTRU
     }
 
     @Test
