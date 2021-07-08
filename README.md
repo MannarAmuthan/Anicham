@@ -1,4 +1,5 @@
 # **அனிச்சம்(Anicham)**
+![build](https://github.com/MannarAmuthan/Anicham/actions/workflows/main.yml/badge.svg)
 
 Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides functions for identify and manipulate tamizh strings. Structured by hierchical elements of Tamizh native grammar rules (Ezhuthu, Sol, Vaakiyam). 
 
