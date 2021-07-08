@@ -1,25 +1,27 @@
 package anicham.ilakkanam.models;
 
+import anicham.ilakkanam.types.AsaiType;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Asai {
-    String type;
+    AsaiType type;
     Ozhi[] ozhigal;
 
-    private Asai(String type,Ozhi[] ozhigal){
+    private Asai(AsaiType type,Ozhi[] ozhigal){
         this.ozhigal=ozhigal;
         this.type=type;
     }
     public static Asai getNerAsai(Ozhi... ozhigal){
-       return new Asai("NER",ozhigal);
+       return new Asai(AsaiType.NER,ozhigal);
     }
 
     public static Asai getNiraiAsai(Ozhi... ozhigal){
-        return new Asai("NIRAI",ozhigal);
+        return new Asai(AsaiType.NIRAI,ozhigal);
     }
 
-    public String getType() {
+    public AsaiType getType() {
         return type;
     }
 

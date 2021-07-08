@@ -1,27 +1,28 @@
 package anicham.ilakkanam.models.seer;
 
 import anicham.ilakkanam.models.Asai;
+import anicham.ilakkanam.types.SeerType;
 
 public class EetruSeer extends Seer {
 
-    private EetruSeer(String type, Asai[] asaigal) {
+    private EetruSeer(SeerType type, Asai[] asaigal) {
         super(type, asaigal);
     }
 
     public static EetruSeer getNaal(Asai... asaigal){
-        return new EetruSeer("NAAL",asaigal);
+        return new EetruSeer(SeerType.NAAL,asaigal);
     }
 
     public static EetruSeer getMalar(Asai... asaigal){
-        return new EetruSeer("MALAR",asaigal);
+        return new EetruSeer(SeerType.MALAR,asaigal);
     }
 
     public static EetruSeer getKaasu(Asai... asaigal){
-        return new EetruSeer("KAASU",asaigal);
+        return new EetruSeer(SeerType.KAASU,asaigal);
     }
 
     public static EetruSeer getPirappu(Asai... asaigal){
-        return new EetruSeer("PIRAPPU",asaigal);
+        return new EetruSeer(SeerType.PIRAPPU,asaigal);
     }
 
 }

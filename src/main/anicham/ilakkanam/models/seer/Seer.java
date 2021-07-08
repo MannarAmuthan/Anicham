@@ -1,15 +1,16 @@
 package anicham.ilakkanam.models.seer;
 
 import anicham.ilakkanam.models.Asai;
+import anicham.ilakkanam.types.SeerType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Seer {
-    String type;
+    SeerType type;
     Asai[] asaigal;
 
-    Seer(String type,Asai[] asaigal) {
+    Seer(SeerType type,Asai[] asaigal) {
         this.type=type;
         this.asaigal = asaigal;
     }
@@ -18,7 +19,7 @@ public class Seer {
         return asaigal;
     }
 
-    public String getType() {
+    public SeerType getType() {
         return type;
     }
 
@@ -40,6 +41,6 @@ public class Seer {
 
     @Override
     public String toString() {
-        return getType();
+        return getType().toString();
     }
 }
