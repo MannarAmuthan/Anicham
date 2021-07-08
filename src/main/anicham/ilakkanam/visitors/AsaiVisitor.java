@@ -30,6 +30,7 @@ public class AsaiVisitor extends VenbaBaseVisitor<Asai> {
         for(VenbaParser.OtruContext oruC: otrukal){
             ozhis.add(ozhiVisitor.visitOtru(oruC));
         }
+        if(ozhis.size()==0) return null;
         return Asai.getNiraiAsai(ozhis.toArray(new Ozhi[0]));
     }
 
@@ -47,6 +48,8 @@ public class AsaiVisitor extends VenbaBaseVisitor<Asai> {
         for(VenbaParser.OtruContext oruC: otrukal){
             ozhis.add(ozhiVisitor.visitOtru(oruC));
         }
+
+        if(ozhis.size()==0) return null;
         return Asai.getNerAsai(ozhis.toArray(new Ozhi[0]));
     }
 }

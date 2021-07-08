@@ -141,6 +141,29 @@ public class AnichamTest {
     }
 
     @Test
+    public void shouldGetAsaiFromGivenInput() {
+        String inputOne= "தன்";
+        String inputTwo= "தான்";
+        String inputThree= "அடா";
+        String inputFour= "தொழார்";
+
+        Asai expectedOne=Asai.getNerAsai(Ozhi.kuril,Ozhi.otru);
+        Asai expectedTwo=Asai.getNerAsai(Ozhi.nedil,Ozhi.otru);
+        Asai expectedThree=Asai.getNiraiAsai(Ozhi.kuril,Ozhi.nedil);
+        Asai expectedFour=Asai.getNiraiAsai(Ozhi.kuril,Ozhi.nedil,Ozhi.otru);
+
+        Asai actualOne=Anicham.asai(inputOne);
+        Asai actualTwo=Anicham.asai(inputTwo);
+        Asai actualThree=Anicham.asai(inputThree);
+        Asai actualFour=Anicham.asai(inputFour);
+
+        assertEquals(expectedOne,actualOne);
+        assertEquals(expectedTwo,actualTwo);
+        assertEquals(expectedThree,actualThree);
+        assertEquals(expectedFour,actualFour);
+    }
+
+    @Test
     public void shouldGetSeerFromGivenInput() {
         String inputOne="ஊடுதல்";
         String inputTwo="இடுக்கண்";
