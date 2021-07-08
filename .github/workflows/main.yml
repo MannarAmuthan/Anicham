@@ -1,4 +1,4 @@
-name: Automerge
+name: Workflow
 
 on: [push, pull_request]
 
