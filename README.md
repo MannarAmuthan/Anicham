@@ -11,7 +11,12 @@ Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides function
 - [பத்தி](#patthi)
 
 [Grammatical Tools](#grammatical-tools)
-- [வெண்பா](#venba)
+- [யாப்பு](#yappu)
+    - [எழுத்து(ஓசை)](#ezhuththu-oasai)
+    - [அசை](#asai)
+    - [சீர்](#seer)
+    - [அடி](#adi)
+    - [வெண்பா](#venba)
 
 [More Utils](#more-utils)
 - [Sol Utils](#sol-utils)
@@ -21,7 +26,7 @@ Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides function
 
 ## **Core elements:**
 
-##### <a id="ezhuththu">1.எழுத்து(Ezhuththu) - _A Letter_:</a>
+##### <a id="ezhuththu">எழுத்து(Ezhuththu) - _A Letter_:</a>
 
 A Letter , final smallest entity of all components in a language.
     
@@ -37,7 +42,7 @@ Usage:
         System.out.println(thea.getEzhuththuType()); //Prints : UYIR_MEI
 ```
 
-##### <a id="sol">2.சொல்(Sol) - _A word_:</a>
+##### <a id="sol">சொல்(Sol) - _A word_:</a>
 
 A word , group of letters(ezhuththukal) create Sol.
 
@@ -52,7 +57,7 @@ Usage:
 ```
 
 
-##### <a id="vaakiyam">3.வாக்கியம்(Vaakiyam) - _A Sentence_:</a>
+##### <a id="vaakiyam">வாக்கியம்(Vaakiyam) - _A Sentence_:</a>
 
 A sentence , group of words(sorkkal) creates Vaakiyangal.
 
@@ -67,7 +72,7 @@ Usage:
 ```
 
 
-##### <a id="patthi">3.பத்தி(Patthi) - _A Paragraph_:</a>
+##### <a id="patthi">பத்தி(Patthi) - _A Paragraph_:</a>
 
 A Paragraph , group of sentences(patthigal) creates Patthi.
 
@@ -84,7 +89,47 @@ Usage:
         LinkedList<Vaakiyam> vaakiyangal = patthigal.get(0).getVaakiyangal();
 ```
 ## **Grammatical Tools:**
-##### <a id="venba">1.வெண்பா(Venba)</a>
+### <a id="yappu">யாப்பு(Yappu)</a>
+
+Yappu literally means compilation grammar. It defines semanticity of sound,letter,word,stanza in Tamil poems. See more [here](#https://ta.wikipedia.org/wiki/%E0%AE%AF%E0%AE%BE%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BF%E0%AE%B2%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AE%AE%E0%AF%8D)
+
+##### <a id="ezhuththu-oasai">எழுத்து(ஓசை)(Oasai)</a>
+As we see earlier, Ezhuththu is first entity, in yappu , it represents sound form.From the perspective of Phonetics , Tamizh letters catagorized into 3 types.
+Kuril, Nedil, Otru (குறில்,நெடில்,ஒற்று).
+
+
+##### <a id="asai">அசை(Asai)</a>
+Based on Phonetics of letter (Ezhuththu), Asai(sub-part of Word) , is catagorized into 2 types.
+Ner,Nirai (நேர்,நிரை). See the grammar file for more info.
+
+Usage:
+```java
+        Asai asai=Anicham.asai("தன்");
+        System.out.println(asai.getType()); //Prints NER
+```
+```java
+        Asai asai=Anicham.asai("தொழார்");
+        System.out.println(asai.getType()); //Prints NIRAI
+```
+
+##### <a id="seer">சீர்(Seer)</a>
+Based on Arrangement of Asai, Tamizh word which is Seer (in Yaapilakkam terminology), is catagorized into 14 types.
+First two types contains 1 asai , mostly comes at last point of poetry(called eetru-seer)
+In that first 4 types contains 2 asai inside so They are called Eerasai Seer (2 Asai Seer).
+and last 8 types contains 3 asai inside so,  They are called Moovasai Seer (3 Asai Seer). Read abot all types [here](#https://ta.wikipedia.org/wiki/%E0%AE%9A%E0%AF%80%E0%AE%B0%E0%AF%8D_(%E0%AE%AF%E0%AE%BE%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BF%E0%AE%B2%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AE%AE%E0%AF%8D)#%E0%AE%9A%E0%AF%80%E0%AE%B0%E0%AF%8D_%E0%AE%B5%E0%AE%95%E0%AF%88%E0%AE%95%E0%AE%B3%E0%AF%8D)
+
+Usage:
+```java
+        Seer seer=Anicham.seer("ஊடுதல்");
+        System.out.println(seer.getType()); //Prints KOOVILAM
+```
+```java
+        Seer seer=Anicham.seer("ஒழுக்கத்தின்");
+        System.out.println(seer.getType()); //Prints THEMANGAI
+```
+
+
+##### <a id="venba">வெண்பா(Venba)</a>
 Venba is a form of classical Tamil poetry. You can provide venba poems as input , and can be parsed.
 
 Usage:
