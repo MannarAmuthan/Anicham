@@ -180,7 +180,7 @@ public class AnichamTest {
     }
 
     @Test
-    public void shouldGetSeerFromGivenInput() {
+    public void shouldGetEerasaiSeerFromGivenInput() {
         String inputOne="ஊடுதல்";
         String inputTwo="இடுக்கண்";
         String inputThree="ஆங்கே";
@@ -200,6 +200,45 @@ public class AnichamTest {
         assertEquals(expectedTwo,actualTwo);
         assertEquals(expectedThree,actualThree);
         assertEquals(expectedFour,actualFour);
+    }
+
+    @Test
+    public void shouldGetMoovasaiSeerFromGivenInput() {
+        String inputOne="தேமாங்காய்";
+        String inputTwo="தேமாங்கனி";
+        String inputThree="புளிமாங்காய்";
+        String inputFour="புளிமாங்கனி";
+        String inputFive="கருவிளங்காய்";
+        String inputSix="கருவிளங்கனி";
+        String inputSeven="கூவிளங்காய்";
+        String inputEight="கூவிளங்கனி";
+
+        Seer expectedOne=MoovasaiSeer.getThemangai(Asai.getNerAsai(Oasai.NEDIL),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU));
+        Seer expectedTwo=MoovasaiSeer.getThemangani(Asai.getNerAsai(Oasai.NEDIL),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL));
+        Seer expectedThree=MoovasaiSeer.getPulimangai(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.NEDIL,Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU));
+        Seer expectedFour=MoovasaiSeer.getPulimangani(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNerAsai(Oasai.NEDIL,Oasai.OTRU),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL));
+        Seer expectedFive=MoovasaiSeer.getKaruvilangai(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL,Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU));
+        Seer expectedSix=MoovasaiSeer.getKaruvilangani(Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL,Oasai.OTRU),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL));
+        Seer expectedSeven=MoovasaiSeer.getKoovilangai(Asai.getNerAsai(Oasai.NEDIL),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL,Oasai.OTRU),Asai.getNerAsai(Oasai.NEDIL, Oasai.OTRU));
+        Seer expectedEight=MoovasaiSeer.getKoovilangani(Asai.getNerAsai(Oasai.NEDIL),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL,Oasai.OTRU),Asai.getNiraiAsai(Oasai.KURIL, Oasai.KURIL));
+
+        Seer actualOne=Anicham.seer(inputOne);
+        Seer actualTwo=Anicham.seer(inputTwo);
+        Seer actualThree=Anicham.seer(inputThree);
+        Seer actualFour=Anicham.seer(inputFour);
+        Seer actualFive=Anicham.seer(inputFive);
+        Seer actualSix=Anicham.seer(inputSix);
+        Seer actualSeven=Anicham.seer(inputSeven);
+        Seer actualEight=Anicham.seer(inputEight);
+
+        assertEquals(expectedOne,actualOne);
+        assertEquals(expectedTwo,actualTwo);
+        assertEquals(expectedThree,actualThree);
+        assertEquals(expectedFour,actualFour);
+        assertEquals(expectedFive,actualFive);
+        assertEquals(expectedSix,actualSix);
+        assertEquals(expectedSeven,actualSeven);
+        assertEquals(expectedEight,actualEight);
     }
 
     @Test
