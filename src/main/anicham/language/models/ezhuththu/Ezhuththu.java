@@ -63,9 +63,4 @@ public class Ezhuththu {
         return tokenType == ezhuththu.tokenType &&
                 Objects.equals(s, ezhuththu.s);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(tokenType, s);
-    }
 }

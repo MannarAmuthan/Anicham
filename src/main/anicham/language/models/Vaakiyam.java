@@ -47,8 +47,4 @@ public class Vaakiyam {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(words);
-    }
 }

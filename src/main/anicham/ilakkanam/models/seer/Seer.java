@@ -33,13 +33,6 @@ public class Seer {
     }
 
     @Override
-    public int hashCode() {
-        int result = Objects.hash(type);
-        result = 31 * result + Arrays.hashCode(asaigal);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return getType().toString();
     }

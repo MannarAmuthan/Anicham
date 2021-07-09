@@ -18,11 +18,6 @@ public class Sol {
         this.letters = letters;
     }
 
-    public Sol(Ezhuththu... ezhutthukkal) {
-        letters = new LinkedList<>();
-        Collections.addAll(letters, ezhutthukkal);
-    }
-
     public int ezhutthuCount() {
         return letters.size();
     }
@@ -54,11 +49,6 @@ public class Sol {
         StringBuilder stringBuilder=new StringBuilder();
         ezhutthukkal().forEach(ezhuththu -> stringBuilder.append(ezhuththu.toString()));
         return stringBuilder.toString();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(letters);
     }
 
 }
