@@ -19,3 +19,5 @@ jobs:
         run: ./gradlew build
       - name: Run tests
         run: ./gradlew clean test
+      - name: Run coverage
+        run: ./gradlew jacocoTestCoverageVerification

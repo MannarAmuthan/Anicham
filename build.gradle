@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'jacoco'
 }
 
 group 'org.anicham'
@@ -21,6 +22,30 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnit()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.7
+            }
+        }
+    }
 }
 
 task generateParser(type:JavaExec) {
