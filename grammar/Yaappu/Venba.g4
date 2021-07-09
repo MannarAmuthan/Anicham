@@ -10,7 +10,7 @@ grammar Venba;
     package grammar.Yaappu;
 }
 
-venpa: adi+ NEWLINE eetradi;
+venpa: (adi NEWLINE)+ eetradi;
 
 adi: seer WS seer WS seer WS seer;
 
