@@ -26,7 +26,7 @@ jobs:
         with:
           NAME: github
           LABEL: 'coverage'
-          ICON: 'github'
+          ICON: 'codecov'
           STATUS: 'ExampleStatus'
           COLOR: blue
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
