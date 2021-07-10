@@ -21,12 +21,12 @@ jobs:
         run: ./gradlew clean test
       - name: Run coverage
         run: ./gradlew jacocoTestCoverageVerification
-      - name: Time badge
+      - name: Coverage badge
         uses: RubbaBoy/BYOB@v1.2.0
         with:
-          NAME: github
+          NAME: codecov
           LABEL: 'coverage'
           ICON: 'codecov'
-          STATUS: 'ExampleStatus'
+          STATUS: '90'
           COLOR: blue
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
