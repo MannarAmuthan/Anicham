@@ -6,13 +6,13 @@ Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides function
 
 ## Contents
 
-[Core Elements](#core-elements)
+[1.Core Elements](#core-elements)
 - [எழுத்து](#ezhuththu)
 - [சொல்](#sol)
 - [வாக்கியம்](#vaakiyam)
 - [பத்தி](#patthi)
 
-[Grammatical Tools](#grammatical-tools)
+[2.Grammatical Tools](#grammatical-tools)
 - [யாப்பு](#yappu)
     - [எழுத்து(ஓசை)](#ezhuththu-oasai)
     - [அசை](#asai)
@@ -20,11 +20,12 @@ Tamizh language parser to parse tamizh texts of UTF-8 encoded. Provides function
     - [அடி](#adi)
     - [வெண்பா](#venba)
 
-[More Utils](#more-utils)
+[3.More Utils](#more-utils)
 - [Sol Utils](#sol-utils)
 
-[Features to be implemented or Limitations](#features-to-be-implemented-or-limitations)
+[4.Features to be implemented or Limitations](#features-to-be-implemented-or-limitations)
 
+[5.Contributing](#contributing)
 
 ## **Core elements:**
 
