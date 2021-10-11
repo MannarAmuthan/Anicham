@@ -142,7 +142,7 @@ GRANTHA_S: '\u0BB8';
 
 GRANTHA_H: '\u0BB9';
 
-PUNCTUATIONS: [!?\\-\\"'`‘]+ -> skip ;
+PUNCTUATIONS: [!{}?\\-\\"'`‘]+ -> skip ;
 
 COMMA: ([,]);
 
